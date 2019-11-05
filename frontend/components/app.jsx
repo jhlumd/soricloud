@@ -1,17 +1,33 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import {
+    Route,
+    Redirect,
+    Switch,
+    Link
+} from 'react-router-dom';
 
-// import TrackIndexContainer from './tracks/track_index_container';
-// import TrackShowContainer from './tracks/track_show_container';
-// import EditTrackFormContainer from './tracks/edit_track_form_container';
+import GreetingContainer from './greeting/greeting_container';
+// import SignUpFormContainer from './session_form/signup_form_container';
+// import LogInFormContainer from './session_form/login_form_container';
+// import SearchContainer from './search/search_container';
+// import BenchShowContainer from './bench_show/bench_show_container';
+// import BenchFormContainer from './bench_form/bench_form_container';
+// import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
     <div>
-        <h1>MY FULLSTACK APP!!!</h1>
+        <header>
+            <Link to="/" className="header-link">
+                <h1>SoriCloud</h1>
+            </Link>
+            <GreetingContainer />
+        </header>
         {/* <Switch>
-            <Route exact path="/" component={TrackIndexContainer} />
-            <Route exact path="/tracks/:trackId" component={TrackShowContainer} />
-            <Route path="/tracks/:trackId/edit" component={EditTrackFormContainer} />
+            <AuthRoute exact path="/login" component={LogInFormContainer} />
+            <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+            <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
+            <Route path="/benches/:benchId" component={BenchShowContainer} />
+            <Route exact path="/" component={SearchContainer} />
         </Switch> */}
     </div>
 );
