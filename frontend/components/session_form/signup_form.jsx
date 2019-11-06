@@ -39,10 +39,10 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div className="login-form-container">
+                <div onClick={this.props.closeModal} className="close-x">X</div>
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     Create your SoriCloud account
                     <br />
-                    <div onClick={this.props.closeModal} className="close-x">X</div>
                     <div className="login-form">
                         <br />
                         <label>
