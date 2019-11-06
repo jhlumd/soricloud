@@ -1,7 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class SignupForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -40,51 +40,51 @@ class SessionForm extends React.Component {
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    Welcome to SoriCloud!
+                    Create your SoriCloud account
                     <br />
-                    Please {this.props.formType} or {this.props.otherForm}
                     <div onClick={this.props.closeModal} className="close-x">X</div>
-                    {this.renderErrors()}
                     <div className="login-form">
+                        <br />
+                        <label>
+                            <input type="email"
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                                className="login-input"
+                                placeholder="Your email address *"
+                            />
+                        </label>
                         <br />
                         <label>
                             <input type="text"
                                 value={this.state.username}
                                 onChange={this.update('username')}
                                 className="login-input"
-                                placeholder="Choose a username"
+                                placeholder="Choose a username *"
                             />
                         </label>
-                        <br />
-                        {this.props.formType === 'signup' &&
-                            <label>
-                                <input type="email"
-                                    value={this.state.email}
-                                    onChange={this.update('email')}
-                                    className="login-input"
-                                    placeholder="Your email address"
-                                />
-                            </label>
-                        }
                         <br />
                         <label>
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 className="login-input"
-                                placeholder="Your password"
+                                placeholder="Choose a password *"
                             />
                         </label>
                         <br />
+                        {this.renderErrors()}
+                        <br />
                         <input className="session-submit"
                             type="submit"
-                            value={this.props.formType}
+                            value="Accept & continue"
                         />
                     </div>
                 </form>
+                <br />
+                Already have an account? {this.props.otherForm}
             </div>
         );
     }
 }
 
-export default withRouter(SessionForm);
+export default SignupForm;
