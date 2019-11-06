@@ -13,6 +13,7 @@ const Greeting = ({ currentUser, logout }) => {
         return (
             <nav className="login-signup">
                 <Link to="/signup">Sign up!</Link>
+                {' or '}
                 <Link to="/login">Login</Link>
             </nav>
         );

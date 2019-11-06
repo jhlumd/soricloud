@@ -16,6 +16,7 @@ import GreetingContainer from './greeting/greeting_container';
 
 const App = () => (
     <div>
+        <Modal />
         <header>
             <Link to="/" className="header-link">
                 <h1>SoriCloud</h1>

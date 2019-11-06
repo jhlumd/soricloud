@@ -5,9 +5,12 @@ import configureStore from './store/store';
 
 // import { signup, login, logout} from './util/session_api_util';
 // import {
-//     receiveCurrentUser,
-//     logoutCurrentUser,
-//     receiveErrors
+//     // receiveCurrentUser,
+//     // logoutCurrentUser,
+//     // receiveErrors
+//     signup,
+//     login,
+//     logout
 // } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.signup = signup;
     // window.login = login;
     // window.logout = logout;
-    
-    // window.receiveCurrentUser = receiveCurrentUser;
-    // window.logoutCurrentUser = logoutCurrentUser;
-    // window.receiveErrors = receiveErrors;
+    // // window.receiveCurrentUser = receiveCurrentUser;
+    // // window.logoutCurrentUser = logoutCurrentUser;
+    // // window.receiveErrors = receiveErrors;
+
     // window.getState = store.getState;
     // window.dispatch = store.dispatch;
 
