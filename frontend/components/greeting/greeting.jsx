@@ -11,9 +11,8 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     } else {
         return (
             <nav className="login-signup">
-                <button onClick={() => openModal('login')}>Login</button>
-                {' or '}
-                <button onClick={() => openModal('signup')}>Signup</button>
+                <button onClick={() => openModal('login')}>Sign in</button>
+                <button onClick={() => openModal('signup')}>Create account</button>
             </nav>
         );
     }
