@@ -6,9 +6,11 @@ import {
     Link
 } from 'react-router-dom';
 
+import SplashContainer from '../components/splash/splash_container';
+
 import Modal from './modal/modal';
 import GreetingContainer from './greeting/greeting_container';
-// import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
     <div>
@@ -19,11 +21,9 @@ const App = () => (
             </Link>
             <GreetingContainer />
         </header>
-        {/* <Switch>
-            <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
-            <Route path="/benches/:benchId" component={BenchShowContainer} />
-            <Route exact path="/" component={SearchContainer} />
-        </Switch> */}
+        <Switch>
+            <AuthRoute path="/" component={SplashContainer} />
+        </Switch>
     </div>
 );
 

@@ -1,0 +1,201 @@
+@import "core/colors.scss";
+@import "core/fonts.scss";
+@import "core/reset.scss";
+ 
+// .splash-header-one {
+//     display: block;
+//     background: image-url('splash1.jpg'); 
+//     background-repeat: no-repeat;
+//     border-top: 4px solid $orange;
+//     width: 100%;
+//     min-height: 450px;
+//  }
+
+.splash-header-two {
+   background: image-url('splash2.jpg'); 
+   background-size: cover;
+   width: 1240px;
+   height: 450px;
+}
+
+.header {
+   width: 1240px;
+   height: 450px;
+   margin-bottom: 120px;
+   border-top: 4px solid $orange;
+   overflow-x: hidden;
+}
+
+.header-images {
+   position: absolute;
+   top: 4px;
+   height: 450px;
+   width: 2480px;
+   display: flex;
+}
+
+.slide {
+   transition: all ease-in-out 1s;
+   transform: translate(-50%, 0%);
+}
+
+.header-top {
+   display: flex;
+   position: absolute;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   margin-top: 14px;
+}
+
+.header-name {
+   display: flex;
+   align-items: center;
+   margin: 10px 31px;
+}
+
+.header-name img {
+   height: 22px;
+   width: 48px;
+   margin-right: 3px;
+   margin-bottom: 2px;
+   margin-left: 0;
+}
+
+.header-name {
+   font-size: 0.9em;
+   color: white;
+}
+
+.header-name:hover {
+   cursor: default;
+}
+
+.header-nav {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   margin-right: 21px;
+   margin-top: -2px;
+}
+
+.splash-button {
+   box-sizing: border-box;
+   height: 30px; 
+   padding: 11px 11px;
+   border-radius: 3px;
+   margin-right: 10px;
+   font-size: 14px;
+   color: white;
+   background: none;
+   font-weight: 100;
+   line-height: 0.9em;
+}
+
+.splash-button:focus {
+   outline:0;
+}
+
+.splash-button:hover {
+   cursor: pointer;
+}
+
+.welcome {
+   border: none;
+   padding-left: 0;
+   padding-right: 0;
+   margin-right: 9px;
+   letter-spacing: 0.15px;
+}
+
+.welcome:hover {
+   cursor: default;
+}
+
+.create-account {
+   background: $orange;
+   border: none;
+   padding: 11px 11px;
+   width: 129px;
+   height: 30px;
+   letter-spacing: 0.1px;
+}
+
+.header-mid {
+   display: flex;
+   justify-content: center;
+   width: 596px;
+   margin: 8% auto;
+   text-align: center;
+}
+
+.header-mid h1 {
+   font-size: 36px;
+   color: white;
+   margin-bottom: 15px;
+   font-family: 'Interstate light';
+
+}
+
+.header-mid p {
+   font-size: 18px;
+   color: white;
+   margin-bottom: 26px;
+   line-height: 24px;
+   font-family: 'Interstate light';
+}
+
+.demo-login {
+   height: 46px;
+   font-size: 18px;
+   background: $orange;
+   border: none;
+   margin: 0;
+   padding-top: 13px;
+}
+
+.sign-in {
+   border: 1px solid #ccc;
+   padding: 10px 11px;
+   width: 74px;
+   box-sizing: border-box;
+   font-family: 'Interstate light';
+}
+
+#soricloud-splash {
+   font-family: 'Interstate reg';
+   margin-bottom: -3.5px;
+   margin-left: 2px;
+   font-weight: 600;
+   letter-spacing: 1px;
+}
+
+.header-content {
+   margin-top: 56px;
+z-index: 10;
+}
+
+.splash-track-index {
+   display: flex;
+   width: 100%;
+   margin: 0 64px;
+}
+
+.splash-page {
+   display: flex;
+   flex-direction: column;
+}
+
+.splash-title {
+   font-size: 24px;
+   text-align: center;
+   margin-bottom: 30px;
+   margin-top: -72px;
+   font-family: 'Interstate'; 
+}
+
+.splash-body {
+   display: block;
+   position: absolute;
+   top: 565px;
+}
