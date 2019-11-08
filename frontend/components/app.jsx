@@ -13,18 +13,23 @@ import GreetingContainer from './greeting/greeting_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
-    <div>
-        <Modal />
-        <header>
-            <Link to="/" className="header-link">
-                <h1>SoriCloud</h1>
-            </Link>
-            <GreetingContainer />
-        </header>
+    <>
+        < Modal />
         <Switch>
-            <AuthRoute path="/" component={SplashContainer} />
+            {/* <Route exact path="/ping" component={Ping} /> */}
+            <Route exact path="/" component={SplashContainer} />
+            {/* <Route path="/" component={NavBar} /> */}
         </Switch>
-    </div>
+
+        <Switch>
+            {/* <Route exact path="/tracks/edit/:trackId" component={EditFormContainer} />
+            <ProtectedRoute exact path="/tracks/new" component={CreateFormContainer} />
+            <Route exact path="/tracks/:trackId" component={TrackShow} />
+            <Route exact path="/tracks" component={TrackIndex} />
+            <Route exact path="/users/:userId" component={UserShow} /> */}
+        </Switch>
+        {/* < MusicBar /> */}
+    </>
 );
 
 export default App;

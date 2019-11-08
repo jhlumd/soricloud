@@ -1,201 +1,110 @@
-@import "core/colors.scss";
-@import "core/fonts.scss";
-@import "core/reset.scss";
- 
-// .splash-header-one {
-//     display: block;
-//     background: image-url('splash1.jpg'); 
-//     background-repeat: no-repeat;
-//     border-top: 4px solid $orange;
-//     width: 100%;
-//     min-height: 450px;
-//  }
+.splash-background {
+   background-color: #666;
+   width: 100%;
+}
 
-.splash-header-two {
-   background: image-url('splash2.jpg'); 
-   background-size: cover;
+.splash-main {
+   border-top: 4px solid #f50;
+   background-color: white; 
    width: 1240px;
-   height: 450px;
+   margin: 0 auto;
+   min-height: 100vh;
 }
 
-.header {
-   width: 1240px;
+.splash-image-1 {
+   width: 100%;
    height: 450px;
-   margin-bottom: 120px;
-   border-top: 4px solid $orange;
-   overflow-x: hidden;
+   background-image: image-url('splash1.jpg');
+   font-weight: 400px;
+   color: white;
 }
 
-.header-images {
-   position: absolute;
-   top: 4px;
-   height: 450px;
-   width: 2480px;
+.splash-image-1 h2 {
+   width: 700px;
+   padding-top: 120px;
+   padding-bottom: 20px; 
+}
+
+.splash-image-1 p {
+   width: 530px;
+}
+
+.splash-image-1 p, .splash-image-1 h2, .splash-image-1 button {
+   display: block;
+   margin: 0 auto;
+   text-align: center;
+}
+
+.splash-nav {
+   width: 90%;
    display: flex;
+   margin: 0 auto;
+   padding-top: 20px; 
+   justify-content: space-between;
 }
 
-.slide {
-   transition: all ease-in-out 1s;
-   transform: translate(-50%, 0%);
+.splash-sc-icon {
+   font-size: 32px;
+   margin-right: 10px;
 }
 
-.header-top {
+.splash-sc-logo {
    display: flex;
-   position: absolute;
+   align-items: center;
+}
+
+.splash-buttons-container {
+   display: flex;
+   width: 300px;
    justify-content: space-between;
    align-items: center;
-   width: 100%;
-   margin-top: 14px;
 }
 
-.header-name {
-   display: flex;
-   align-items: center;
-   margin: 10px 31px;
+// .login-splash {
+//   transition: 0.2s;
+// }
+
+// .login-splash:hover {
+//   background-color: rgba(0,0,0, 0.9);
+// }
+
+.logout-splash {
+   width: 100px;
 }
 
-.header-name img {
-   height: 22px;
-   width: 48px;
-   margin-right: 3px;
-   margin-bottom: 2px;
-   margin-left: 0;
+.splash-text-title {
+   font-size: 35px;
+   margin-bottom: 20px;
+   margin-top: 150px;
 }
 
-.header-name {
-   font-size: 0.9em;
-   color: white;
+.splash-text-p {
+   font-size: 22px;
 }
 
-.header-name:hover {
-   cursor: default;
+.splash-music {
+   min-height: 240px;
 }
 
-.header-nav {
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
-   margin-right: 21px;
-   margin-top: -2px;
-}
-
-.splash-button {
-   box-sizing: border-box;
-   height: 30px; 
-   padding: 11px 11px;
-   border-radius: 3px;
-   margin-right: 10px;
-   font-size: 14px;
-   color: white;
-   background: none;
-   font-weight: 100;
-   line-height: 0.9em;
-}
-
-.splash-button:focus {
-   outline:0;
-}
-
-.splash-button:hover {
-   cursor: pointer;
-}
-
-.welcome {
-   border: none;
-   padding-left: 0;
-   padding-right: 0;
-   margin-right: 9px;
-   letter-spacing: 0.15px;
-}
-
-.welcome:hover {
-   cursor: default;
-}
-
-.create-account {
-   background: $orange;
-   border: none;
-   padding: 11px 11px;
-   width: 129px;
-   height: 30px;
-   letter-spacing: 0.1px;
-}
-
-.header-mid {
-   display: flex;
-   justify-content: center;
-   width: 596px;
-   margin: 8% auto;
+.splash-music-text {
+   font-size: 26px;
    text-align: center;
+   margin-top: 30px;
+   margin-bottom: 20px;
 }
 
-.header-mid h1 {
-   font-size: 36px;
+.collection {
    color: white;
-   margin-bottom: 15px;
-   font-family: 'Interstate light';
-
+   margin-left: 40%;
+   margin-top: 10px;
+   margin-bottom: 70px;
 }
 
-.header-mid p {
-   font-size: 18px;
-   color: white;
-   margin-bottom: 26px;
-   line-height: 24px;
-   font-family: 'Interstate light';
+.modal-forms-appear {
+   transform: translate( 0px, -700px);
 }
 
-.demo-login {
-   height: 46px;
-   font-size: 18px;
-   background: $orange;
-   border: none;
-   margin: 0;
-   padding-top: 13px;
-}
-
-.sign-in {
-   border: 1px solid #ccc;
-   padding: 10px 11px;
-   width: 74px;
-   box-sizing: border-box;
-   font-family: 'Interstate light';
-}
-
-#soricloud-splash {
-   font-family: 'Interstate reg';
-   margin-bottom: -3.5px;
-   margin-left: 2px;
-   font-weight: 600;
-   letter-spacing: 1px;
-}
-
-.header-content {
-   margin-top: 56px;
-z-index: 10;
-}
-
-.splash-track-index {
-   display: flex;
-   width: 100%;
-   margin: 0 64px;
-}
-
-.splash-page {
-   display: flex;
-   flex-direction: column;
-}
-
-.splash-title {
-   font-size: 24px;
-   text-align: center;
-   margin-bottom: 30px;
-   margin-top: -72px;
-   font-family: 'Interstate'; 
-}
-
-.splash-body {
-   display: block;
-   position: absolute;
-   top: 565px;
+.modal-forms-appear-active {
+   transform: translate(0px, 0px);
+   transition: transform .5s ease-in-out;
 }
