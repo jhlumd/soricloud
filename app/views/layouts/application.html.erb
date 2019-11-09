@@ -6,16 +6,25 @@
     <%= csp_meta_tag %>
     <meta content="record, sounds, share, sound, audio, tracks, music, soundcloud, soricloud" name="keywords">
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
 
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Montserrat:300,400">
+    <script type="text/javascript">
+      window.scLogo = "<%= image_url('soundcloud-icon.png') %>"
+      window.splash1 = "<%= image_url('splash1.jpg') %>"
+      window.splash2 = "<%= image_url('splash2.jpg') %>"
+      window.splash3 = "<%= image_url('splash3.jpg') %>"
+    </script>
+
     <script
       src="https://use.fontawesome.com/releases/v5.11.2/js/all.js"
       data-auto-a11y="true"
     ></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
 
   </head>
 

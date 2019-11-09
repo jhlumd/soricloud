@@ -1,19 +1,16 @@
 @font-face {
-  font-family: 'Interstate';
-  src: font-url('InterstateLight.ttf');
-  // src: font-url('Interstate.otf');
+  font-family: 'Interstate reg';
+  src: font-url('Interstate-Regular.ttf');
 }
 
 @font-face {
-  font-family: 'Interstate reg';
-  src: font-url('Interstate-Regular.ttf');
-  // src: font-url('Interstate-Bold_gdi.otf');
+  font-family: 'Interstate';
+  src: font-url('InterstateLight.ttf');
 }
 
 @font-face {
   font-family: 'Interstate light';
   src: font-url('Interstate-ExtraLight.ttf');
-  // src: font-url('Interstate-Light_gdi.otf');
 }
 
 @font-face {

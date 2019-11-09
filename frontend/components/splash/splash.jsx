@@ -1,117 +1,3 @@
-// import React from 'react';
-// // import TracksIndex from '../home_page/tracks_index';
-
-
-// class Splash extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = { imageChanged: false };
-
-//         this.intervalId = null;
-//         this.imageRef = React.createRef();
-//         this.swapImage = this.swapImage.bind(this);
-//     }
-
-//     componentDidMount() {
-//         this.intervalId = setInterval(() => {
-//             this.swapImage();
-//         }, 3000);
-//         // this.props.fetchTracks();
-//     }
-
-//     componentWillUnmount() {
-//         clearInterval(this.intervalId);
-//     }
-
-//     swapImage() {
-//         if (this.state.imageChanged) {
-//             const putImageBack = this.imageRef.current.children[0];
-//             this.imageRef.current.children[0].remove();
-//             this.imageRef.current.appendChild(putImageBack);
-//         }
-//         this.setState({ imageChanged: !this.state.imageChanged });
-//     }
-
-//     render() {
-//         // const fetchCurrentTrack = this.props.fetchCurrentTrack;
-//         // const tracks = this.props.tracks.length > 0 ?
-//         //     <TracksIndex
-//         //         tracks={this.props.tracks}
-//         //         history={this.props.history}
-//         //         fetchCurrentTrack={fetchCurrentTrack}
-//         //         limit={6}
-//         //         includePlayButton={false}
-//         //         trackSlider={false}
-//         //     /> : null;
-
-//         const headerImages = (
-//             <div ref={this.imageRef} className={`header-images ${this.state.imageChanged ? "slide" : ""}`}>
-//                 <img src={window.splashImg1} />
-//                 <div className='splash-header-two'></div>
-//             </div>
-//         );
-
-//         return (
-//             <>
-//                 <div className="splash-page">
-//                     <div className="header">
-//                         {headerImages}
-
-//                         <div className="header-top">
-
-//                             <span className="header-name">
-//                                 <img src={window.scIcon} />
-//                                 <span id="soricloud-splash">SORICLOUD</span>
-//                             </span>
-
-//                             <div className="header-nav">
-//                                 <button
-//                                     onClick={() => this.props.openModal('login')}
-//                                     className="splash-button sign-in">Sign in</button>
-//                                 <button
-//                                     onClick={() => this.props.openModal('signup')}
-//                                     className="splash-button create-account">Create account</button>
-//                             </div>
-                        
-//                         </div>
-
-//                         <div className="header-mid">
-
-//                             <div className="header-content">
-
-//                                 <h1>What's next in music is first on SoriCloud</h1>
-//                                 <p>Upload your first track and begin your journey. SoriCloud gives you space to create, find your fans, and connect with other artists.</p>
-//                                 <button className="splash-button demo-login" onClick={() => this.props.openModal('login')}>Start Demo Login</button>
-
-//                             </div>
-
-//                         </div>
-
-//                     </div>
-//                     <div className="splash-body">
-//                         <h1 className="splash-title">Hear what’s trending in the SoriCloud community</h1>
-//                         <div className="splash-track-index">
-//                             {/* {tracks} */}
-//                         </div>
-//                     </div>
-
-//                     <div>
-//                         <img src={window.splashImg3} />
-//                     </div>
-
-//                     <div>
-//                         <img src={window.splashImg4} />
-//                     </div>
-//                 </div>
-//             </>
-//         );
-//     }
-// }
-
-// export default Splash;
-
-/*--------------------------------------------------------------*/
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import { fetchSplashtracks } from '../actions/track_actions  ';
@@ -135,48 +21,98 @@ class Splash extends React.Component {
         //     });
         // }
 
-        const buttons = this.props.currentUser ? (
-            <div className="splash-buttons-container logout-splash">
-                <button className="nav-button login login-splash" onClick={this.props.logOut}>Log Out</button>
-            </div>
-        ) : (
-                <div className="splash-buttons-container">
-                    <button
-                        className="nav-button login login-splash"
-                        onClick={() => this.props.openModal({ modal: 'login', splash: true })}>Sign In</button>
-                    <button
-                        className="nav-button signup"
-                        onClick={() => this.props.openModal({ modal: 'signup', splash: true })}>Create account</button>
-                    <button
-                        className="nav-button signup"
-                        onClick={() => this.props.openModal({ modal: 'login', splash: true, demo: true })}>Demo</button>
-                </div>
-            )
-
         return (
             <div className="splash-background">
                 <div className="splash-main">
 
+<div className="container">
+  <h2>Carousel Example</h2>
+  <div id="myCarousel" className="carousel slide" data-ride="carousel">
+    
+    <ol className="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div className="carousel-inner">
+
+      <div className="item active">
+        <img src={window.splash1} alt="Los Angeles"/>
+        <div className="carousel-caption">
+          <h3>Los Angeles</h3>
+          <p>LA is always so much fun!</p>
+        </div>
+      </div>
+
+      <div className="item">
+        <img src={window.splash2} alt="Chicago"/>
+        <div className="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>
+      </div>
+    
+      <div className="item">
+        <img src={window.splash3} alt="New York"/>
+        <div className="carousel-caption">
+          <h3>New York</h3>
+          <p>We love the Big Apple!</p>
+        </div>
+      </div>
+  
+    </div>
+
+    <a className="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span className="glyphicon glyphicon-chevron-left"></span>
+      <span className="sr-only">Previous</span>
+    </a>
+    <a className="right carousel-control" href="#myCarousel" data-slide="next">
+      <span className="glyphicon glyphicon-chevron-right"></span>
+      <span className="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+
                     <section className="splash-image-1">
                         <div className="splash-nav">
+
                             <div className="splash-sc-logo">
-                                <i className="fab fa-soundcloud splash-sc-icon"></i>
-                                <h3>SORICLOUD</h3>
+                                <img src={window.scLogo} />
+                                <h1 className="splash-sc-name">SORICLOUD</h1>
                             </div>
-                            {buttons}
+
+                            <div className="splash-buttons-container">
+                                <button
+                                    className="splash-login"
+                                    onClick={() => this.props.openModal('login')}>Sign In</button>
+                                <button
+                                    className="splash-signup"
+                                    onClick={() => this.props.openModal('signup')}>Create account</button>
+                                <button
+                                    className="splash-login"
+                                    onClick={() => this.props.openModal('login')}>Demo</button>
+                            </div>
+
                         </div>
+
                         <div>
                             <h4 className="splash-text-title">
-                                What's next in music is first on SoriCloud
+                                Discover more with SoriCloud
                             </h4>
                             <p className="splash-text-p">
                                 Upload your first track and begin your journey. SoriCloud gives you space to create, find your fans, and connect with other artists.
                             </p>
                         </div>
+
                     </section>
 
                     <section className="splash-search">
-
+                        <input type="search" autoComplete="off" placeholder="Search under construction!"/>
+                        <i class="fas fa-search splash-search-submit"></i>
+                        <button className="splash-search-submit" type="submit"></button>
                     </section>
 
                     <section className="user-tracks-section splash-music">
