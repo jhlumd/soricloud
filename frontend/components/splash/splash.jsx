@@ -127,7 +127,7 @@ class Splash extends React.Component {
                     Never stop listening
                   </h3>
                   <p className="splash-mobile-text">
-                    SoundCloud is available on Web, iOS, Android, Sonos, Chromecast, and Xbox One.
+                    SoriCloud is available on Web, iOS, Android, Sonos, Chromecast, and Xbox One.
                   </p>
                   <img src={window.mobileLinks} />
                 </div>
@@ -140,7 +140,7 @@ class Splash extends React.Component {
                     Calling all creators
                   </h3>
                   <p>
-                    Get on SoundCloud to connect with fans, share your sounds, and grow your audience. What are you waiting for?
+                    Get on SoriCloud to connect with fans, share your sounds, and grow your audience. What are you waiting for?
                   </p>
                   <button className="splash-creator-button">
                     Find out more
