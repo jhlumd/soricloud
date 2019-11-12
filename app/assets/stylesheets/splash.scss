@@ -99,16 +99,26 @@
 //   background-color: rgba(0,0,0, 0.9);
 // }
 
-.splash-text-title {
+.carousel-caption {
+   padding-bottom: 170px;
+}
+
+.carousel-caption > h3 {
    font-size: 36px;
    font-weight: 100;
    margin-bottom: 20px;
-   margin-top: 100px;
    text-align: center;
 }
 
-.splash-text-p {
-   font-size: 22px;
+.carousel-caption > p {
+   font-size: 18px;
+}
+
+.splash-search {
+   display: flex;
+   justify-content: center;
+   margin-top: 49px;
+   margin-bottom: 12px;
 }
 
 .splash-search input[type=search], .splash-search input[type=search]:focus {
@@ -119,7 +129,7 @@
    color: #666;
    outline: 0;
    border: 0;
-   width: 600px;
+   width: 550px;
    border-radius: 4px;
 }
 
@@ -134,9 +144,25 @@
    background-image: image-url('splash-search.png');
 }
 
+.splash-search > p {
+   padding: 16px;
+}
+
+.splash-upload {
+  background-color: #f50;
+  color: #fff;
+  padding: 0px 20px;
+  border-radius: 5px;
+}
+
+.splash-upload:hover {
+  background-color:  #f40;
+}
 
 .splash-music {
    min-height: 240px;
+   display: flex;
+   flex-direction: column;
 }
 
 .splash-music-text {
@@ -151,6 +177,160 @@
    margin-left: 40%;
    margin-top: 10px;
    margin-bottom: 70px;
+}
+
+.splash-music > button {
+   background-color: #f50;
+   border-color: #f50;
+   color: #fff;
+   font-size: 18px;
+   height: 46px;
+   padding: 0px 23px;
+   line-height: 18px;
+   border-radius: 5px;
+   margin: 10px auto;
+}
+
+.splash-mobile {
+   display: flex;
+   height: 450px;
+   background-color: #f2f2f2;
+   justify-content: center;
+}
+
+.splash-mobile-info {
+   width: 325px;
+   margin: 45px;
+   display: flex;
+   flex-direction: column;
+}
+
+.splash-mobile-title {
+   line-height: 1.2;
+   margin-bottom: 35px;
+   margin-top: 60px;
+   font-size: 36px;
+}
+
+.splash-mobile-text {
+   font-size: 24px;
+   margin-bottom: 45px;
+}
+
+.splash-mobile > img {
+   padding-top: 60px;
+   height: 390px;
+   width: 724px;
+}
+
+.splash-mobile-info > img {
+   width: 260px;
+}
+
+.splash-creator {
+   height: 350px;
+   width: 1240px;
+   background-image: image-url('splash4.jpg');
+}
+
+.splash-creator-text {
+   width: 520px;
+   margin-left: 70px;
+   color: #fff;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.splash-creator-text > h3 {
+   font-size: 36px;
+   margin-top: 65px;
+   margin-bottom: 20px;
+}
+
+.splash-creator-text > p {
+   font-size: 24px;
+   line-height: 1.2;
+   margin-bottom: 25px;
+}
+
+.splash-creator-button {
+   width: 140px;
+   font-size: 18px;
+   border: 1px solid #aaa;
+   padding: 14px 16px;
+   border-radius: 5px;
+   text-align: center;
+}
+
+.splash-creator-button:hover {
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.splash-signup-bottom {
+   height: 370px;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border-bottom: 2px solid #f2f2f2;
+}
+
+.splash-signup-bottom > h3 {
+   font-size: 36px;
+   margin-top: 85px;
+   margin-bottom: 15px;
+}
+
+.splash-signup-bottom > p {
+   font-size: 24px;
+   margin-bottom: 24px;
+}
+
+.splash-signup-button-bottom {
+   font-size: 18px;
+   height: 46px;
+   padding: 0px 5px;
+   min-width: 200px;
+   background-color: #f50;
+   border-color: #f50;
+   color: #fff;
+   line-height: 18px;
+   border: 1px solid #e5e5e5;
+   border-radius: 5px;
+   text-align: center;
+   vertical-align: baseline;
+}
+
+.splash-signup-button-bottom:hover {
+   background-color:  #f40;
+}
+
+.splash-login-bottom {
+   display: flex;
+   width: 250px;
+   justify-content: space-between;
+   margin-top: 20px;
+}
+
+.splash-login-bottom > p {
+   font-size: 12px;
+   line-height: 40px;
+   height: 40px;
+}
+
+.splash-login-button-bottom {
+   border: 1px solid #aaa;
+   padding: 7px 15px;
+   border-radius: 5px;
+}
+
+.splash-login-button-bottom:hover {
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.space-for-music-bar {
+   min-height: 48px;
 }
 
 .modal-forms-appear {
