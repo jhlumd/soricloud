@@ -72,8 +72,7 @@ class LoginInputForm extends React.Component {
                         <form onSubmit={this.handleSubmit} className="login-form-box">
                             <div className="login-info-form">
                                 <button
-                                    form=""
-                                    className="splash-button modal demo-login modal-item"
+                                    className="splash-button demo-login modal-item"
                                     onClick={this.demoLogin}>Demo Login</button>
                                 <h2><span>or</span></h2>
                                 <input
@@ -85,7 +84,8 @@ class LoginInputForm extends React.Component {
                                 />
                                 {this.renderErrors()}
                                 <input
-                                    className="splash-button demo-login modal-item"
+                                    id="login-form-continue"
+                                    className="splash-button modal-item"
                                     type="submit"
                                     value="Continue"
                                 />
