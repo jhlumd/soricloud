@@ -19,27 +19,6 @@
 @import 'splash.scss';
 @import 'modal.scss';
 
-body {
-    font-family: 'Interstate light', sans-serif;
-}
-
-#root {
-    width: 100%;
-    background: #f2f2f2;
-}
-
-.app {
-    display: flex;
-    width: 1240px;
-    height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin: 0 auto;
-    background: white;
-    position: relative;
-}
-
-
 #errors {
     color: red;
     font-size: 12px;
