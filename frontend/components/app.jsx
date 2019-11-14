@@ -6,10 +6,9 @@ import {
     Link
 } from 'react-router-dom';
 
+import Modal from './modal/modal';
 import SplashContainer from '../components/splash/splash_container';
 
-import Modal from './modal/modal';
-import GreetingContainer from './greeting/greeting_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (

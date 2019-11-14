@@ -1,14 +1,17 @@
 import React from 'react';
-// import { withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            loginInput: props.loginInput,
             password: ''
-        };
+        }
+        this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleRedirect = this.handleRedirect.bind(this);
+        this.switchModal = this.switchModal.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     update(field) {
@@ -19,15 +22,25 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user).then(this.props.closeModal);
+        this.handleRedirect();
+        this.props.login(this.state);
+    }
+
+    handleRedirect() {
+        this.props.closeModal();
+        this.props.history.push('/discover');
+    }
+
+    switchModal() {
+        this.props.closeModal();
+        this.props.openModal('loginInput');
     }
 
     renderErrors() {
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <li id="errors" key={`error-${i}`}>
                         {error}
                     </li>
                 ))}
@@ -37,43 +50,26 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div className="login-form-container">
-                <div onClick={this.props.closeModal} className="close-x">X</div>
+            <div className="login-info-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    Welcome to SoriCloud!
-                    <br />
-                    <div className="login-form">
-                        <br />
-                        <label>
-                            <input type="text"
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                className="login-input"
-                                placeholder="Your Username *"
-                            />
-                        </label>
-                        <br />
-                        <label>
-                            <input type="password"
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                className="login-input"
-                                placeholder="Your Password *"
-                            />
-                        </label>
-                        <br />
-                        {this.renderErrors()}
-                        <br />
-                        <input className="session-submit"
-                            type="submit"
-                            value="Sign in"
+                    <div className="login-info-form">
+                        <button
+                            form=""
+                            className="login-info-input demo-login modal-item loginInput"
+                            onClick={this.switchModal}>&#9668; {this.state.loginInput}</button>
+                        <input
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.update('password')}
+                            className="login-info-input demo-login modal-item"
+                            placeholder="Your Password *"
                         />
+                        {this.renderErrors()}
+                        <input className="splash-button demo-login modal-item" type="submit" value="Sign in" />
                     </div>
                 </form>
-                <br />
-                Don't have an account? {this.props.otherForm}
             </div>
-        );
+        )
     }
 }
 

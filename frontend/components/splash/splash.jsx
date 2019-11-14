@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import { fetchSplashtracks } from '../actions/track_actions  ';
 // import TrackIndexItem from './tracks/track_index_item';
 
@@ -36,17 +36,19 @@ class Splash extends React.Component {
                   <div className="splash-buttons-container">
                     <button
                       className="splash-login"
-                      onClick={() => this.props.openModal('login')}>
+                      onClick={() => this.props.openModal('loginInput')}>
                         Sign in
                     </button>
                     <button
                       className="splash-signup"
-                      onClick={() => this.props.openModal('signup')}>
+                      onClick={() => this.props.openModal('loginInput')}>
                         Create account
                     </button>
                     <button
                       className="splash-login"
-                      onClick={() => this.props.openModal('login')}>Demo</button>
+                      onClick={() => this.props.openModal('loginInput')}>
+                        Demo
+                    </button>
                   </div>
 
                 </div>
@@ -101,7 +103,7 @@ class Splash extends React.Component {
                 <p>or</p>
                 <button
                   className="splash-upload"
-                  onClick={() => this.props.openModal('login')}>Upload your own</button>
+                  onClick={() => this.props.openModal('loginInput')}>Upload your own</button>
               </section>
 
               <section className="user-tracks-section splash-music">
@@ -115,7 +117,7 @@ class Splash extends React.Component {
                 </ul>
                 <button
                   className="splash-upload"
-                  onClick={() => this.props.openModal('login')}>Explore the collection</button>
+                  onClick={() => this.props.openModal('loginInput')}>Explore the collection</button>
               </section>
 
               <section className="splash-mobile">
@@ -157,7 +159,7 @@ class Splash extends React.Component {
                 </p>
                 <button
                   className="splash-signup-button-bottom"
-                  onClick={() => this.props.openModal('signup')}>
+                  onClick={() => this.props.openModal('loginInput')}>
                   Create account
                 </button>
                 <div className="splash-login-bottom">
@@ -166,7 +168,7 @@ class Splash extends React.Component {
                   </p>
                   <button
                     className="splash-login-button-bottom"
-                    onClick={() => this.props.openModal('login')}>
+                    onClick={() => this.props.openModal('loginInput')}>
                     Sign in
                   </button>
                 </div>

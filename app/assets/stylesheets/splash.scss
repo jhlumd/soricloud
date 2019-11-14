@@ -71,6 +71,36 @@
    align-items: center;
 }
 
+.splash-button {
+   box-sizing: border-box;
+   height: 30px; 
+   padding: 11px 11px;
+   border-radius: 3px;
+   margin-right: 10px;
+   font-size: 14px;
+   color: white;
+   background: none;
+   font-weight: 100;
+   line-height: 0.9em;
+}
+
+.splash-button:focus {
+   outline:0;
+}
+
+.splash-button:hover {
+   cursor: pointer;
+}
+
+// .demo-login {
+//    height: 46px;
+//    font-size: 18px;
+//    background: #f50;
+//    border: none;
+//    margin: 0;
+//    padding-top: 13px;
+// }
+
 .splash-signup {
   background-color: #f50;
   padding: 7px 15px;
@@ -90,14 +120,6 @@
 .splash-login:hover {
   border: 1px solid rgb(238, 238, 238);
 }
-
-// .login-splash {
-//   transition: 0.2s;
-// }
-
-// .login-splash:hover {
-//   background-color: rgba(0,0,0, 0.9);
-// }
 
 .carousel-caption {
    padding-bottom: 170px;
@@ -332,12 +354,3 @@
 .space-for-music-bar {
    min-height: 48px;
 }
-
-// .modal-forms-appear {
-//    transform: translate( 0px, -700px);
-// }
-
-// .modal-forms-appear-active {
-//    transform: translate(0px, 0px);
-//    transition: transform .5s ease-in-out;
-// }

@@ -4,14 +4,167 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
+  background: rgba(242,242,242,.9);
+  z-index: 14;
+}
+
+.modal-positioner {
+  position: fixed;
+  min-height: 1px;
+  width: 100%;
+  content: "";
+  z-index: 100;
+}
+
+.modal-child-start {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  transition: all ease-in 5s;
 }
 
 .modal-child {
   position: absolute;
-  top: 50%;
+  top: 387px;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* transition: -webkit-transform 0.25s ease-in; */
+  transition: all ease-out 0.2s;
+}
+
+.login-info-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-info-form {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 450px;
+  min-width: 450px;
+  height: 620px;
+  padding: 25px;
+  background: white;
+  position: relative;
+}
+
+.login-info-submit {
+  text-transform: capitalize;
+  background: #f50;
+}
+
+::placeholder {
+  color: #999999;
+}
+
+.copyright {
+  font-family: 'Lucida Grande', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 10px 0;
+  color: #999999;
+  line-height: 1.4em;
+  width: 400px;
+}
+
+
+h2 {
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #000; 
+  line-height: 0.1em;
+  margin: 20px 0 20px; 
+} 
+
+h2 span { 
+  background:#fff; 
+  padding:0 10px; 
+}
+
+.modal {
+  background-image: linear-gradient(#3857A1,#264285);
+  border-color: #264285;
+}
+
+.need-help {
+  font-family: 'Lucida Grande', sans-serif;
+  margin-top: 15px;
+  text-align: right;
+  font-size: 12px;
+  color: #368ade;
+}
+
+.modal-item {
+  height: 40px;
+  font-size: 16px;
+}
+
+.privacy-policy {
+  color: #368ade;
+  letter-spacing: 0;
+}
+
+.create-account-modal {
+  font-size: 32px;
+  text-align: center;
+  line-height: 1.2em;
+  margin-bottom: 20px;
+  letter-spacing: 0;
+  font-family: 'Interstate reg';
+}
+
+.red-splat {
+  color: red;
+  font-size: 14px;
+}
+
+.choose-password {
+  font-size: 14px;
+  margin-bottom: 6px; 
+  letter-spacing: 0;
+  font-family: 'Interstate reg';
+}
+
+.sign-in-question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 28px;
+  line-height: 1.4em;
+  letter-spacing: 0;
+}
+
+.sign-in-question > h3 {
+  font-family: 'Interstate reg';
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.sign-in-question > p {
+  width: 300px;
+  font-family: 'Interstate';
+}
+
+.signup {
+  margin-top: 14px;
+}
+
+.login-info-input {
+  background: white;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  color: #111111;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.loginInfo {
+  text-align: left;
+  font-size: 16px;
+  font-family: 'Interstate';
 }
