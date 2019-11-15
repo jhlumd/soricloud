@@ -35,7 +35,8 @@ class LoginInputForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.clearErrors();
-        this.props.checkLoginInput(this.state.loginInput).then(this.handleNextForm);
+        this.props.checkLoginInput(this.state.loginInput)
+            .then(this.handleNextForm);
     }
 
     handleNextForm() {
@@ -91,13 +92,15 @@ class LoginInputForm extends React.Component {
                                     value="Continue"
                                 />
                                 <p className="need-help">Need Help?</p>
-                                <p className="copyright">
-                                    We may use your email and devices for updates and tips on SoundCloud's products and services,
-                                    and for activities notifications. You can unsubscribe for free at any time in your notification
+                                <p className="fine-print">
+                                    We may use your email and devices for updates and tips on
+                                    SoriCloud's products and services, and for activities notifications.
+                                    You can unsubscribe for free at any time in your notification
                                     settings.
                                 </p>
-                                <p className="copyright">
-                                    We may use information you provide us in order to show you targeted ads as described in our <span className="privacy-policy">Privacy Policy.</span>
+                                <p className="fine-print">
+                                    We may use information you provide us in order to show you
+                                    targeted ads as described in our <span className="privacy-policy">Privacy Policy.</span>
                                 </p>
 
                             </div>

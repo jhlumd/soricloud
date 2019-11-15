@@ -1,0 +1,46 @@
+.tracks-index {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px;
+}
+
+.album {
+    width: 180px;
+    height: 180px;
+    background-repeat: no-repeat;
+    background-size: 180px 180px;
+}
+
+.album-1 {
+    background-image: image-url('album1.jpg');
+}
+
+.album-2 {
+    background-image: image-url('album2.jpg');
+}
+
+.album-3 {
+    background-image: image-url('album3.jpg');
+}
+
+.album-4 {
+    background-image: image-url('album4.jpg');
+}
+
+.album-5 {
+    background-image: image-url('album5.jpg');
+}
+
+.album-6 {
+    background-image: image-url('album6.jpg');
+}
+
+.album-7 {
+    background-image: image-url('album7.jpg');
+}
+
+.album-8 {
+    background-image: image-url('album8.jpg');
+}

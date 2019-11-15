@@ -110,11 +110,42 @@ class Splash extends React.Component {
                 <h3 className="splash-music-text">
                   Hear what’s trending in the SoriCloud community
                 </h3>
-                <ul className="album-covers">
+
+                <div className="tracks-index">
                   {/* {track} */}
-                  <div>track1</div>
-                  <div>track2</div>
-                </ul>
+                  <div className="album album-1">
+                    Opus
+                    Eric Prydz
+                  </div>
+                  <div className="album album-2">
+                    All That Matters
+                    Kolsch
+                  </div>
+                  <div className="album album-3">
+                    Bitches Brew
+                    Miles Davis
+                  </div>
+                  <div className="album album-4">
+                    The Velvet Underground and Nico
+                  </div>
+                  <div className="album album-5">
+                    1989
+                    Taylor Swift
+                  </div>
+                  <div className="album album-6">
+                    Illmatic
+                    Nas
+                  </div>
+                  <div className="album album-7">
+                    She's So Unusual
+                    Cyndi Lauper
+                  </div>
+                  <div className="album album-8">
+                    American Idiot
+                    Green Day  
+                  </div>
+                </div>
+
                 <button
                   className="splash-upload"
                   onClick={() => this.props.openModal('loginInput')}>Explore the collection</button>

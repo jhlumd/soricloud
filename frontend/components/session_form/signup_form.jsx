@@ -100,7 +100,7 @@ class SignupForm extends React.Component {
                                     className="login-info-input loginInput"
                                 />
                                 {this.renderUsernameErrors()}
-                                <p className="copyright">
+                                <p className="fine-print">
                                     Your display name can be anything you like. Your name or artist name are good choices.
                                 </p>
                                 <input
@@ -131,7 +131,7 @@ class SignupForm extends React.Component {
                                     className="login-info-input"
                                 />
                                 {this.renderPasswordErrors()}
-                                <p className="copyright">
+                                <p className="fine-print">
                                     By signing up I accept the <span className="privacy-policy">Terms of Use</span>. I have read and understood the <span className="privacy-policy">Privacy Policy</span> and <span className="privacy-policy">Cookies Policy</span>.
                                 </p>
                                 <input

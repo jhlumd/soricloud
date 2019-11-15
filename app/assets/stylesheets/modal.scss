@@ -5,7 +5,7 @@
   right: 0;
   left: 0;
   background: rgba(242,242,242,.9);
-  z-index: 14;
+  z-index: 2;
 }
 
 .modal-positioner {
@@ -13,7 +13,7 @@
   min-height: 1px;
   width: 100%;
   content: "";
-  z-index: 100;
+  z-index: 3;
 }
 
 .modal-child-start {
@@ -24,7 +24,7 @@
 
 .modal-child {
   position: absolute;
-  top: 387px;
+  top: 400px;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all ease-out 0.2s;
@@ -64,7 +64,7 @@
   color: #999999;
 }
 
-.copyright {
+.fine-print {
   font-family: 'Lucida Grande', sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -73,7 +73,6 @@
   line-height: 1.4em;
   width: 400px;
 }
-
 
 h2 {
   width: 100%; 
@@ -163,10 +162,4 @@ h2 span {
   margin-bottom: 10px;
   padding: 10px;
   font-size: 18px;
-}
-
-.loginInfo {
-  text-align: left;
-  font-size: 16px;
-  font-family: 'Interstate';
 }
