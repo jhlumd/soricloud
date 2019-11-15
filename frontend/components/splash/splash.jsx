@@ -1,6 +1,6 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-// import { fetchSplashtracks } from '../actions/track_actions  ';
+
+// import { fetchTracks } from '../actions/track_actions  ';
 // import TrackIndexItem from './tracks/track_index_item';
 
 class Splash extends React.Component {
@@ -9,7 +9,7 @@ class Splash extends React.Component {
     }
 
     // componentDidMount() {
-    //     this.props.fetchSplashtracks();
+    //     this.props.fetchTracks();
     // }
 
     render() {

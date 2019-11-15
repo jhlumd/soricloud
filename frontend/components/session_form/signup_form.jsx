@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
     }
 
     handleRedirect() {
-        this.props.history.push('/discover');
+        this.props.history.push('/tracks');
     }
 
     switchModal() {
@@ -97,13 +97,18 @@ class SignupForm extends React.Component {
                                     type="text"
                                     value={this.state.username}
                                     onChange={this.update('username')}
-                                    className="login-info-input demo-login modal-item loginInput"
+                                    className="login-info-input loginInput"
                                 />
                                 {this.renderUsernameErrors()}
                                 <p className="copyright">
                                     Your display name can be anything you like. Your name or artist name are good choices.
                                 </p>
-                                <input className="splash-button demo-login modal-item signup" type="submit" value="Get started" />
+                                <input
+                                    id="login-form-continue"
+                                    className="splash-button signup"
+                                    type="submit"
+                                    value="Get started"
+                                />
                             </div>
                         </form>
                     </div>
@@ -116,7 +121,7 @@ class SignupForm extends React.Component {
                                 <h1 className="create-account-modal">Create your SoriCloud account</h1>
                                 <button
                                     form=""
-                                    className="login-info-input demo-login modal-item loginInput"
+                                    className="login-info-input modal-item loginInput"
                                     onClick={this.switchModal}>&#9668; {this.state.email}</button>
                                 <h3 className="choose-password">Choose a password <span className="red-splat">*</span></h3>
                                 <input
@@ -129,7 +134,14 @@ class SignupForm extends React.Component {
                                 <p className="copyright">
                                     By signing up I accept the <span className="privacy-policy">Terms of Use</span>. I have read and understood the <span className="privacy-policy">Privacy Policy</span> and <span className="privacy-policy">Cookies Policy</span>.
                                 </p>
-                                <input className="splash-button demo-login modal-item" type="submit" value="Accept & Continue" onSubmit={this.handleInitialSubmit} onClick={this.handleInitialSubmit} />
+                                <input
+                                    id="login-form-continue"
+                                    className="splash-button modal-item"
+                                    type="submit"
+                                    value="Accept & Continue"
+                                    onSubmit={this.handleInitialSubmit}
+                                    onClick={this.handleInitialSubmit}
+                                />
                                 <div className="sign-in-question">
                                     <h3>Are you trying to sign in?</h3>
                                     <p>

@@ -22,7 +22,7 @@ class LoginInputForm extends React.Component {
             loginInput: 'jae3@gmail.com',
             password: '123456'
         });
-        this.props.history.push('/discover');
+        this.props.history.push('/tracks');
         this.props.closeModal();
     }
 
@@ -72,14 +72,15 @@ class LoginInputForm extends React.Component {
                         <form onSubmit={this.handleSubmit} className="login-form-box">
                             <div className="login-info-form">
                                 <button
-                                    className="splash-button demo-login modal-item"
+                                    id="demo-login"
+                                    className="splash-button modal-item"
                                     onClick={this.demoLogin}>Demo Login</button>
                                 <h2><span>or</span></h2>
                                 <input
                                     type="text"
                                     value={this.state.loginInput}
                                     onChange={this.update('loginInput')}
-                                    className="login-info-input demo-login modal-item"
+                                    className="login-info-input modal-item"
                                     placeholder="Your email address or profile URL *"
                                 />
                                 {this.renderErrors()}

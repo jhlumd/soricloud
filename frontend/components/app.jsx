@@ -14,19 +14,16 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
     <>
         < Modal />
+
         <Switch>
-            {/* <Route exact path="/ping" component={Ping} /> */}
             <Route exact path="/" component={SplashContainer} />
-            {/* <Route path="/" component={NavBar} /> */}
+            {/* <ProtectedRoute path="/" component={NavBar} /> */}
         </Switch>
 
         <Switch>
-            {/* <Route exact path="/tracks/edit/:trackId" component={EditFormContainer} />
-            <ProtectedRoute exact path="/tracks/new" component={CreateFormContainer} />
-            <Route exact path="/tracks/:trackId" component={TrackShow} />
-            <Route exact path="/tracks" component={TrackIndex} />
-            <Route exact path="/users/:userId" component={UserShow} /> */}
+            {/* <Route exact path="/tracks" component={TrackIndex} /> */}
         </Switch>
+
         {/* < MusicBar /> */}
     </>
 );

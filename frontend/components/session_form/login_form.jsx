@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
 
     handleRedirect() {
         this.props.closeModal();
-        this.props.history.push('/discover');
+        this.props.history.push('/tracks');
     }
 
     switchModal() {
@@ -55,17 +55,22 @@ class LoginForm extends React.Component {
                     <div className="login-info-form">
                         <button
                             form=""
-                            className="login-info-input demo-login modal-item loginInput"
+                            className="login-info-input modal-item loginInput"
                             onClick={this.switchModal}>&#9668; {this.state.loginInput}</button>
                         <input
                             type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
-                            className="login-info-input demo-login modal-item"
+                            className="login-info-input modal-item"
                             placeholder="Your Password *"
                         />
                         {this.renderErrors()}
-                        <input className="splash-button demo-login modal-item" type="submit" value="Sign in" />
+                        <input
+                            id="login-form-continue"
+                            className="splash-button modal-item"
+                            type="submit"
+                            value="Sign in"
+                        />
                     </div>
                 </form>
             </div>
