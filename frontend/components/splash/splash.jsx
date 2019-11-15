@@ -106,72 +106,72 @@ class Splash extends React.Component {
                   onClick={() => this.props.openModal('loginInput')}>Upload your own</button>
               </section>
 
-              <section className="user-tracks-section splash-music">
+              <section className="splash-music">
                 <h3 className="splash-music-text">
                   Hear what’s trending in the SoriCloud community
                 </h3>
 
-                <div className="tracks-index">
+                <div className="splash-tracks-index">
                   {/* {track} */}
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-1"></div>  
-                    <p className="track-title">Opus</p>
-                    <p className="track-artist">Eric Prydz</p>
+                    <p className="splash-track-title">Opus</p>
+                    <p className="splash-track-artist">Eric Prydz</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-2"></div>  
-                    <p className="track-title">All That Matters</p>
-                    <p className="track-artist">Kolsch</p>
+                    <p className="splash-track-title">All That Matters</p>
+                    <p className="splash-track-artist">Kolsch</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-3"></div>  
-                    <p className="track-title">Bitches Brew</p>
-                    <p className="track-artist">Miles Davis</p>
+                    <p className="splash-track-title">Bitches Brew</p>
+                    <p className="splash-track-artist">Miles Davis</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-4"></div>  
-                    <p className="track-title">The Velvet Underground</p>
-                    <p className="track-artist">The Velvet Underground</p>
+                    <p className="splash-track-title">The Velvet Underground</p>
+                    <p className="splash-track-artist">The Velvet Underground</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-5"></div>  
-                    <p className="track-title">1989</p>
-                    <p className="track-artist">Taylor Swift</p>
+                    <p className="splash-track-title">1989</p>
+                    <p className="splash-track-artist">Taylor Swift</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-6"></div>  
-                    <p className="track-title">Illmatic</p>
-                    <p className="track-artist">Nas</p>
+                    <p className="splash-track-title">Illmatic</p>
+                    <p className="splash-track-artist">Nas</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-7"></div>  
-                    <p className="track-title">She's So Unusual</p>
-                    <p className="track-artist">Cyndi Lauper</p>
+                    <p className="splash-track-title">She's So Unusual</p>
+                    <p className="splash-track-artist">Cyndi Lauper</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-8"></div>  
-                    <p className="track-title">The Low End Theory</p>
-                    <p className="track-artist">A Tribe Called Quest</p>
+                    <p className="splash-track-title">The Low End Theory</p>
+                    <p className="splash-track-artist">A Tribe Called Quest</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-9"></div>  
-                    <p className="track-title">Elvis Presley</p>
-                    <p className="track-artist">Elvis Presley</p>
+                    <p className="splash-track-title">Elvis Presley</p>
+                    <p className="splash-track-artist">Elvis Presley</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-10"></div>  
-                    <p className="track-title">Aladdin Sane</p>
-                    <p className="track-artist">David Bowie</p>
+                    <p className="splash-track-title">Aladdin Sane</p>
+                    <p className="splash-track-artist">David Bowie</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-11"></div>  
-                    <p className="track-title">Purple Rain</p>
-                    <p className="track-artist">Prince</p>
+                    <p className="splash-track-title">Purple Rain</p>
+                    <p className="splash-track-artist">Prince</p>
                   </div>
-                  <div className="track-item">
+                  <div className="splash-track-item">
                     <div className="album album-12"></div>  
-                    <p className="track-title">Caravelle</p>
-                    <p className="track-artist">Jeremy Olander</p>
+                    <p className="splash-track-title">Caravelle</p>
+                    <p className="splash-track-artist">Jeremy Olander</p>
                   </div>
                 </div>
 

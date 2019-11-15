@@ -1,8 +1,149 @@
-.immitation-navbar {
+.navbar-container {
     position: fixed;
+    display: flex;
+    align-items: center;
     z-index: 1000;
     width: 100%;
     height: 46px;
     background-color: #333;
     font: 100 14px/1.5 "Interstate";
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.left-nav {
+    display: flex;
+}
+
+.nav-logo {
+    display: block;
+    height:46px;
+    width: 69px;
+    cursor: pointer;
+    background-image: image-url('navbar-logo.png');
+}
+
+.nav-menu {
+    display: block;
+    padding: 12px 0;
+    width: 104px;
+    height: 46px;
+    border-right: 1px solid #111;
+    box-sizing: border-box;
+    text-align: center;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.nav-menu:hover {
+    color: #fff;
+}
+
+.home {
+    background-color: #111;
+}
+
+.right-nav {
+    display: flex;
+}
+
+.nav-prof-pic {
+    display: block;
+    margin: 8px;
+    width: 30px;
+    height: 30px;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-image: image-url('nav-photo.png');
+    cursor: pointer;
+}
+
+.nav-username {
+    display: block;
+    padding: 12px 10px;
+    width: 110px;
+    height: 46px;
+    box-sizing: border-box;
+    text-align: left;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.nav-logout-button {
+    display: block;
+    padding: 12px 10px;
+    width: 80px;
+    height: 46px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.link-light:hover {
+    color: #fff;
+}
+
+.track-index-title {
+    color: #999;
+    font-size: 18px;
+    font-family: 'Interstate';
+    padding: 30px 60px 30px;
+}
+
+.track-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 850px;
+    height: 190px;
+    margin: 15px 15px;
+    box-sizing: border-box;
+    background-size: 37px;
+    background-repeat: no-repeat;
+    background-image: image-url('play-button.png');
+}
+
+.track-title {
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 50px;
+}
+
+.track-artist {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #999;
+    padding-left: 50px;
+}
+
+.waveform {
+    width: 644px;
+    height: 60px;
+    margin-top: 20px;
+}
+
+
+.waveform-2 {
+    background-image: image-url('waveform2.png');
+    background-repeat: no-repeat;
+}
+
+.waveform-3 {
+    background-image: image-url('waveform3.png');
+    background-repeat: no-repeat;
+}
+
+.waveform-4 {
+    background-image: image-url('waveform4.png');
+    background-repeat: no-repeat;
+}
+
+.waveform-5 {
+    background-image: image-url('waveform5.png');
+    background-repeat: no-repeat;
 }
