@@ -113,36 +113,65 @@ class Splash extends React.Component {
 
                 <div className="tracks-index">
                   {/* {track} */}
-                  <div className="album album-1">
-                    Opus
-                    Eric Prydz
+                  <div className="track-item">
+                    <div className="album album-1"></div>  
+                    <p className="track-title">Opus</p>
+                    <p className="track-artist">Eric Prydz</p>
                   </div>
-                  <div className="album album-2">
-                    All That Matters
-                    Kolsch
+                  <div className="track-item">
+                    <div className="album album-2"></div>  
+                    <p className="track-title">All That Matters</p>
+                    <p className="track-artist">Kolsch</p>
                   </div>
-                  <div className="album album-3">
-                    Bitches Brew
-                    Miles Davis
+                  <div className="track-item">
+                    <div className="album album-3"></div>  
+                    <p className="track-title">Bitches Brew</p>
+                    <p className="track-artist">Miles Davis</p>
                   </div>
-                  <div className="album album-4">
-                    The Velvet Underground and Nico
+                  <div className="track-item">
+                    <div className="album album-4"></div>  
+                    <p className="track-title">The Velvet Underground</p>
+                    <p className="track-artist">The Velvet Underground</p>
                   </div>
-                  <div className="album album-5">
-                    1989
-                    Taylor Swift
+                  <div className="track-item">
+                    <div className="album album-5"></div>  
+                    <p className="track-title">1989</p>
+                    <p className="track-artist">Taylor Swift</p>
                   </div>
-                  <div className="album album-6">
-                    Illmatic
-                    Nas
+                  <div className="track-item">
+                    <div className="album album-6"></div>  
+                    <p className="track-title">Illmatic</p>
+                    <p className="track-artist">Nas</p>
                   </div>
-                  <div className="album album-7">
-                    She's So Unusual
-                    Cyndi Lauper
+                  <div className="track-item">
+                    <div className="album album-7"></div>  
+                    <p className="track-title">She's So Unusual</p>
+                    <p className="track-artist">Cyndi Lauper</p>
                   </div>
-                  <div className="album album-8">
-                    American Idiot
-                    Green Day  
+                  <div className="track-item">
+                    <div className="album album-8"></div>  
+                    <p className="track-title">The Low End Theory</p>
+                    <p className="track-artist">A Tribe Called Quest</p>
+                  </div>
+                  <div className="track-item">
+                    <div className="album album-9"></div>  
+                    <p className="track-title">Elvis Presley</p>
+                    <p className="track-artist">Elvis Presley</p>
+                  </div>
+                  <div className="track-item">
+                    <div className="album album-10"></div>  
+                    <p className="track-title">Aladdin Sane</p>
+                    <p className="track-artist">David Bowie</p>
+                  </div>
+                  <div className="track-item">
+                    <div className="album album-11"></div>  
+                    <p className="track-title">Purple Rain</p>
+                    <p className="track-artist">Prince</p>
+                  </div>
+                  <div className="track-item">
+                    <div className="album album-12"></div>  
+                    <p className="track-title">Caravelle</p>
+                    <p className="track-artist">Jeremy Olander</p>
                   </div>
                 </div>
 

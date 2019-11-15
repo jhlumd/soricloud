@@ -19,7 +19,7 @@ class LoginInputForm extends React.Component {
     demoLogin(e) {
         e.preventDefault();
         this.props.login({
-            loginInput: 'jae3@gmail.com',
+            loginInput: 'test@gmail.com',
             password: '123456'
         });
         this.props.history.push('/tracks');
