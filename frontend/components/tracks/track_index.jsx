@@ -17,7 +17,7 @@ class TrackIndex extends React.Component {
     render() {
         if (this.props.currentUser) {
             return (
-                <div className="splash-background">
+                <div className="track-index-background">
 
                     <div className="navbar-container">
 
@@ -44,7 +44,7 @@ class TrackIndex extends React.Component {
                     <div className="space-for-nav"></div>
 
 
-                    <section className="splash-music">
+                    <section className="track-index-splash-music">
                         <h3 className="track-index-title">
                             Hear the latest posts from the people you’re following:
                         </h3>

@@ -1,6 +1,18 @@
+.track-index-background {
+   background-color: #f2f2f2;
+   width: 100%;
+   height: 2880px;
+}
+
 .space-for-nav {
     height: 46px;
     width: 100%;
+}
+
+.track-index-splash-music {
+   height: 2800px;
+   display: flex;
+   flex-direction: column;
 }
 
 .splash-tracks-index {
