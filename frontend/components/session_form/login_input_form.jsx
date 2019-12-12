@@ -6,7 +6,7 @@ class LoginInputForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loginInput: '',
+            loginInput: ''
         };
 
         this.update = this.update.bind(this);
