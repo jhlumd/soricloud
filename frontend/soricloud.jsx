@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.signup = signup;
     // window.login = login;
     // window.logout = logout;
-    // // window.receiveCurrentUser = receiveCurrentUser;
-    // // window.logoutCurrentUser = logoutCurrentUser;
-    // // window.receiveErrors = receiveErrors;
+    // window.receiveCurrentUser = receiveCurrentUser;
+    // window.logoutCurrentUser = logoutCurrentUser;
+    // window.receiveErrors = receiveErrors;
 
     // window.getState = store.getState;
     // window.dispatch = store.dispatch;
