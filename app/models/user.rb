@@ -7,7 +7,6 @@
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  image_url       :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -23,10 +22,10 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  # has_many :tracks,
-  #   primary_key: :id,
-  #   foreign_key: :user_id,
-  #   class_name: 'Track'
+  has_many :tracks,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Track'
 
   # has_many :comments,
   #   primary_key: :id,
