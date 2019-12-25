@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  private: false
+  user_id: 1
+  genre: MyString
+  description: MyString
+  tags: MyString
+
+two:
+  title: MyString
+  private: false
+  user_id: 1
+  genre: MyString
+  description: MyString
+  tags: MyString
