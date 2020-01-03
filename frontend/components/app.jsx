@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-    Route,
-    Redirect,
-    Switch,
-    Link
-} from 'react-router-dom';
+import { Route, Redirect, Switch, Link } from "react-router-dom";
 
 import Modal from './modal/modal';
 import SplashContainer from '../components/splash/splash_container';
