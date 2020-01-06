@@ -12,7 +12,7 @@ class Modal extends React.Component {
     };
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState/*, snapshot*/) {
     if (this.props.modal && !this.state.modalReady) {
       setTimeout(() => this.setState({ modalReady: true }), 200);
     } else if (!this.props.modal && this.state.modalReady) {
