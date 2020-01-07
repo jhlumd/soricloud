@@ -6,7 +6,7 @@ class LoginForm extends React.Component {
         this.state = {
             loginInput: props.loginInput,
             password: ''
-        }
+        };
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleRedirect = this.handleRedirect.bind(this);
@@ -74,7 +74,7 @@ class LoginForm extends React.Component {
                     </div>
                 </form>
             </div>
-        )
+        );
     }
 }
 
