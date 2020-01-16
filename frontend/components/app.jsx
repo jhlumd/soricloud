@@ -14,7 +14,6 @@ const App = () => (
             <Route path="/tracks" component={TrackIndex} />
             <Route path="/" component={SplashContainer} />
         </Switch>
-        {/* < MusicBar /> */}
     </>
 );
 
