@@ -31,6 +31,8 @@ export default class MainForm extends Component {
     this.dragOverHandler = this.dragOverHandler.bind(this);
     this.dragLeaveHandler = this.dragLeaveHandler.bind(this);
     this.handleTrackFile = this.handleTrackFile.bind(this);
+
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   handlePhotoFile(e) {
@@ -155,6 +157,23 @@ export default class MainForm extends Component {
     }
   }
 
+  handleCancel() {
+    this.setState({
+      title: "",
+      privacy: false,
+      audioFile: null,
+      dragFile: false,
+
+      description: "",
+      photoFile: null,
+      photoUrl: window.defaultTrackPhoto,
+
+      fileErrors: [],
+      titleErrors: [],
+      imageErrors: []
+    });
+  }
+
   render() {
     const { audioFile } = this.state;
 
@@ -168,6 +187,7 @@ export default class MainForm extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           handlePrivacy={this.handlePrivacy}
+          handleCancel={this.handleCancel}
         />
       );
     } else {

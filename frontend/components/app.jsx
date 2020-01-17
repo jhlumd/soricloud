@@ -14,7 +14,7 @@ const App = () => (
     {/* <ProtectedRoute path="/" component={NavBar} /> */}
     <Switch>
       <ProtectedRoute path="/upload" component={UploadPage} />
-      <Route path="/discover" component={TrackIndex} />
+      <ProtectedRoute path="/discover" component={TrackIndex} />
       <AuthRoute path="/" component={SplashContainer} />
     </Switch>
   </>

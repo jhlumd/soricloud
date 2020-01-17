@@ -10,7 +10,13 @@ export default function DetailsForm(props) {
     imageErrors,
     titleErrors
   } = props.allInfo;
-  const { handlePhotoFile, handleSubmit, handleChange, handlePrivacy } = props;
+  const {
+    handlePhotoFile,
+    handleSubmit,
+    handleChange,
+    handlePrivacy,
+    handleCancel
+  } = props;
 
   const showImageErrors =
     imageErrors.length > 0
@@ -120,6 +126,9 @@ export default function DetailsForm(props) {
         <div>
           <span className="red-splat">*</span>Required fields
         </div>
+        <button className="save-track" onClick={handleCancel}>
+          Cancel
+        </button>
         <button form="track-form" className="save-track">
           Save
         </button>
