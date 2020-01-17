@@ -26,6 +26,11 @@ export default class MainForm extends Component {
     this.handleRedirect = this.handleRedirect.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handlePrivacy = this.handlePrivacy.bind(this);
+
+    this.dropHandler = this.dropHandler.bind(this);
+    this.dragOverHandler = this.dragOverHandler.bind(this);
+    this.dragLeaveHandler = this.dragLeaveHandler.bind(this);
+    this.handleTrackFile = this.handleTrackFile.bind(this);
   }
 
   handlePhotoFile(e) {
@@ -44,7 +49,7 @@ export default class MainForm extends Component {
       }
     } else {
       this.setState({
-        imageErrors: ["Please upload an image file"]
+        imageErrors: ["Please choose an image file"]
       });
     }
   }
@@ -95,6 +100,60 @@ export default class MainForm extends Component {
     };
   }
 
+  handlePrivacy(e) {
+    const privacy = this.state.private;
+    if (privacy.toString() !== e.currentTarget.name) {
+      this.setState(prevState => {
+        return { private: !prevState.private };
+      });
+    }
+  }
+
+  dropHandler(e) {
+    e.preventDefault();
+    const file = e.dataTransfer.items[0].getAsFile();
+    if (file.type.includes("audio")) {
+      this.setState({
+        audioFile: file,
+        title: file.name,
+        fileErrors: [],
+        dragFile: false
+      });
+    } else {
+      this.setState({
+        fileErrors: ["Please choose an audio file"],
+        dragFile: false
+      });
+    }
+  }
+
+  dragOverHandler(e) {
+    e.preventDefault();
+    this.setState({ dragFile: true });
+  }
+
+  dragLeaveHandler(e) {
+    e.preventDefault();
+    this.setState({ dragFile: false });
+  }
+
+  handleTrackFile(e) {
+    const file = e.currentTarget.files[0];
+    if (file.type.includes("audio")) {
+      this.setState({
+        trackFile: file,
+        title: file.name,
+        errors: [],
+        dragFile: false
+      });
+    } else {
+      this.setState({
+        errors: ["Please choose an audio file"],
+        dragFile: false
+      });
+    }
+  }
+
   render() {
     const { audioFile } = this.state;
 
@@ -112,7 +171,14 @@ export default class MainForm extends Component {
       );
     } else {
       return (
-        <DragDropForm />
+        <DragDropForm
+          allInfo={this.state}
+          dropHandler={this.dropHandler}
+          dragOverHandler={this.dragOverHandler}
+          dragLeaveHandler={this.dragLeaveHandler}
+          handleTrackFile={this.handleTrackFile}
+          handlePrivacy={this.handlePrivacy}
+        />
       );
     }
   }
