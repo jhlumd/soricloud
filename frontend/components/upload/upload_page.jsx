@@ -26,7 +26,6 @@ const UploadPage = props => {
       <MainForm
         userId={props.userId}
         uploadTrack={props.uploadTrack}
-        openModal={props.openModal}
         history={props.history}
       />
     </div>
