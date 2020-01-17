@@ -1,4 +1,4 @@
-import * as TrackAPIUtil from '../util/track_api_util';
+import * as APIUtil from '../util/track_api_util';
 
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_TRACK = "RECEIVE_TRACK";
@@ -29,27 +29,21 @@ const receiveCurrentTrack = ({ track, user }) => ({
 });
 
 export const fetchTracks = () => dispatch =>
-  TrackAPIUtil.fetchAllTracks().then(tracks =>
-    dispatch(receiveTracks(tracks))
-  );
+  APIUtil.fetchAllTracks().then(tracks => dispatch(receiveTracks(tracks)));
 
 export const uploadTrack = formData => dispatch =>
-  TrackAPIUtil.uploadTrack(formData).then(track =>
-    dispatch(receiveTrack(track))
-  );
+  APIUtil.uploadTrack(formData).then(track => dispatch(receiveTrack(track)));
 
 export const fetchTrack = id => dispatch =>
-  TrackAPIUtil.fetchTrack(id).then(track => dispatch(receiveTrack(track)));
+  APIUtil.fetchTrack(id).then(track => dispatch(receiveTrack(track)));
 
 export const updateTrack = formData => dispatch =>
-  TrackAPIUtil.updateTrack(formData).then(track =>
-    dispatch(receiveTrack(track))
-  );
+  APIUtil.updateTrack(formData).then(track => dispatch(receiveTrack(track)));
 
 export const deleteTrack = id => dispatch =>
-  TrackAPIUtil.deleteTrack(id).then(track => dispatch(removeTrack(track)));
+  APIUtil.deleteTrack(id).then(track => dispatch(removeTrack(track)));
 
 export const fetchCurrentTrack = id => dispatch =>
-  TrackAPIUtil.fetchTrack(id).then(payload =>
+  APIUtil.fetchTrack(id).then(payload =>
     dispatch(receiveCurrentTrack(payload))
   );
