@@ -1,7 +1,11 @@
 import React from 'react';
-import MainForm from './main_form';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-export default function UploadPage(props) {
+import MainForm from './main_form';
+// import {  } from '../../actions/track_actions';
+
+const UploadPage = props => {
   const handleDrag = e => {
     e.preventDefault();
   };
@@ -28,3 +32,13 @@ export default function UploadPage(props) {
     </div>
   );
 }
+
+const mstp = state => ({
+  userId: state.session.id
+});
+
+const mdtp = dispatch => ({
+  uploadTrack: formData => dispatch(uploadTrack(formData))
+});
+
+export default withRouter(connect(mstp, mdtp)(UploadPage));
