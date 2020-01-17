@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import MainForm from './main_form';
-// import {  } from '../../actions/track_actions';
+import { uploadTrack } from '../../actions/track_actions';
 
 const UploadPage = props => {
   const handleDrag = e => {
