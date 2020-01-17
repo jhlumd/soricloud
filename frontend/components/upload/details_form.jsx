@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function DetailsForm(props) {
   const { audioFile, photoUrl } = props.allInfo;
+  const { handlePhotoFile } = props;
 
   return (
     <>
@@ -28,7 +29,7 @@ export default function DetailsForm(props) {
                     <input
                       id="files"
                       type="file"
-                      onChange={this.handlePhotoFile}
+                      onChange={handlePhotoFile}
                     />
                   </div>
                 </label>
