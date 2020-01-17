@@ -47,7 +47,7 @@ export default function DragDropForm(props) {
             <input
               type="radio"
               name="false"
-              checked={private ? "" : "checked"}
+              checked={privacy ? "" : "checked"}
               onChange={handlePrivacy}
             />{" "}
             <label htmlFor="public">
@@ -56,7 +56,7 @@ export default function DragDropForm(props) {
             <input
               type="radio"
               name="true"
-              checked={private ? "checked" : ""}
+              checked={privacy ? "checked" : ""}
               onChange={handlePrivacy}
             />{" "}
             <label htmlFor="private">
