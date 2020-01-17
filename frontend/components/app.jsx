@@ -13,9 +13,9 @@ const App = () => (
     <Modal />
     {/* <ProtectedRoute path="/" component={NavBar} /> */}
     <Switch>
-      <Route path="/upload" component={UploadPage} />
+      <ProtectedRoute path="/upload" component={UploadPage} />
       <Route path="/discover" component={TrackIndex} />
-      <Route path="/" component={SplashContainer} />
+      <AuthRoute path="/" component={SplashContainer} />
     </Switch>
   </>
 );

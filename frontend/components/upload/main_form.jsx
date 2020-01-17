@@ -141,12 +141,13 @@ export default class MainForm extends Component {
     const file = e.currentTarget.files[0];
     if (file.type.includes("audio")) {
       this.setState({
-        trackFile: file,
+        audioFile: file,
         title: file.name,
         errors: [],
         dragFile: false
       });
     } else {
+      alert("Please choose an audio file");
       this.setState({
         errors: ["Please choose an audio file"],
         dragFile: false

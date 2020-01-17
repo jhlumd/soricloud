@@ -1,0 +1,411 @@
+.upload-page {
+  position: absolute;
+  top: 47px;
+  width: 100%;
+}
+
+.upload-page-nav {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 0 30px 2px;
+  height: 48px;
+  font-family: 'Interstate';
+}
+
+.upload-page-nav-links {
+  display: flex;
+  height: 48px;
+}
+
+.upload-page-nav-button {
+  height: 100%;
+  border: none;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin-right: 24px;
+  padding: 15px 0;
+}
+
+.upload-page-nav-link {
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  border: none;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin-right: 24px;
+  padding: 16px 0 15px;
+}
+
+.upload-page-nav-link:hover {
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+#for-creators {
+  border: none;
+  cursor: default;
+  margin-right: 0;
+}
+
+.active2 {
+  color: #f50;
+  background: none;
+  text-decoration: none;
+  border-bottom: 1px solid #f50;
+}
+
+.active2:hover {
+  border-bottom: 1px solid #f50;
+  cursor: default;
+}
+
+.track-link-placeholder {
+  width: 71.2px;
+  height: 48px;
+}
+
+.track-errors {
+  display: flex;
+  flex-direction: column;
+}
+
+#errors2 {
+  color: #cf0000;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 17px;
+}
+
+.track-form-container {
+  display: block;
+  margin: 0 auto;
+  margin-top: 90px;
+  width: 798px;
+  height: 386px;
+  box-shadow: 0 2px 12px -5px rgba(0,0,0,.1);
+  border-radius: 2px;
+  border: 1px solid #f2f2f2;
+}
+
+.upload-file-container {
+  display: flex;
+  flex-direction: column;
+  height: 344px;
+  width: 798px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.upload-file-container h1 {
+  font-family: 'Interstate';
+  font-size: 22px;
+  margin-bottom: 19px;
+  margin-top: 3px;
+}
+
+.file-type-info {
+  text-align: center;
+  font-size: 12px;
+  width: 798px;
+  height: 16px;
+  padding-bottom: 26px;
+  font-family: "Lucida Grande";
+}
+
+#files {
+  visibility: hidden;
+  position: absolute;
+  width: 798px;
+  min-height: 47px;
+}
+
+.upload-button {
+  height: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #f50;
+  border: none;
+  margin: 0;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  border-radius: 3px;
+  justify-content: center;
+  width: 300px;
+  text-align: center;
+  padding: 0;
+  color: white;
+  font-weight: 100;
+  line-height: 0.9em;
+  cursor: pointer;
+  font-family: "Interstate";
+}
+
+.invisible-upload-button {
+  padding: 7px 51px 9px;
+  cursor: pointer;
+}
+
+.playlist-check {
+  margin-right: 5px;
+}
+
+.playlist-question {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
+  font-family: "Lucida Grande"
+}
+
+.private-question {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 13px;
+  margin-bottom: 99px;
+  font-family: "Lucida Grande"
+}
+
+.privacy {
+  margin: 0 6px 0 8px;
+  cursor: pointer; 
+}
+
+.public {
+  margin-right: 9px;
+  cursor: pointer;
+}
+
+.private {
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  cursor: pointer;
+}
+
+.extra-files {
+  margin: 0 auto;
+  margin-top: 18px;
+  width: 796px;
+  height: 178px;
+  border-color: transparent;
+  border: 2px dashed #F2F2F2;
+}
+
+.upload-prompt {
+  margin: 35px auto;
+  margin-bottom: 18px;
+  width: 796px;
+  height: 42px;
+  background: #f5f5f5;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+}
+
+.track-form-final-container {
+  box-sizing: border-box;
+  padding: 27px;
+  margin: 0 auto;
+  width: 801px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 2px 12px -5px rgba(0,0,0,.1);
+  border-bottom: 1px solid #f2f2f2;
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-form-tabs {
+  width: 100%;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.basic-info-tab {
+  color: #f50;
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #f50;
+  font-family: 'Interstate reg';
+}
+
+.border {
+  height: 5px;
+  width: 400px;
+  display: inline-block;
+  margin-bottom: -5px;
+}
+
+.blue {
+  background-color: #06c;
+  background-image: linear-gradient(to right,#2189c9,#1c75c9);
+  margin-left: 220px;
+  margin-right: 1px;
+}
+
+.orange {
+  background-color: #f50;
+  background-image: linear-gradient(to right,#fd7722,#fc6621);
+}
+
+.upload-form-innards {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 27px 0; 
+}
+
+.track-image {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+}
+
+.upload-form-innards-form {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: space-between;
+  padding: 8px 0 0 20px;
+  font-family: 'Lucida Grande';
+  font-size: 12px;
+}
+
+.file-name {
+  font-family: 'Lucida Grande';
+  font-size: 12px;
+  color: #666666;
+  margin: 10px auto -10px;
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
+.track-title-input {
+  width: 449px;
+  display: inline-block;
+  font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color .1s;
+}
+
+.track-title-input:focus {
+  outline: 0;
+  border: 1px solid #999;
+}
+
+.description {
+  margin-top: 15px;
+  margin-bottom: -11px;
+}
+.description-input {
+  height: 131px;
+  max-width: 450px;
+}
+
+.save-track-container {
+  margin: 0 auto;
+  padding: 27px;
+  box-sizing: border-box;
+  width: 801px;
+  height: 68px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e2e2e2;
+  border-top: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  font-size: 12px;
+  font-family: 'Lucida Grande';
+}
+
+.save-track {
+  font-family: 'Interstate reg';
+  width: 53.14px;
+  height: 26px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: 14px;
+  color: white;
+  background: #f50;
+  border: none;
+  padding-top: 3px;
+}
+
+.track-image-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 260px;
+  height: 260px;
+}
+
+.edit-form {
+  background: white;
+  border: none;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.edit-form-bottom {
+  border: none;
+}
+
+.drag-over-modal-background {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(242,242,242,.9);
+  z-index: 14;
+}
+
+
+
+.drag-over-modal-child {
+  display: none;
+  position: absolute;
+  top: 380px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.show-drag-over {
+  display: block;
+}
+
+.drag-over-file-upload {
+  width: 802px;
+  height: 390px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: 'Interstate reg';
+  color: white;
+  font-size: 36px;
+  text-shadow:
+  -1px -1px 0 gray,
+  1px -1px 0 gray,
+  -1px 1px 0 gray,
+  1px 1px 0 gray;
+}
