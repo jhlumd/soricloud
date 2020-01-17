@@ -66,8 +66,8 @@ export default class MainForm extends Component {
       formData.append("track[audio_file]", this.state.audioFile);
       formData.append("track[description]", this.state.description);
       formData.append("track[photo]", this.state.photoFile);
-      this.props.uploadTrack(formData).then(payload => {
-        return this.handleRedirect(payload);
+      this.props.uploadTrack(formData).then(res => {
+        return this.handleRedirect(res);
       });
     } else {
       const formData = new FormData();
@@ -76,14 +76,14 @@ export default class MainForm extends Component {
       formData.append("track[private]", this.state.privacy);
       formData.append("track[audio_file]", this.state.audioFile);
       formData.append("track[description]", this.state.description);
-      this.props.uploadTrack(formData).then(payload => {
-        return this.handleRedirect(payload);
+      this.props.uploadTrack(formData).then(res => {
+        return this.handleRedirect(res);
       });
     }
   }
 
-  handleRedirect(payload) {
-    return this.props.history.push(`/${payload.track.id}`);
+  handleRedirect(res) {
+    return this.props.history.push(`/${res.track.id}`);
   }
 
   handleChange(field) {
