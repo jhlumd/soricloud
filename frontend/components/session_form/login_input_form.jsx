@@ -22,7 +22,7 @@ class LoginInputForm extends React.Component {
       loginInput: "test@gmail.com",
       password: "123456"
     });
-    this.props.history.push("/tracks");
+    this.props.history.push("/discover");
     this.props.closeModal();
   }
 
