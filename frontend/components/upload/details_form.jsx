@@ -1,8 +1,16 @@
 import React from 'react';
 
 export default function DetailsForm(props) {
-  const { audioFile, photoUrl, imageErrors, titleErrors } = props.allInfo;
-  const { handlePhotoFile, handleSubmit } = props;
+  const {
+    title,
+    private,
+    description,
+    audioFile,
+    photoUrl,
+    imageErrors,
+    titleErrors
+  } = props.allInfo;
+  const { handlePhotoFile, handleSubmit, handleChange, handlePrivacy } = props;
 
   const showImageErrors =
     imageErrors.length > 0
@@ -15,7 +23,7 @@ export default function DetailsForm(props) {
         })
       : null;
   
-  const showtitleErrors =
+  const showTitleErrors =
     titleErrors.length > 0
       ? titleErrors.map((error, i) => {
           return (
@@ -64,19 +72,19 @@ export default function DetailsForm(props) {
                 <input
                   className="track-title-input"
                   type="text"
-                  value={this.state.title}
-                  onChange={this.handleChange("title")}
+                  value={title}
+                  onChange={handleChange("title")}
                 />
               </label>
-              {titleErrors}
+              {showTitleErrors}
               <label>
                 <h4 className="description">Description</h4>
                 <br />
                 <textarea
                   className="track-title-input description-input"
                   type="textarea"
-                  value={this.state.description}
-                  onChange={this.handleChange("description")}
+                  value={description}
+                  onChange={handleChange("description")}
                   placeholder="Describe your track"
                 />
               </label>
@@ -87,8 +95,8 @@ export default function DetailsForm(props) {
               <input
                 type="radio"
                 name="false"
-                checked={this.state.private ? "" : "checked"}
-                onChange={this.handlePrivacy}
+                checked={private ? "" : "checked"}
+                onChange={handlePrivacy}
               />{" "}
               <label htmlFor="public">
                 <span className="public">Public</span>
@@ -98,8 +106,8 @@ export default function DetailsForm(props) {
               <input
                 type="radio"
                 name="true"
-                checked={this.state.private ? "checked" : ""}
-                onChange={this.handlePrivacy}
+                checked={private ? "checked" : ""}
+                onChange={handlePrivacy}
               />{" "}
               <label htmlFor="private">
                 <span className="public">Private</span>

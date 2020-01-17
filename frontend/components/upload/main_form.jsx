@@ -23,6 +23,9 @@ export default class MainForm extends Component {
 
     this.handlePhotoFile = this.handlePhotoFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRedirect = this.handleRedirect.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handlePrivacy = this.handlePrivacy.bind(this);
   }
 
   handlePhotoFile(e) {
@@ -56,8 +59,8 @@ export default class MainForm extends Component {
       formData.append("track[audio_file]", this.state.audioFile);
       formData.append("track[description]", this.state.description);
       formData.append("track[photo]", this.state.photoFile);
-      this.props.uploadTrack(formData).then(arg => {
-        return this.handleRedirect(arg);
+      this.props.uploadTrack(formData).then(payload => {
+        return this.handleRedirect(payload);
       });
     } else {
       const formData = new FormData();
@@ -66,10 +69,30 @@ export default class MainForm extends Component {
       formData.append("track[private]", this.state.private);
       formData.append("track[audio_file]", this.state.audioFile);
       formData.append("track[description]", this.state.description);
-      this.props.uploadTrack(formData).then(arg => {
-        return this.handleRedirect(arg);
+      this.props.uploadTrack(formData).then(payload => {
+        return this.handleRedirect(payload);
       });
     }
+  }
+
+  handleRedirect(payload) {
+    return this.props.history.push(`/${payload.track.id}`);
+  }
+
+  handleChange(field) {
+    return e => {
+      if (field === "title" && e.currentTarget.value === "") {
+        this.setState({
+          [field]: e.currentTarget.value,
+          titleErrors: ["Enter a title."]
+        });
+      } else {
+        this.setState({
+          [field]: e.currentTarget.value,
+          titleErrors: []
+        });
+      }
+    };
   }
 
   render() {
@@ -83,6 +106,8 @@ export default class MainForm extends Component {
           uploadTrack={this.props.uploadTrack}
           handlePhotoFile={this.handlePhotoFile}
           handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          handlePrivacy={this.handlePrivacy}
         />
       );
     } else {
