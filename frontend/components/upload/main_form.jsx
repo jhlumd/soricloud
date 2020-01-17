@@ -27,9 +27,9 @@ export default class MainForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handlePrivacy = this.handlePrivacy.bind(this);
 
-    this.dropHandler = this.dropHandler.bind(this);
-    this.dragOverHandler = this.dragOverHandler.bind(this);
-    this.dragLeaveHandler = this.dragLeaveHandler.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
+    this.handleDragOver = this.handleDragOver.bind(this);
+    this.handleDragLeave = this.handleDragLeave.bind(this);
     this.handleTrackFile = this.handleTrackFile.bind(this);
 
     this.handleCancel = this.handleCancel.bind(this);
@@ -111,7 +111,7 @@ export default class MainForm extends Component {
     }
   }
 
-  dropHandler(e) {
+  handleDrop(e) {
     e.preventDefault();
     const file = e.dataTransfer.items[0].getAsFile();
     if (file.type.includes("audio")) {
@@ -129,12 +129,12 @@ export default class MainForm extends Component {
     }
   }
 
-  dragOverHandler(e) {
+  handleDragOver(e) {
     e.preventDefault();
     this.setState({ dragFile: true });
   }
 
-  dragLeaveHandler(e) {
+  handleDragLeave(e) {
     e.preventDefault();
     this.setState({ dragFile: false });
   }
@@ -194,9 +194,9 @@ export default class MainForm extends Component {
       return (
         <DragDropForm
           allInfo={this.state}
-          dropHandler={this.dropHandler}
-          dragOverHandler={this.dragOverHandler}
-          dragLeaveHandler={this.dragLeaveHandler}
+          handleDrop={this.handleDrop}
+          handleDragOver={this.handleDragOver}
+          handleDragLeave={this.handleDragLeave}
           handleTrackFile={this.handleTrackFile}
           handlePrivacy={this.handlePrivacy}
         />

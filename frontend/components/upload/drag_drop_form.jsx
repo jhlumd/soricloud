@@ -3,9 +3,9 @@ import React from 'react';
 export default function DragDropForm(props) {
   const { fileErrors, privacy, dragFile } = props.allInfo;
   const {
-    dropHandler,
-    dragOverHandler,
-    dragLeaveHandler,
+    handleDrop,
+    handleDragOver,
+    handleDragLeave,
     handleTrackFile,
     handlePrivacy
   } = props;
@@ -24,8 +24,8 @@ export default function DragDropForm(props) {
   return (
     <div
       className="track-form-container"
-      onDrop={dropHandler}
-      onDragOver={dragOverHandler}
+      onDrop={handleDrop}
+      onDragOver={handleDragOver}
     >
       <div className="upload-file-container">
         <h1>Drag and drop your track here</h1>
@@ -72,7 +72,7 @@ export default function DragDropForm(props) {
         className={`drag-over-modal-background ${
           dragFile ? "show-drag-over" : ""
         }`}
-        onDragLeave={dragLeaveHandler}
+        onDragLeave={handleDragLeave}
       >
         <div
           className={`drag-over-modal-child ${
