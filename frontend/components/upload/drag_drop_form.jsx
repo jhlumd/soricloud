@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function DragDropForm(props) {
-  const { fileErrors, private, dragFile } = props.allInfo;
+  const { fileErrors, privacy, dragFile } = props.allInfo;
   const {
     dropHandler,
     dragOverHandler,

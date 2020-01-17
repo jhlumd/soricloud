@@ -8,7 +8,7 @@ export default class MainForm extends Component {
     this.state = {
       userId: this.props.userId,
       title: '',
-      private: false,
+      privacy: false,
       audioFile: null,
       dragFile: false,
 
@@ -60,7 +60,7 @@ export default class MainForm extends Component {
       const formData = new FormData();
       formData.append("track[user_id]", this.state.userId);
       formData.append("track[title]", this.state.title);
-      formData.append("track[private]", this.state.private);
+      formData.append("track[private]", this.state.privacy);
       formData.append("track[audio_file]", this.state.audioFile);
       formData.append("track[description]", this.state.description);
       formData.append("track[photo]", this.state.photoFile);
@@ -71,7 +71,7 @@ export default class MainForm extends Component {
       const formData = new FormData();
       formData.append("track[user_id]", this.state.userId);
       formData.append("track[title]", this.state.title);
-      formData.append("track[private]", this.state.private);
+      formData.append("track[private]", this.state.privacy);
       formData.append("track[audio_file]", this.state.audioFile);
       formData.append("track[description]", this.state.description);
       this.props.uploadTrack(formData).then(payload => {
@@ -101,10 +101,10 @@ export default class MainForm extends Component {
   }
 
   handlePrivacy(e) {
-    const privacy = this.state.private;
+    const { privacy } = this.state;
     if (privacy.toString() !== e.currentTarget.name) {
       this.setState(prevState => {
-        return { private: !prevState.private };
+        return { privacy: !prevState.privacy };
       });
     }
   }

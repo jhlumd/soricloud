@@ -3,7 +3,7 @@ import React from 'react';
 export default function DetailsForm(props) {
   const {
     title,
-    private,
+    privacy,
     description,
     audioFile,
     photoUrl,
@@ -95,7 +95,7 @@ export default function DetailsForm(props) {
               <input
                 type="radio"
                 name="false"
-                checked={private ? "" : "checked"}
+                checked={privacy ? "" : "checked"}
                 onChange={handlePrivacy}
               />{" "}
               <label htmlFor="public">
@@ -106,7 +106,7 @@ export default function DetailsForm(props) {
               <input
                 type="radio"
                 name="true"
-                checked={private ? "checked" : ""}
+                checked={privacy ? "checked" : ""}
                 onChange={handlePrivacy}
               />{" "}
               <label htmlFor="private">
