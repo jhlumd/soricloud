@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
     }
 
     handleRedirect() {
-        this.props.history.push('/tracks');
+        this.props.history.push('/discover');
     }
 
     switchModal() {

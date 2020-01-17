@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
 
     handleRedirect() {
         this.props.closeModal();
-        this.props.history.push('/tracks');
+        this.props.history.push('/discover');
     }
 
     switchModal() {
