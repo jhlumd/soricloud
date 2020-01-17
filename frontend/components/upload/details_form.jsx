@@ -1,8 +1,30 @@
 import React from 'react';
 
 export default function DetailsForm(props) {
-  const { audioFile, photoUrl } = props.allInfo;
-  const { handlePhotoFile } = props;
+  const { audioFile, photoUrl, imageErrors, titleErrors } = props.allInfo;
+  const { handlePhotoFile, handleSubmit } = props;
+
+  const showImageErrors =
+    imageErrors.length > 0
+      ? imageErrors.map((error, i) => {
+          return (
+            <li id="errors2" key={`${i}`}>
+              {error}
+            </li>
+          );
+        })
+      : null;
+  
+  const showtitleErrors =
+    titleErrors.length > 0
+      ? titleErrors.map((error, i) => {
+          return (
+            <li id="errors2" key={`${i}`}>
+              {error}
+            </li>
+          );
+        })
+      : null;
 
   return (
     <>
@@ -26,20 +48,16 @@ export default function DetailsForm(props) {
                   <div className="inside">
                     <img src={window.cameraIcon} />
                     <p>Upload image</p>
-                    <input
-                      id="files"
-                      type="file"
-                      onChange={handlePhotoFile}
-                    />
+                    <input id="files" type="file" onChange={handlePhotoFile} />
                   </div>
                 </label>
               </div>
             </div>
-            {imageErrors}
+            {showImageErrors}
           </div>
 
           <div className="upload-form-innards-form">
-            <form id="track-form" onSubmit={this.handleSubmit}>
+            <form id="track-form" onSubmit={handleSubmit}>
               <label>
                 Title <span className="red-splat">*</span>
                 <br />
