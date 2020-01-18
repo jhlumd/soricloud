@@ -35,7 +35,7 @@ class Api::UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
 
     if @user 
-      render "api/users/show"
+      render "api/users/showpage"
     else
       render json: ['That user does not exist.'], status: 422
     end
