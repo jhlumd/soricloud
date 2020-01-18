@@ -18,7 +18,7 @@ class Waveform extends Component {
     this.drawWave();
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     const { percentage, active } = this.props;
     if (this.state.ready && active && percentage && percentage < 1) {
       this.wavesurfer.seekTo(percentage);
