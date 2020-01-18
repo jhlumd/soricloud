@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import TrackPlayButton from "../tracks/track_play_button";
+import PlayButton from "../tracks/play_button";
 // import SeekBar from "../track_player/seek_bar";
 import Waveform from "../waveform/waveform";
 
@@ -82,11 +82,10 @@ export default class TrackShowPage extends Component {
       description = track.description;
       trackPhoto = <img className="track-photo" src={track.photoUrl} />;
       pressPlayButton = (
-        <TrackPlayButton
+        <PlayButton
           trackId={track.id}
-          fetchCurrentTrack={this.props.fetchCurrentTrack}
-          playButton={true}
-          class={"large"}
+          playButtonShow={true}
+          sizeType={"large"}
         />
       );
       if (track.user_id === currentUserId) {

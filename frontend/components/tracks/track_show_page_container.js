@@ -24,10 +24,10 @@ const mstp = (state, ownProps) => {
   };
 };
 
-const msdp = dispatch => ({
+const mdtp = dispatch => ({
   fetchTrack: id => dispatch(fetchTrack(id)),
   deleteTrack: id => dispatch(deleteTrack(id)),
   fetchCurrentTrack: id => dispatch(fetchCurrentTrack(id))
 });
 
-export default withRouter(connect(mstp, msdp)(TrackShowPage));
+export default withRouter(connect(mstp, mdtp)(TrackShowPage));
