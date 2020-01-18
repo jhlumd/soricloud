@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { closeModal } from '../../actions/modal_actions';
-import LoginInputFormContainer from '../session_form/login_input_form_container';
+import LoginInputFormC from '../session_form/login_input_form_container';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Modal extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps, prevState/*, snapshot*/) {
+  componentDidUpdate() {
     if (this.props.modal && !this.state.modalReady) {
       setTimeout(() => this.setState({ modalReady: true }), 200);
     } else if (!this.props.modal && this.state.modalReady) {
@@ -27,7 +27,7 @@ class Modal extends React.Component {
     let component;
     switch (this.props.modal) {
       case "loginInput":
-        component = <LoginInputFormContainer />;
+        component = <LoginInputFormC />;
         break;
       default:
         return null;
@@ -49,16 +49,8 @@ class Modal extends React.Component {
   }
 }
 
-const mstp = (state) => {
-    return {
-        modal: state.ui.modal,
-    };
-};
+const mstp = state => ({ modal: state.ui.modal });
 
-const mdtp = dispatch => {
-    return {
-        closeModal: () => dispatch(closeModal())
-    };
-};
+const mdtp = dispatch => ({ closeModal: () => dispatch(closeModal()) });
 
 export default connect(mstp, mdtp)(Modal);
