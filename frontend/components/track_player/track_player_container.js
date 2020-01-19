@@ -11,7 +11,7 @@ import {
 } from "../../actions/track_player_actions";
 import TrackPlayer from "./track_player";
 
-const mstp = (state, ownProps) => {
+const mstp = state => {
   const { currentTrack } = state.ui;
   const {
     playing,
