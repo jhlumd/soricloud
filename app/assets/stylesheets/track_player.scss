@@ -1,0 +1,266 @@
+.track-player-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: space-around;
+  bottom: 0;
+  z-index: 100;
+  height: 48px;
+  border-top: 1px solid #cecece;
+  width: 100%;
+  background: #f2f2f2;
+}
+
+.track-player {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 824px;
+}
+
+.track-player img {
+  width: 14px;
+  height: 14px;
+  margin: 0 10px;
+}
+
+
+.times {
+  font-family: 'Lucida Grande';
+  font-size: 11px;
+  margin: 5px;
+}
+
+.current-time {
+  color: #f50;
+}
+
+.pause-play {
+  padding: 17px 0;
+}
+
+.pause-play:hover {
+  cursor: pointer;
+}
+
+.ball {
+  display: none;
+  position: absolute;
+  background: #f50;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.progress-bar-container {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding: 10px;
+}
+
+.progress-bar-container:hover {
+  cursor: pointer;
+}
+
+.show {
+  display: block;
+}
+
+.progress-bar-container {
+  padding: 20px;
+}
+
+.track-player-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 48px;
+  width: 400px;
+}
+
+.track-player-photo {
+  width: 40px;
+  height: 40px;
+}
+
+.track-player-user-info {
+  font-family: 'Lucida Grande';
+  font-size: 11px;
+  display: flex;
+  height: 36px;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-left: 5px;
+}
+
+.author {
+  color: #a9a9a9;
+  cursor: pointer;
+}
+
+.author:hover {
+  color: black;
+}
+
+.title {
+  color: #666666;
+  cursor: pointer;
+}
+
+.title:hover {
+  color: black;
+}
+
+.volume-slider-container {
+  display: none;
+  position: absolute;
+  left: 663px;
+  bottom: 43px;
+  width: 20px;
+  height: 150px;
+  padding: 0;
+  background: #f2f2f2;
+  border: 1px solid #cecece;
+  padding: 1px 5px 21px 4px;
+  animation-name: volume-height;
+  animation-duration: 0.1s;
+}
+
+.triangle {
+  display: none;
+  position: absolute;
+  left: 672px;
+  bottom: 37px;
+  transform: rotate(45deg);
+  background: #f2f2f2;
+  border: 1px solid #cecece;
+  border-top: none;
+  border-left: none;
+  width: 12px;
+  height: 12px;
+  animation-name: triangle-height;
+  animation-duration: 0.1s;
+}
+
+@keyframes volume-height {
+  from {height: 0;}
+  to {height: 150px;}
+}
+
+@keyframes triangle-height {
+  from {height: 0;}
+  to {height: 12px;}
+}
+
+.show-volume {
+  display: inline-block;
+  animation-name: hover-effect;
+  animation-duration: 0.1s;
+}
+
+@keyframes triangle-height {
+  from {display: none;}
+  to {display: inline-block;}
+}
+
+
+.volume-slider {
+  -webkit-appearance: none;
+  width: 150px;
+  height: 1px;
+  margin: 10px;
+  transform-origin: 75px 75px;
+  transform: rotate(-90deg);
+  background-color: #f50;
+  cursor: pointer;
+  outline: none;
+  animation-name: show-volume;
+  animation-duration: 0.1s;
+}
+
+@keyframes show-volume {
+  from {width: 0}
+  to {width: 150px}
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; 
+  background: #f50;
+  cursor: pointer;
+  animation-name: show-slider;
+  animation-duration: 0.1s;
+}
+
+@keyframes show-slider {
+  from {width: 0}
+  to {width: 10px}
+}
+
+.track-slider-button {
+  display: flex;
+  position: absolute;
+  right: 85px;
+  top: 90px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  padding: 2px 11px 2px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background: #fff;
+  z-index: 9;
+  cursor: pointer;
+}
+
+.track-slider-arrow {
+  height: 6px;
+  width: 6px;
+  border-right: 1px solid #333;
+  border-top: 1px solid #333;
+  transform: rotate(45deg) translate(-1px,1px);
+}
+
+.left-button {
+  display: flex;
+  position: absolute;
+  left: -14px;
+  top: 90px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  padding: 2px 11px 2px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background: #fff;
+  z-index: 9;
+  cursor: pointer;
+}
+
+
+.left-arrow {
+  height: 6px;
+  width: 6px;
+  border-right: 1px solid #333;
+  border-top: 1px solid #333;
+  transform: rotate(225deg) translate(-1px,1px);
+}
+
+.orange-slider {
+  border: 1px solid #f50;
+}
+
+.orange-arrow {
+  border-right: 1px solid #f50;
+  border-top: 1px solid #f50;
+}

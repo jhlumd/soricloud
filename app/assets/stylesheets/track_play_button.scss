@@ -1,0 +1,50 @@
+.play-button {
+  display: none;
+  background: #f50;
+  width: 40px;
+  height: 40px;
+  padding: 8px 8px 8px 10px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.show {
+  display: block;
+}
+
+.in-play-button {
+  filter: contrast(150%);
+}
+
+.large {
+  width: 45px;
+  height: 45px;
+}
+
+.small {
+  width: 19px;
+  height: 19px;
+}
+
+ 
+.play-button img {
+  width: 30px;
+  height: 33px;
+  margin: 3px 0 0 4px;
+}
+    
+.small img {
+  width: 16px;
+  height: 16px;
+  margin: 1px 0 0 0.5px;
+}
+
+.large img {
+  width: 30px;
+  height: 33px;
+  margin: 5px 0 0 6px;
+}
+
+.play-button:hover {
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PlayButton from "../tracks/play_button";
-// import SeekBar from "../track_player/seek_bar";
+import SeekBar from "../track_player/seek_bar";
 import Waveform from "../waveform/waveform";
 
 export default class TrackShowPage extends Component {

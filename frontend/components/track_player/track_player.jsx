@@ -39,7 +39,7 @@ export default class TrackPlayer extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.currentTrack) {
+    if (prevProps.currentTrack) {
       const {
         seekPercentage,
         updateCurrentTime,
@@ -78,6 +78,7 @@ export default class TrackPlayer extends Component {
 
   changePercentage(seekPercentage) {
     const newTime = this.props.duration * (seekPercentage / 100);
+    // debugger;
     this.audioPlayer.current.currentTime = newTime;
     this.props.clearSeekPercentage();
     this.props.updateCurrentTime(newTime);
@@ -135,7 +136,7 @@ export default class TrackPlayer extends Component {
   }
   
   render() {
-    if (!this.props.currentTrack) {
+    if (!this.state.currentTrack) {
       return null;
     }
 
@@ -185,6 +186,7 @@ export default class TrackPlayer extends Component {
         onChange={this.changeVolume}
       />
     );
+    // debugger;
     return (
       <>
         <audio

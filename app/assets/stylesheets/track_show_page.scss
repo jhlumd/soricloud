@@ -1,0 +1,240 @@
+.track-show-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 46px;
+}
+
+.track-show-page-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 auto;
+  background-image: linear-gradient(135deg,#846170,#70929c);
+  width: 1240px;
+  min-height: 380px;
+  max-height: 380px;
+  box-sizing: border-box;
+  padding: 20px 20px 20px 30px;
+}
+
+.track-info {
+  margin-left: 10px;
+}
+
+.track-info li {
+  width: max-content;
+  background: rgba(0, 0, 0, 0.8);
+  font-family: 'Interstate';
+}
+
+.track-username {
+  margin-bottom: 4px;    
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 2px 7px 3px;
+  cursor: pointer;
+}
+
+.track-username:hover {
+  filter: contrast(500%);
+}
+
+.track-title, .user-showpage-username {
+  font-size: 24px;
+  color: white;
+  padding: 4px 7px;
+  line-height: 30px;
+}
+
+.track-photo-container {
+  display: flex;
+  align-items: flex-start;
+  width: fit-content;
+}
+
+.track-photo {
+  width: 340px;
+  height: 340px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+.track-time-stamp {
+  color: white;
+  font-family: 'Interstate';
+  margin-right: 32px;
+  margin-top: 13px;
+  font-size: 16px;
+}
+
+.edit-button img {
+  max-width: 15px;
+  max-height: 15px;
+  margin-right: 4px;
+}
+
+.edit-button {
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  width: fit-content;
+  font-family: 'Interstate';
+  padding: 5px 10px;
+  box-sizing: border-box;
+  margin-right: 5px;
+}
+
+.edit-buttons {
+  display: block;
+}
+
+.image-edit-button {
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  width: fit-content;
+  height: fit-content;
+  font-family: 'Interstate';
+  padding: 2px 6px;
+  box-sizing: border-box;
+  margin: 5px;
+  margin: 20px;
+  z-index: 100;
+  background: white;
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+.image-edit-button p:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.image-edit-button:hover {
+  cursor: pointer;
+  opacity: 0.8;     
+}
+
+.image-edit-button img {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.inside {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+ .track-show-page-player {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.track-show-page-play {
+  display: block;
+  background: #f50;
+  width: 40px;
+  height: 40px;
+  padding: 10px 10px 10px 15px;
+  border-radius: 50%;
+  margin: 10px 10px 0 0;
+}
+
+.track-show-page-play:hover {
+  cursor: pointer;
+}
+
+.track-show-page-player-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 330px;
+}
+
+.show-current-time, .user-showpage-current-time {
+  background: black;
+  color: #f50;
+  font-size: 10px;
+  font-family: 'Lucida Grande';
+  width: fit-content;
+  padding: 2px;
+  position: absolute;
+  top: 296px;
+  left: 32px;
+  z-index: 10;
+}
+
+.show-track-time, .user-showpage-track-timestamp {
+  background: black;
+  color: #959595;
+  font-size: 10px;
+  font-family: 'Lucida Grande';
+  width: fit-content;
+  padding: 2px;
+  position: absolute;
+  left: 779px;
+  top: 296px;
+  z-index: 10;
+}
+
+.show-page-bottom {
+  width: 840px;
+  height: fit-content;
+  padding: 0 20px;
+  border-right: 1px solid #f2f2f2;
+  margin-bottom: 100px;
+  margin-top: 10px;
+}
+
+.show-page-bottom-right {
+  width: 650px;
+  height: fit-content;
+  padding-left: 20px;
+}
+
+.show-page-bottom-left {
+  width: 150px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 0 20px;
+}
+
+.comment-divider {
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 10px;
+}
+
+.show-page-bottom-bottom {
+  display: flex;
+} 
+
+.track-user-photo {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.track-user-username {
+  font-family: 'Interstate';
+  cursor: pointer;
+}
+
+.track-description {
+  font-family: 'Interstate';
+  margin: 20px 0;
+}
+
+.comment-count {
+  font-family: 'Interstate';
+  color: #999999;
+}
+
+.comment-icon {
+  margin-left: 5px;
+}
