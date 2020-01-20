@@ -83,7 +83,7 @@ export default class MainForm extends Component {
   }
 
   handleRedirect(res) {
-    return this.props.history.push(`/${res.track.id}`);
+    return this.props.history.push(`/tracks/${res.track.id}`);
   }
 
   handleChange(field) {

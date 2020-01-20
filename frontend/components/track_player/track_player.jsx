@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import SeekBar from "./seek_bar";
+import SeekBar from "./seek_bar";
 
 export default class TrackPlayer extends Component {
   constructor(props) {
@@ -27,7 +27,8 @@ export default class TrackPlayer extends Component {
   }
 
   componentDidMount() {
-    if (this.props.currentTrack) {
+    debugger;
+    if (this.props.currentTrack) { // wrong
       this.audioPlayer.current.onloadedmetadata = () => {
         this.props.receiveTrackInfo(this.audioPlayer.current);
         const trackTimeStamp = this.formatTimeStamp(this.props.duration);
@@ -39,7 +40,8 @@ export default class TrackPlayer extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.currentTrack) {
+    // debugger;
+    if (this.props.currentTrack && this.audioPlayer.current) { // wrong
       const {
         seekPercentage,
         updateCurrentTime,
@@ -48,7 +50,7 @@ export default class TrackPlayer extends Component {
         currentTrack,
         playing
       } = this.props;
-
+      // debugger;
       if (seekPercentage) {
         this.changePercentage(seekPercentage);
       } else if (this.state.currentTrack) {
@@ -62,7 +64,7 @@ export default class TrackPlayer extends Component {
             this.audioPlayer.current.currentTime = currentTime;
           }
         };
-
+        // debugger;
         if (this.state.currentTrack !== currentTrack) {
           this.pause();
           this.setState({ currentTrack });
