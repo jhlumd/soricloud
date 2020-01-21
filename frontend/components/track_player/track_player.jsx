@@ -27,7 +27,7 @@ export default class TrackPlayer extends Component {
   }
 
   componentDidMount() {
-    debugger;
+    // debugger;
     if (this.props.currentTrack) { // wrong
       this.audioPlayer.current.onloadedmetadata = () => {
         this.props.receiveTrackInfo(this.audioPlayer.current);
