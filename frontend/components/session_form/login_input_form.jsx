@@ -87,7 +87,7 @@ class LoginInputForm extends React.Component {
                   value={this.state.loginInput}
                   onChange={this.update("loginInput")}
                   className="login-info-input modal-item"
-                  placeholder="Your email address or profile URL *"
+                  placeholder="Your email address or username *"
                 />
                 {this.renderErrors()}
                 <input

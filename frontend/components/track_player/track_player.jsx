@@ -28,52 +28,48 @@ export default class TrackPlayer extends Component {
 
   componentDidMount() {
     // debugger;
-    if (this.props.currentTrack) { // wrong
-      this.audioPlayer.current.onloadedmetadata = () => {
-        this.props.receiveTrackInfo(this.audioPlayer.current);
-        const trackTimeStamp = this.formatTimeStamp(this.props.duration);
-        this.play();
-        this.setState({ trackTimeStamp });
-        this.audioPlayer.current.volume = this.volumeBar.current.value / 100;
-      };
-    }
+    this.audioPlayer.current.onloadedmetadata = () => {
+      this.props.receiveTrackInfo(this.audioPlayer.current);
+      const trackTimeStamp = this.formatTimeStamp(this.props.duration);
+      this.play();
+      this.setState({ trackTimeStamp });
+      this.audioPlayer.current.volume = this.volumeBar.current.value / 100;
+    };
   }
 
   componentDidUpdate(prevProps, prevState) {
     // debugger;
-    if (this.props.currentTrack && this.audioPlayer.current) { // wrong
-      const {
-        seekPercentage,
-        updateCurrentTime,
-        currentTime,
-        percentage,
-        currentTrack,
-        playing
-      } = this.props;
-      // debugger;
-      if (seekPercentage) {
-        this.changePercentage(seekPercentage);
-      } else if (this.state.currentTrack) {
-        this.audioPlayer.current.ontimeupdate = () => {
-          updateCurrentTime(this.audioPlayer.current.currentTime);
-          const currentTimeStamp = this.formatTimeStamp(currentTime);
-          this.setState({ currentTimeStamp });
-          if (percentage >= 99.9) {
-            this.pause();
-            updateCurrentTime(0);
-            this.audioPlayer.current.currentTime = currentTime;
-          }
-        };
-        // debugger;
-        if (this.state.currentTrack !== currentTrack) {
+    const {
+      seekPercentage,
+      updateCurrentTime,
+      currentTime,
+      percentage,
+      currentTrack,
+      playing
+    } = this.props;
+    // debugger;
+    if (seekPercentage) {
+      this.changePercentage(seekPercentage);
+    } else if (this.state.currentTrack) {
+      this.audioPlayer.current.ontimeupdate = () => {
+        updateCurrentTime(this.audioPlayer.current.currentTime);
+        const currentTimeStamp = this.formatTimeStamp(currentTime);
+        this.setState({ currentTimeStamp });
+        if (percentage >= 99.9) {
           this.pause();
-          this.setState({ currentTrack });
-          this.play();
-        } else if (!playing) {
-          this.audioPlayer.current.pause();
-        } else if (playing) {
-          this.audioPlayer.current.play();
+          updateCurrentTime(0);
+          this.audioPlayer.current.currentTime = currentTime;
         }
+      };
+      // debugger;
+      if (this.state.currentTrack !== currentTrack) {
+        this.pause();
+        this.setState({ currentTrack });
+        this.play();
+      } else if (!playing) {
+        this.audioPlayer.current.pause();
+      } else if (playing) {
+        this.audioPlayer.current.play();
       }
     }
   }
@@ -138,9 +134,9 @@ export default class TrackPlayer extends Component {
   }
   
   render() {
-    if (!this.state.currentTrack) {
-      return null;
-    }
+    // if (!this.state.currentTrack) {
+    //   return null;
+    // }
 
     const author = this.state.currentTrack.username;
     const title = this.state.currentTrack.title;
