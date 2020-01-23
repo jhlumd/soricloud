@@ -46,11 +46,12 @@ export default class NavBar extends Component {
       profileDropdown
     } = this.state;
 
+    const musicBar = currentTrack ? <TrackPlayerC /> : null;
+
     if (!currentUser) {
-      return null;
+      return musicBar;
     }
 
-    const musicBar = currentTrack ? <TrackPlayerC /> : null;
     const profilePicture = (
       <img
         className="profile-picture-nav"

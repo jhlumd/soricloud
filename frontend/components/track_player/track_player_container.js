@@ -6,7 +6,6 @@ import {
   pauseMusic,
   receiveTrackInfo,
   updateCurrentTime,
-  seekPercentage,
   clearSeekPercentage
 } from "../../actions/track_player_actions";
 import TrackPlayer from "./track_player";
@@ -35,7 +34,6 @@ const mdtp = dispatch => ({
   pauseMusic: () => dispatch(pauseMusic()),
   receiveTrackInfo: trackInfo => dispatch(receiveTrackInfo(trackInfo)),
   updateCurrentTime: currentTime => dispatch(updateCurrentTime(currentTime)),
-  seekPercentage: newPercentage => dispatch(seekPercentage(newPercentage)),
   clearSeekPercentage: () => dispatch(clearSeekPercentage())
 });
 
