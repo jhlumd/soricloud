@@ -3,17 +3,16 @@ import { Route, Switch } from "react-router-dom";
 
 import Modal from "./modal/modal";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-
 import SplashC from "../components/splash/splash_container";
 import TrackIndex from "../components/tracks/track_index";
 import UploadPage from "../components/upload/upload_page";
-// import TrackPlayerC from "../components/track_player/track_player_container";
 import TrackShowPageC from "../components/tracks/track_show_page_container";
+import NavBarC from "../components/navbar/nav_bar_container";
 
 const App = () => (
   <>
     <Modal />
-    {/* <ProtectedRoute path="/" component={NavBar} /> */}
+    <Route path="/" component={NavBarC} />
     <Switch>
       <Route path="/discover" component={TrackIndex} />
       <ProtectedRoute path="/upload" component={UploadPage} />
