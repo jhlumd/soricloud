@@ -47,9 +47,57 @@ export default class NavBar extends Component {
     } = this.state;
 
     const musicBar = currentTrack ? <TrackPlayerC /> : null;
+    const loggedOutNav =
+      this.props.location.pathname !== "/" ? (
+        <div className="nav-bar-container">
+          <div className="nav-bar">
+            <button
+              id="nav-logo"
+              className="nav-bar-button logged-out"
+              onClick={() => this.props.history.push("/")}
+            >
+              <span className="header-name header-logo">
+                <img src={window.scLogo} />
+                <span id="soricloud">SORICLOUD</span>
+              </span>
+            </button>
+            <NavLink
+              to="/discover"
+              className="nav-bar-button nav-button"
+              activeClassName="active"
+              onClick={this.closeDropDown}
+            >
+              Home
+            </NavLink>
+            <div className="button-placeholder"></div>
+            <div className="logged-out-searchbar-placeholder"></div>
+            <div className="signed-out-navbar">
+              <button
+                id="logged-out-signin"
+                onClick={() => this.props.openModal("loginInput")}
+                className="splash-button sign-in"
+              >
+                Sign in
+              </button>
+              <button
+                id="logged-out-create-account"
+                onClick={() => this.props.openModal("loginInput")}
+                className="splash-button create-account"
+              >
+                Create account
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null;
 
     if (!currentUser) {
-      return musicBar;
+      return (
+        <>
+          {loggedOutNav}
+          {musicBar}
+        </>
+      );
     }
 
     const profilePicture = (
