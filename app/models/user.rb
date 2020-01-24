@@ -12,7 +12,6 @@
 #
 
 class User < ApplicationRecord
-
   attr_reader :password
 
   validates :username, :email, :session_token, presence: true
@@ -29,10 +28,10 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: 'Track'
 
-  # has_many :comments,
-  #   primary_key: :id,
-  #   foreign_key: :user_id,
-  #   class_name: 'Comment'
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Comment'
 
   def self.find_by_credentials(loginInput, password)
     user = User.find_by(email: loginInput) || User.find_by(username: loginInput)

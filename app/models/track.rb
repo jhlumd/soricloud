@@ -25,6 +25,11 @@ class Track < ApplicationRecord
     foreign_key: :user_id,
     class_name: 'User'
 
+  has_many :comments, dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :track_id,
+    class_name: 'Comment'
+
   def ensure_audio_file
     unless self.audio_file.attached?
       errors[:audio_file] << "must be attached"
