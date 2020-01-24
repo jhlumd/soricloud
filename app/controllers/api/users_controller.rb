@@ -40,6 +40,15 @@ class Api::UsersController < ApplicationController
       render json: ['That user does not exist.'], status: 422
     end
   end
+  
+  def update
+    @user = User.find_by(id: params[:user][:id]) || User.find_by(email: params[:user][:email])
+    if @user.update(user_params)
+      render "api/users/showpage"
+    else
+      render json: @user.errors.full_messages, status: 422
+    end
+  end
 
   private
 
