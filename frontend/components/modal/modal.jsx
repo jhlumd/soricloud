@@ -1,10 +1,9 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { closeModal } from "../../actions/modal_actions";
+import LoginInputFormC from "../session_form/login_input_form_container";
 
-import { closeModal } from '../../actions/modal_actions';
-import LoginInputFormC from '../session_form/login_input_form_container';
-
-class Modal extends React.Component {
+class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {

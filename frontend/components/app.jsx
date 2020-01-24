@@ -8,6 +8,7 @@ import DiscoverC from "../components/splash/discover_container";
 import UploadPage from "../components/upload/upload_page";
 import TrackShowPageC from "../components/tracks/track_show_page_container";
 import NavBarC from "../components/navbar/nav_bar_container";
+// import UserShowC from "../components/users/user_show_container";
 
 const App = () => (
   <>
@@ -15,7 +16,7 @@ const App = () => (
     <Route path="/" component={NavBarC} />
     <Switch>
       <ProtectedRoute path="/upload" component={UploadPage} />
-      {/* <Route path="/users/:userId" component={UserShowPageC} /> */}
+      {/* <Route path="/users/:userId" component={UserShowC} /> */}
       <Route path="/tracks/:trackId" component={TrackShowPageC} />
       <Route path="/discover" component={DiscoverC} />
       <AuthRoute path="/" component={SplashC} />

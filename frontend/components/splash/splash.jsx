@@ -1,25 +1,28 @@
-import React from "react";
+import React, { Component } from "react";
+import TracksIndex from "./tracks_index";
 
-// import { fetchTracks } from '../actions/track_actions  ';
-// import TrackIndexItem from './tracks/track_index_item';
-
-class Splash extends React.Component {
+export default class Splash extends Component {
   constructor(props) {
     super(props);
   }
 
-  // componentDidMount() {
-  //     this.props.fetchTracks();
-  // }
+  componentDidMount() {
+    this.props.fetchTracks();
+  }
 
   render() {
-    // const { tracks } = this.props;
-    // let trackList = null;
-    // if (tracks) {
-    //     trackList = tracks.map((track, i) => {
-    //         return < TrackIndexItem track={track} liId={i} key={track.id} />
-    //     });
-    // }
+    const recentTracks = this.props.tracks
+      .slice(0)
+      .reverse()
+      .slice(0, 12);
+    const tracksIndex1 =
+      this.props.tracks.length > 0 ? (
+        <TracksIndex
+          tracks={recentTracks}
+          history={this.props.history}
+          includePlayButton={false}
+        />
+      ) : null;
 
     return (
       <div className="centering-background">
@@ -127,67 +130,7 @@ class Splash extends React.Component {
             </h3>
 
             <div className="splash-tracks-index">
-              {/* {track} */}
-              <div className="splash-track-item">
-                <div className="album album-1"></div>
-                <p className="splash-track-title">Opus</p>
-                <p className="splash-track-artist">Eric Prydz</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-2"></div>
-                <p className="splash-track-title">All That Matters</p>
-                <p className="splash-track-artist">Kolsch</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-3"></div>
-                <p className="splash-track-title">Bitches Brew</p>
-                <p className="splash-track-artist">Miles Davis</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-4"></div>
-                <p className="splash-track-title">The Velvet Underground</p>
-                <p className="splash-track-artist">The Velvet Underground</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-5"></div>
-                <p className="splash-track-title">1989</p>
-                <p className="splash-track-artist">Taylor Swift</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-6"></div>
-                <p className="splash-track-title">Illmatic</p>
-                <p className="splash-track-artist">Nas</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-7"></div>
-                <p className="splash-track-title">She's So Unusual</p>
-                <p className="splash-track-artist">Cyndi Lauper</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-8"></div>
-                <p className="splash-track-title">The Low End Theory</p>
-                <p className="splash-track-artist">A Tribe Called Quest</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-9"></div>
-                <p className="splash-track-title">Elvis Presley</p>
-                <p className="splash-track-artist">Elvis Presley</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-10"></div>
-                <p className="splash-track-title">Aladdin Sane</p>
-                <p className="splash-track-artist">David Bowie</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-11"></div>
-                <p className="splash-track-title">Purple Rain</p>
-                <p className="splash-track-artist">Prince</p>
-              </div>
-              <div className="splash-track-item">
-                <div className="album album-12"></div>
-                <p className="splash-track-title">Caravelle</p>
-                <p className="splash-track-artist">Jeremy Olander</p>
-              </div>
+              {tracksIndex1}
             </div>
 
             <button
@@ -250,5 +193,3 @@ class Splash extends React.Component {
     );
   }
 }
-
-export default Splash;
