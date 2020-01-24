@@ -1,0 +1,49 @@
+.track-index-container {
+  // position: relative;
+  width: 110%;
+}
+
+.home-page-container {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 54px;
+}
+
+.track-index {
+  width: 990px;
+  min-height: fit-content;
+  overflow: hidden;
+  display: flex;
+  border-bottom: 1px solid #f2f2f2;    
+}
+
+.track-index-inner {
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px 20px 20px 1px;
+  min-height: fit-content;
+  display: flex;
+  transition: all ease-in-out 1s;
+  transform: translate(0%, 0%);
+}
+
+.track-header {
+  width: fit-content;
+  font-family: 'Interstate';
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.track-subheader {
+  font-family: 'Interstate';
+  width: fit-content;
+  font-size: 14px;
+  color: #999;
+}
+
+.home-page-index {
+  width: 100% ;
+  border: none;
+}

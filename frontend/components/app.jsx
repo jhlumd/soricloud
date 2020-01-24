@@ -14,9 +14,10 @@ const App = () => (
     <Modal />
     <Route path="/" component={NavBarC} />
     <Switch>
-      <Route path="/discover" component={DiscoverC} />
       <ProtectedRoute path="/upload" component={UploadPage} />
+      {/* <Route path="/users/:userId" component={UserShowPageC} /> */}
       <Route path="/tracks/:trackId" component={TrackShowPageC} />
+      <Route path="/discover" component={DiscoverC} />
       <AuthRoute path="/" component={SplashC} />
     </Switch>
   </>

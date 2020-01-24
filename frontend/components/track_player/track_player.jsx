@@ -57,8 +57,7 @@ export default class TrackPlayer extends Component {
         this.setState({ currentTimeStamp });
         if (percentage >= 99.9) {
           this.pause();
-          updateCurrentTime(0);
-          this.audioPlayer.current.currentTime = currentTime;
+          this.changePercentage(0);
         }
       };
       // debugger;

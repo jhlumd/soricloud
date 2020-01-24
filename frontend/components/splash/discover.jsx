@@ -23,10 +23,14 @@ export default class Discover extends Component {
       ) : null;
 
     return (
-      <div className="home-page-container">
-        <h1 className="track-header">More of SoriCloud's music</h1>
-        <p className="track-subheader">Music from some of our artists</p>
-        {tracksIndex1}
+      <div className="centering-background">
+        <div className="centering-outer">
+          <div className="home-page-container">
+            <h1 className="track-header">More of SoriCloud's music</h1>
+            <p className="track-subheader">Music from some of our artists</p>
+            {tracksIndex1}
+          </div>
+        </div>
       </div>
     );
   }

@@ -238,3 +238,34 @@
 .comment-icon {
   margin-left: 5px;
 }
+
+.track-item {
+  display: flex;
+  flex-direction: column;
+  width: 173px;
+  height: 210px;
+  margin-right: 15px;
+  position: relative;
+}
+
+.track-item-photo-container {
+  display: flex;
+  width: 173px;
+  height: 173px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+}
+
+.track-item-photo {
+  position: absolute;
+  width: 173px;
+  height: 173px;
+}
+
+.track-item-link {
+  margin-top: 5px;
+  text-decoration: none;
+  color: black;
+}

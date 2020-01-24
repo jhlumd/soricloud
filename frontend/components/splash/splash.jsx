@@ -14,15 +14,15 @@ class Splash extends React.Component {
 
   render() {
     // const { tracks } = this.props;
-    // let track = null;
+    // let trackList = null;
     // if (tracks) {
-    //     track = tracks.map((track, i) => {
+    //     trackList = tracks.map((track, i) => {
     //         return < TrackIndexItem track={track} liId={i} key={track.id} />
     //     });
     // }
 
     return (
-      <div className="splash-background">
+      <div className="centering-background">
         <div className="splash-main">
           <section className="splash-image">
             <div className="splash-nav">

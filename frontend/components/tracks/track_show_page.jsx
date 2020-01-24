@@ -98,14 +98,15 @@ export default class TrackShowPage extends Component {
       }
 
       const timeNow = Date.now();
-      const createdTime = new Date(track.createdAt);
+      const createdTime = new Date(track.created_at);
       const timeDiff = Math.floor((timeNow - createdTime) / (1000 * 60 * 60 * 24));
       createdAt =
         timeDiff < 1 ? (
           <h1 className="track-time-stamp">less than one day ago</h1>
         ) : (
-          <h1 className="track-time-stamp">{`${createdAt} days ago`}</h1>
+          <h1 className="track-time-stamp">{`${timeDiff} days ago`}</h1>
         );
+      // debugger;
     }
 
     let username = null;
@@ -158,48 +159,52 @@ export default class TrackShowPage extends Component {
     ) : null;
 
     return (
-      <div className="track-show-page">
-        <div className="track-show-page-container">
-          <div className="track-show-page-player-container">
-            <div className="track-show-page-player">
-              {pressPlayButton}
-              <ul className="track-info">
-                <li
-                  className="track-username"
-                  onClick={this.redirectToUserPage}
-                >
-                  {username}
-                </li>
-                <li className="track-title">{trackTitle}</li>
-              </ul>
+      <div className="centering-background">
+        <div className="centering-outer">
+          <div className="track-show-page">
+            <div className="track-show-page-container">
+              <div className="track-show-page-player-container">
+                <div className="track-show-page-player">
+                  {pressPlayButton}
+                  <ul className="track-info">
+                    <li
+                      className="track-username"
+                      onClick={this.redirectToUserPage}
+                    >
+                      {username}
+                    </li>
+                    <li className="track-title">{trackTitle}</li>
+                  </ul>
+                </div>
+                <div id="waveform"></div>
+                {currentTime}
+                {trackTime}
+                {waveform}
+                {seekBar}
+              </div>
+              <div className="track-photo-container">
+                {createdAt}
+                {trackPhoto}
+              </div>
             </div>
-            <div id="waveform"></div>
-            {currentTime}
-            {trackTime}
-            {waveform}
-            {seekBar}
-          </div>
-          <div className="track-photo-container">
-            {createdAt}
-            {trackPhoto}
-          </div>
-        </div>
-        <div className="show-page-bottom">
-          <div className="comment-divider">
-            <div className="edit-buttons">{deleteButton}</div>
-          </div>
-          <div className="show-page-bottom-bottom">
-            <div className="show-page-bottom-left">
-              {trackUserPhoto}
-              <span
-                className="track-user-username"
-                onClick={this.redirectToUserPage}
-              >
-                {username}
-              </span>
-            </div>
-            <div className="show-page-bottom-right">
-              <div className="track-description">{description}</div>
+            <div className="show-page-bottom">
+              <div className="comment-divider">
+                <div className="edit-buttons">{deleteButton}</div>
+              </div>
+              <div className="show-page-bottom-bottom">
+                <div className="show-page-bottom-left">
+                  {trackUserPhoto}
+                  <span
+                    className="track-user-username"
+                    onClick={this.redirectToUserPage}
+                  >
+                    {username}
+                  </span>
+                </div>
+                <div className="show-page-bottom-right">
+                  <div className="track-description">{description}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

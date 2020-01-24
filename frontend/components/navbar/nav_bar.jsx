@@ -51,16 +51,13 @@ export default class NavBar extends Component {
       this.props.location.pathname !== "/" ? (
         <div className="nav-bar-container">
           <div className="nav-bar">
-            <button
-              id="nav-logo"
-              className="nav-bar-button logged-out"
-              onClick={() => this.props.history.push("/")}
+            <NavLink
+              to="/"
+              className="nav-bar-button nav-bar-img-button logged-out"
+              onClick={this.closeDropDown}
             >
-              <span className="header-name header-logo">
-                <img src={window.scLogo} />
-                <span id="soricloud">SORICLOUD</span>
-              </span>
-            </button>
+              <img className="nav-bar-img" src={window.scLogo} />
+            </NavLink>
             <NavLink
               to="/discover"
               className="nav-bar-button nav-button"

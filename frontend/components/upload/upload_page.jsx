@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
 import MainForm from './main_form';
 import { uploadTrack } from '../../actions/track_actions';
 
@@ -11,23 +10,25 @@ const UploadPage = props => {
   };
 
   return (
-    <div className="upload-page" onDragOver={handleDrag}>
-      <div className="upload-page-nav">
-        <div className="upload-page-nav-links">
-          <div className="upload-page-nav-link">
-            Upload
+    <div className="centering-background">
+      <div className="centering-outer">
+        <div className="upload-page" onDragOver={handleDrag}>
+          <div className="upload-page-nav">
+            <div className="upload-page-nav-links">
+              <div className="upload-page-nav-link">Upload</div>
+              <div className="track-link-placeholder"></div>
+            </div>
+            <button id="for-creators" className="upload-page-nav-button">
+              For Creators on SoriCloud
+            </button>
           </div>
-          <div className="track-link-placeholder"></div>
+          <MainForm
+            userId={props.userId}
+            uploadTrack={props.uploadTrack}
+            history={props.history}
+          />
         </div>
-        <button id="for-creators" className="upload-page-nav-button">
-          For Creators on SoriCloud
-        </button>
       </div>
-      <MainForm
-        userId={props.userId}
-        uploadTrack={props.uploadTrack}
-        history={props.history}
-      />
     </div>
   );
 }
