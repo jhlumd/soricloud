@@ -8,7 +8,6 @@ class PlayButton extends Component {
     super(props);
 
     this.playMusic = this.playMusic.bind(this);
-    this.pauseMusic = this.pauseMusic.bind(this);
   }
 
   playMusic() {
@@ -19,23 +18,26 @@ class PlayButton extends Component {
     }
   }
 
-  pauseMusic() {
-    this.props.pauseMusic();
-  }
-
   render() {
-    if (this.props.playing && this.props.currentTrackId === this.props.trackId) {
+    const {
+      playing,
+      currentTrackId,
+      trackId,
+      playButtonShow,
+      sizeType,
+      pauseMusic
+    } = this.props;
+
+    if (playing && currentTrackId === trackId) {
       return (
-        <div className={`play-button show in-play-button ${this.props.sizeType}`}>
-          <img src={window.pauseIcon2} onClick={this.pauseMusic} />
+        <div className={`play-button show in-play-button ${sizeType}`}>
+          <img src={window.pauseIcon2} onClick={pauseMusic} />
         </div>
       );
     } else {
       return (
         <img
-          className={`play-button ${this.props.playButtonShow ? "show" : ""} ${
-            this.props.sizeType
-          }`}
+          className={`play-button ${playButtonShow ? "show" : ""} ${sizeType}`}
           src={window.playIcon}
           onClick={this.playMusic}
         />

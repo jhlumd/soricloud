@@ -1,0 +1,47 @@
+.empty-profile {
+  color: transparent;
+}
+
+.profile-picture-nav {
+  width: 26px;
+  height: 26px;
+  margin-right: 10px;
+  margin-top: -2px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 1px inset;
+}
+
+.profile-picture-comment {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-top: -9px;
+  border-radius: 50%;
+  background-image: linear-gradient(135deg,#846170,#e6846e);
+  box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+}
+
+.profile-picture-comment-form {
+  width: 40px;
+  height: 40px;
+  margin-right: -1px;
+  background-image: linear-gradient(135deg,#846170,#e6846e);
+  box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+}
+
+.profile-picture-comment-reply-form {
+  width: 20px;
+  height: 20px;
+  margin-right: -3px;
+  background-image: linear-gradient(135deg, #846170, #e6846e);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 1px inset;
+  z-index: 2;
+}
+
+.user-showpage-profile-picture {
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+  margin-top: -9px;
+  border-radius: 50%;
+}
