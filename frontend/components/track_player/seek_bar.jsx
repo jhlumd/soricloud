@@ -66,7 +66,7 @@ class SeekBar extends Component {
 
     return (
       <div
-        className={`progress-bar-outer ${seekBarStyle}`}
+        className={`progress-bar-outer ${seekBarStyle ? seekBarStyle : ""}`}
         onClick={e => this.handlePercentage(e)}
         onMouseEnter={this.revealBall}
         onMouseLeave={this.hideBall}

@@ -1,14 +1,14 @@
 .track-index-container {
   // position: relative;
-  width: 110%;
 }
 
 .home-page-container {
-  margin: 0 auto;
-  width: 80%;
+  position: relative;
+  top: 46px;
+  margin-left: 30px;
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
-  padding-top: 54px;
 }
 
 .track-index {

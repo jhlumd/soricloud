@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import LoginForm from "./login_form";
 import SignupForm from "./signup_form";
 
-class LoginInputForm extends React.Component {
+export default class LoginInputForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,12 +18,11 @@ class LoginInputForm extends React.Component {
 
   demoLogin(e) {
     e.preventDefault();
-    this.props.login({
+    const demoUser = {
       loginInput: "test@gmail.com",
       password: "123456"
-    });
-    this.props.history.push("/discover");
-    this.props.closeModal();
+    };
+    this.props.login(demoUser).then(this.props.closeModal);
   }
 
   update(field) {
@@ -131,5 +130,3 @@ class LoginInputForm extends React.Component {
     return this.handleNextForm();
   }
 }
-
-export default LoginInputForm;

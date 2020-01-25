@@ -32,7 +32,7 @@ class Modal extends Component {
         return null;
     }
     return (
-      <div className="modal-background" onClick={() => this.props.closeModal()}>
+      <div className="modal-background" onClick={this.props.closeModal}>
         <div className="modal-positioner">
           <div
             className={`modal-child-start ${

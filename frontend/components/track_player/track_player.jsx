@@ -128,10 +128,6 @@ export default class TrackPlayer extends Component {
   }
   
   render() {
-    // if (!this.state.currentTrack) {
-    //   return null;
-    // }
-
     const author = this.state.currentTrack.username;
     const title = this.state.currentTrack.title;
     const photo = (

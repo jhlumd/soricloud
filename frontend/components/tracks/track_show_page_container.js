@@ -10,10 +10,8 @@ import {
 const mstp = (state, ownProps) => {
   const track = state.entities.tracks[ownProps.match.params.trackId] || null;
   const user = track ? state.entities.users[track.user_id] : null;
-  const currentTrack = state.ui.currentTrack;
-  const currentTime = state.ui.trackPlayer.currentTime
-    ? state.ui.trackPlayer.currentTime
-    : null;
+  const currentTrack = state.ui.currentTrack || null;
+  const currentTime = state.ui.trackPlayer.currentTime || null;
   return {
     user,
     track,

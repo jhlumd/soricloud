@@ -5,14 +5,24 @@ export default class UserShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      photoFile: null
+      showEdit: false
     };
 
     this.handlePhotoUpdate = this.handlePhotoUpdate.bind(this);
+    this.showEditButton = this.showEditButton.bind(this);
+    this.hideEditButton = this.hideEditButton.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId);
+  }
+
+  showEditButton() {
+    this.setState({ showEdit: true });
+  }
+
+  hideEditButton() {
+    this.setState({ showEdit: false });
   }
 
   handlePhotoUpdate(e) {
@@ -33,19 +43,23 @@ export default class UserShow extends Component {
     let editButton = null;
     if (user) {
       profilePicture = (
-        <img className="user-showpage-profile-picture" src={user.photoUrl} />
+        <img
+          className="user-showpage-profile-picture"
+          src={user.photoUrl}
+          onMouseEnter={this.showEditButton}
+        />
       );
       username = user.username;
       if (tracks) {
         userTracksIndex = (<TracksIndex tracks={tracks} />);
       }
-      if (user.id === currentUserId) {
+      if (user.id === currentUserId && this.state.showEdit) {
         editButton = (
           <div className="image-edit-button user-showpage-image-edit-button">
             <label htmlFor="files">
               <div className="inside">
                 <img src={window.cameraIcon} />
-                <p>Upload image</p>
+                <p>Update image</p>
                 <input
                   id="files"
                   type="file"
@@ -62,14 +76,17 @@ export default class UserShow extends Component {
       <div className="centering-background">
         <div className="centering-outer">
           <div className="user-showpage">
-            <div className="user-showpage-header">
+            <div
+              className="user-showpage-header"
+              onMouseLeave={this.hideEditButton}
+            >
               {profilePicture}
               {editButton}
               <ul className="user-showpage-info">
                 <li className="user-showpage-username">{username}</li>
               </ul>
             </div>
-            <div className="show-page-bottom">{userTracksIndex}</div>
+            <div className="user-showpage-bottom">{userTracksIndex}</div>
           </div>
         </div>
       </div>
