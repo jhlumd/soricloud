@@ -1,11 +1,12 @@
 import { combineReducers } from "redux";
-
-import usersReducer from "./entities/users_reducer";
-import tracksReducer from "./entities/tracks_reducer";
+import users from "./entities/users_reducer";
+import tracks from "./entities/tracks_reducer";
+import comments from "./entities/comments_reducer";
 
 const entitiesReducer = combineReducers({
-  users: usersReducer,
-  tracks: tracksReducer
+  users,
+  tracks,
+  comments
 });
 
 export default entitiesReducer;
