@@ -61,7 +61,6 @@ class Waveform extends Component {
   }
 
   render() {
-    // className instead of id? need unique identifier for each in userShow?
     return (
       <div
         ref={this.waveformRef}

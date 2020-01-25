@@ -37,8 +37,8 @@ export const uploadTrack = formData => dispatch =>
 export const fetchTrack = id => dispatch =>
   APIUtil.fetchTrack(id).then(track => dispatch(receiveTrack(track)));
 
-export const updateTrack = formData => dispatch =>
-  APIUtil.updateTrack(formData).then(track => dispatch(receiveTrack(track)));
+// export const updateTrack = formData => dispatch =>
+//   APIUtil.updateTrack(formData).then(track => dispatch(receiveTrack(track)));
 
 export const deleteTrack = id => dispatch =>
   APIUtil.deleteTrack(id).then(track => dispatch(removeTrack(track)));

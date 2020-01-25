@@ -9,9 +9,10 @@ export default class TrackShowPage extends Component {
     this.state = {
       trackTimeStamp: null
     };
-
+    
     this.deleteTrack = this.deleteTrack.bind(this);
     this.redirectToUserPage = this.redirectToUserPage.bind(this);
+    this.createTrackTimeStamp = this.createTrackTimeStamp.bind(this);
   }
 
   componentDidMount() {
@@ -99,14 +100,15 @@ export default class TrackShowPage extends Component {
 
       const timeNow = Date.now();
       const createdTime = new Date(track.created_at);
-      const timeDiff = Math.floor((timeNow - createdTime) / (1000 * 60 * 60 * 24));
+      const timeDiff = Math.floor(
+        (timeNow - createdTime) / (1000 * 60 * 60 * 24)
+      );
       createdAt =
         timeDiff < 1 ? (
           <h1 className="track-time-stamp">less than one day ago</h1>
         ) : (
           <h1 className="track-time-stamp">{`${timeDiff} days ago`}</h1>
         );
-      // debugger;
     }
 
     let username = null;

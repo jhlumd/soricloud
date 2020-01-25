@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
 import TrackShowPage from "./track_show_page";
 import {
   fetchTrack,

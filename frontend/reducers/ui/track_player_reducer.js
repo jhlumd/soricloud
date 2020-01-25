@@ -29,7 +29,6 @@ const trackPlayerReducer = (oldState = _notPlaying, action) => {
       return merge({}, oldState, newState);
     case SEEK_PERCENTAGE:
       newState = { seekPercentage: action.newPercentage };
-      // debugger;
       return merge({}, oldState, newState);
     case CLEAR_SEEK_PERCENTAGE:
       newState = { seekPercentage: null };

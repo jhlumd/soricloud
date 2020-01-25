@@ -1,0 +1,111 @@
+.user-showpage {
+  width: 100%;
+}
+.user-showpage-header {
+  width: 100%;
+  height: 260px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  padding-left: 30px;
+  padding-top: 39px;
+  background: linear-gradient(315deg, #846170 0%, #e6846e 100%);
+  display: flex;
+}
+
+.user-showpage-info {
+  margin-left: 20px;
+}
+
+.user-showpage-info li {
+  width: max-content;
+  background: rgba(0, 0, 0, 0.8);
+  font-family: 'Interstate';
+}
+
+.user-showpage-username {
+  padding: 8px 7px;
+  margin-top: -9px;
+}
+
+.user-showpage-tracks-index {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-showpage-track-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.user-showpage-track-item-photo {
+  width: 160px;
+  height: 160px;
+  margin-right: 15px;
+  box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+}
+
+.user-showpage-track-item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-showpage-track-item-info-top {
+  display: flex;
+  justify-content: space-between;
+  width: 644px;
+}
+
+.user-showpage-track-item-left {
+  display: flex;
+}
+
+.user-showpage-track-item-trackinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: 'Interstate';
+  margin-left: 6px;
+}
+
+.showpage-username {
+  font-size: 12px;
+  color: #999999;
+}
+
+.showpage-title {
+  font-size: 15px;
+  color: #333333;
+  cursor: pointer;
+}
+
+.showpage-title:hover {
+  color: black;
+}
+
+.user-showpage-track-time-created-at {
+  color: #cccccc;
+  font-family: 'Interstate';
+  font-size: 12px;
+}
+
+.user-showpage-waveform {
+  position: relative;
+}
+
+.user-showpage-track-timestamp {
+  top: 51px;
+  left: 614px;
+}
+
+.user-showpage-current-time {
+  top: 51px;
+  left: 0;
+}
+
+.user-showpage-image-edit-button {
+  position: absolute;
+  top: 228px;
+  left: 46px;
+}

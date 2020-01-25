@@ -19,14 +19,14 @@ export const uploadTrack = formData =>
     processData: false
   });
 
-export const updateTrack = formData =>
-  $.ajax({
-    method: "PATCH",
-    url: `/api/tracks/${formData.id}`,
-    data: formData,
-    contentType: false,
-    processData: false
-  });
+// export const updateTrack = formData =>
+//   $.ajax({
+//     method: "PATCH",
+//     url: `/api/tracks/${formData.id}`,
+//     data: formData,
+//     contentType: false,
+//     processData: false
+//   });
 
 export const deleteTrack = id =>
   $.ajax({
