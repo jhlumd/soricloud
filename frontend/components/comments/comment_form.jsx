@@ -51,13 +51,17 @@ export default class CommentForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const comment = {
-      body: this.state.body,
-      user_id: this.props.currentUserId,
-      track_id: this.props.trackId,
-      track_time: this.state.commentTime
-    };
-    this.props.createComment(comment).then(this.resetForm);
+    if (this.props.currentUser) {
+      const comment = {
+        body: this.state.body,
+        user_id: this.props.currentUser.id,
+        track_id: this.props.trackId,
+        track_time: this.state.commentTime
+      };
+      this.props.createComment(comment).then(this.resetForm);
+    } else {
+      this.props.openModal("loginInput"); //fix check after login correctly
+    }
   }
 
   resetForm() {
@@ -70,15 +74,13 @@ export default class CommentForm extends Component {
   }
 
   render() {
-    if (!this.props.currentUser) {
-      return null;
-    }
+    const { currentUser } = this.props;
 
     return (
       <div className="comment-form-container-outer">
         <img
           className="profile-picture-comment-form"
-          src={this.props.currentUser.photoUrl}
+          src={currentUser ? currentUser.photoUrl : window.defaultUserPhoto}
         />
         <div className="comment-form-container">
           <form onSubmit={this.handleSubmit}>

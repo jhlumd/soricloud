@@ -19,7 +19,6 @@ export default class Splash extends Component {
       this.props.tracks.length > 0 ? (
         <TracksIndex
           tracks={recentTracks}
-          history={this.props.history}
           includePlayButton={false}
         />
       ) : null;

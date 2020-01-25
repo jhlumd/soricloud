@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import PlayButton from "../tracks/play_button";
 
-export default class TrackIndexItem extends Component {
+class TrackIndexItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,10 +50,12 @@ export default class TrackIndexItem extends Component {
           />
           {playButton}
         </div>
-        <NavLink className="track-item-link" to={`/tracks/${trackId}`}>
-          <h1>{title}</h1>
-        </NavLink>
+        <p className="track-item-link" onClick={this.redirectToTrackShowPage}>
+          {title}
+        </p>
       </div>
     );
   }
 }
+
+export default withRouter(TrackIndexItem);

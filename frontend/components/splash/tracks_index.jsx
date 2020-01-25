@@ -1,16 +1,15 @@
 import React from "react";
-import TrackIndexItem from "./track_idex_item";
+import TrackItem from "./track_idex_item";
 
 export default function TracksIndex(props) {
-  const { tracks, includePlayButton, history } = props;
+  const { tracks, includePlayButton } = props;
   
   const tracksIndex = tracks.map(track => (
-    <TrackIndexItem
+    <TrackItem
       key={track.id}
       trackId={track.id}
       photo={track.photoUrl}
       title={track.title}
-      history={history}
       includePlayButton={includePlayButton}
     />
   ));
