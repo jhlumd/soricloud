@@ -10,11 +10,11 @@ const receiveTracks = tracks => ({
   tracks
 });
 
-// include comments later below
-const receiveTrack = ({ track, user }) => ({
+const receiveTrack = ({ track, user, comments }) => ({
   type: RECEIVE_TRACK,
   track,
-  user
+  user,
+  comments
 });
 
 const removeTrack = ({ id }) => ({

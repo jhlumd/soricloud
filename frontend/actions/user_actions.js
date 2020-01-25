@@ -10,3 +10,6 @@ export const receiveUser = ({ user, tracks }) => ({
 
 export const fetchUser = id => dispatch =>
   APIUtil.fetchUser(id).then(res => dispatch(receiveUser(res)));
+
+export const updateUser = user => dispatch =>
+  APIUtil.updateUser(user).then(res => dispatch(receiveUser(res)));
