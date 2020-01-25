@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 
 export default class LoginForm extends Component {
   constructor(props) {
@@ -7,10 +7,16 @@ export default class LoginForm extends Component {
       loginInput: props.loginInput,
       password: ""
     };
+    this.passwordRef = React.createRef();
+
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.switchModal = this.switchModal.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+  }
+
+  componentDidMount() {
+    this.passwordRef.current.focus();
   }
 
   update(field) {
@@ -55,6 +61,7 @@ export default class LoginForm extends Component {
               &#9668; {this.state.loginInput}
             </button>
             <input
+              ref={this.passwordRef}
               type="password"
               value={this.state.password}
               onChange={this.update("password")}

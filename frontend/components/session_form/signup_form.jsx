@@ -9,16 +9,33 @@ export default class SignupForm extends Component {
       username: "",
       passwordErrors: [],
       usernameErrors: [],
-      form: null
+      form: false
+    };
+
+    this.passRef = React.createRef();
+    this.setUsernameRef = element => {
+      this.usernameRef = element;
+    };
+    this.focusUsername = () => {
+      if (this.usernameRef) this.usernameRef.focus();
     };
 
     this.update = this.update.bind(this);
-    this.handleNextForm = this.handleNextForm.bind(this);
     this.handleInitialSubmit = this.handleInitialSubmit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.switchModal = this.switchModal.bind(this);
     this.renderPasswordErrors = this.renderPasswordErrors.bind(this);
     this.renderUsernameErrors = this.renderUsernameErrors.bind(this);
+  }
+
+  componentDidMount() {
+    this.passRef.current.focus();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.form) {
+      this.focusUsername();
+    }
   }
 
   update(field) {
@@ -35,7 +52,7 @@ export default class SignupForm extends Component {
     } else if (this.state.password.length < 6) {
       this.setState({ passwordErrors: ["Use at least 6 characters."] });
     } else {
-      this.setState({ passwordErrors: [], form: "username" });
+      this.setState({ passwordErrors: [], form: true });
     }
   }
 
@@ -78,95 +95,91 @@ export default class SignupForm extends Component {
     );
   }
 
-  handleNextForm() {
-    switch (this.state.form) {
-      case "username":
-        return (
-          <div className="login-info-form-container">
-            <form onSubmit={this.handleSubmit} className="login-form-box">
-              <div className="login-info-form">
-                <h1 className="create-account-modal">
-                  Tell us a bit about yourself
-                </h1>
-                <h3 className="choose-password">
-                  Choose your display name <span className="red-splat">*</span>
-                </h3>
-                <input
-                  type="text"
-                  value={this.state.username}
-                  onChange={this.update("username")}
-                  className="login-info-input loginInput"
-                />
-                {this.renderUsernameErrors()}
-                <p className="fine-print">
-                  Your display name can be anything you like. Your name or
-                  artist name are good choices.
-                </p>
-                <input
-                  id="login-form-continue"
-                  className="splash-button signup"
-                  type="submit"
-                  value="Get started"
-                />
-              </div>
-            </form>
-          </div>
-        );
-      default:
-        return (
-          <div className="login-info-form-container">
-            <div className="login-form-box">
-              <form className="login-info-form">
-                <h1 className="create-account-modal">
-                  Create your SoriCloud account
-                </h1>
-                <button
-                  form=""
-                  className="login-info-input modal-item loginInput"
-                  onClick={this.switchModal}
-                >
-                  &#9668; {this.state.email}
-                </button>
-                <h3 className="choose-password">
-                  Choose a password <span className="red-splat">*</span>
-                </h3>
-                <input
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.update("password")}
-                  className="login-info-input"
-                />
-                {this.renderPasswordErrors()}
-                <p className="fine-print">
-                  By signing up I accept the{" "}
-                  <span className="privacy-policy">Terms of Use</span>. I have
-                  read and understood the{" "}
-                  <span className="privacy-policy">Privacy Policy</span> and{" "}
-                  <span className="privacy-policy">Cookies Policy</span>.
-                </p>
-                <input
-                  id="login-form-continue"
-                  className="splash-button modal-item"
-                  type="submit"
-                  value="Accept & Continue"
-                  onSubmit={this.handleInitialSubmit}
-                  onClick={this.handleInitialSubmit}
-                />
-                <div className="sign-in-question">
-                  <h3>Are you trying to sign in?</h3>
-                  <p>
-                    The email address that you entered was not found.
-                    Double-check your email address.
-                  </p>
-                </div>
-              </form>
-            </div>
-          </div>
-        );
-    }
-  }
-
   render() {
-    return this.handleNextForm();
+    if (this.state.form) {
+      return (
+        <div className="login-info-form-container">
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            <div className="login-info-form">
+              <h1 className="create-account-modal">
+                Tell us a bit about yourself
+              </h1>
+              <h3 className="choose-password">
+                Choose your display name <span className="red-splat">*</span>
+              </h3>
+              <input
+                ref={this.setUsernameRef}
+                type="text"
+                value={this.state.username}
+                onChange={this.update("username")}
+                className="login-info-input loginInput"
+              />
+              {this.renderUsernameErrors()}
+              <p className="fine-print">
+                Your display name can be anything you like. Your name or artist
+                name are good choices.
+              </p>
+              <input
+                id="login-form-continue"
+                className="splash-button signup"
+                type="submit"
+                value="Get started"
+              />
+            </div>
+          </form>
+        </div>
+      );
+    }
+    return (
+      <div className="login-info-form-container">
+        <div className="login-form-box">
+          <form className="login-info-form">
+            <h1 className="create-account-modal">
+              Create your SoriCloud account
+            </h1>
+            <button
+              form=""
+              className="login-info-input modal-item loginInput"
+              onClick={this.switchModal}
+            >
+              &#9668; {this.state.email}
+            </button>
+            <h3 className="choose-password">
+              Choose a password <span className="red-splat">*</span>
+            </h3>
+            <input
+              ref={this.passRef}
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              className="login-info-input"
+            />
+            {this.renderPasswordErrors()}
+            <p className="fine-print">
+              By signing up I accept the{" "}
+              <span className="privacy-policy">Terms of Use</span>. I have read
+              and understood the{" "}
+              <span className="privacy-policy">Privacy Policy</span> and{" "}
+              <span className="privacy-policy">Cookies Policy</span>.
+            </p>
+            <input
+              id="login-form-continue"
+              className="splash-button modal-item"
+              type="submit"
+              value="Accept & Continue"
+              onSubmit={this.handleInitialSubmit}
+              onClick={this.handleInitialSubmit}
+            />
+            <div className="sign-in-question">
+              <h3>Are you trying to sign in?</h3>
+              <p>
+                The email address that you entered was not found. Double-check
+                your email address.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
   }
 }

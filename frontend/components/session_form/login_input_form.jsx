@@ -9,11 +9,17 @@ export default class LoginInputForm extends Component {
       loginInput: ""
     };
 
+    this.focusRef = React.createRef();
+
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNextForm = this.handleNextForm.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+  }
+
+  componentDidMount() {
+    this.focusRef.current.focus();
   }
 
   demoLogin(e) {
@@ -45,25 +51,18 @@ export default class LoginInputForm extends Component {
           <LoginForm
             loginInput={this.state.loginInput}
             errors={this.props.errors}
-            clearErrors={this.props.clearErrors}
             login={this.props.login}
             closeModal={this.props.closeModal}
             openModal={this.props.openModal}
-            history={this.props.history}
-            session={this.props.session}
           />
         );
       case "signup":
         return (
           <SignupForm
             loginInput={this.state.loginInput}
-            errors={this.props.errors}
-            clearErrors={this.props.clearErrors}
             signup={this.props.signup}
             closeModal={this.props.closeModal}
             openModal={this.props.openModal}
-            history={this.props.history}
-            session={this.props.session}
           />
         );
       default:
@@ -74,6 +73,7 @@ export default class LoginInputForm extends Component {
                 <button
                   id="demo-login"
                   className="splash-button modal-item"
+                  type="button"
                   onClick={this.demoLogin}
                 >
                   Demo Login
@@ -82,6 +82,7 @@ export default class LoginInputForm extends Component {
                   <span>or</span>
                 </h2>
                 <input
+                  ref={this.focusRef}
                   type="text"
                   value={this.state.loginInput}
                   onChange={this.update("loginInput")}
@@ -89,12 +90,13 @@ export default class LoginInputForm extends Component {
                   placeholder="Your email address or username *"
                 />
                 {this.renderErrors()}
-                <input
+                <button
                   id="login-form-continue"
                   className="splash-button modal-item"
                   type="submit"
-                  value="Continue"
-                />
+                >
+                  Continue
+                </button>
                 <p className="need-help">Need Help?</p>
                 <p className="fine-print">
                   We may use your email and devices for updates and tips on
