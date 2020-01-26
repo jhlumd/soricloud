@@ -18,7 +18,7 @@ export default class CommentForm extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.commentTime === null && this.state.body.length > 0) {
       const { trackId, currentTrackId, currentTime } = this.props;
-      
+      // fixme the timestamp not recording correctly
       if (trackId === currentTrackId) {
         const timeStamp = currentTime
           ? this.formatTimeStamp(currentTime)
@@ -60,7 +60,7 @@ export default class CommentForm extends Component {
       };
       this.props.createComment(comment).then(this.resetForm);
     } else {
-      this.props.openModal("loginInput"); //fix check after login correctly
+      this.props.openModal("loginInput"); // fixme focus reply form after login/signup
     }
   }
 

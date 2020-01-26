@@ -5,7 +5,7 @@ import CommentItem from "./comment_item";
 const CommentIndex = props => {
   const { comments, currentUserId } = props;
   const commentIndexShow = Object.values(comments)
-    .filter(comment => (comment.parent_cmt_id === null ? comment : null))
+    .filter(comment => comment.parent_cmt_id === null)
     .map(comment => (
       <CommentItem
         key={comment.id}

@@ -10,18 +10,16 @@ const ReplyIndex = props => {
     showReplyForm
   } = props;
 
-  const replyFiltered = childComments
-    .filter(id => (comments[id] ? id : null))
-    .map(id => comments[id]);
-
-  const replyIndex = replyFiltered.map(comment => (
-    <ReplyItem
-      key={comment.id}
-      comment={comment}
-      currentUserId={currentUserId}
-      showReplyForm={showReplyForm}
-    />
-  ));
+  const replyIndex = childComments
+    .filter(id => comments[id])
+    .map(id => (
+      <ReplyItem
+        key={id}
+        comment={comments[id]}
+        currentUserId={currentUserId}
+        showReplyForm={showReplyForm}
+      />
+    ));
 
   return (
     <div className="child-comment-index-container">{replyIndex}</div>

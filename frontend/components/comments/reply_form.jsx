@@ -30,7 +30,7 @@ export default class ReplyForm extends Component {
       };
       this.props.createComment(comment).then(this.resetForm);
     } else {
-      this.props.openModal("loginInput"); //fix check after login correctly
+      this.props.openModal("loginInput"); // fixme focus reply form after login/signup
     }
   }
 

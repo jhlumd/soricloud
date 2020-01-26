@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { deleteComment, fetchComments } from "../../actions/comment_actions";
+import { seekPercentage } from "../../actions/track_player_actions";
 import ReplyFormC from "./reply_form_container";
 import ReplyIndex from "./reply_index";
 
+// fixme comment timestamp not recording correctly.
 // FIXME = trackTime onClick => track player action to update currentTime and play audio
 
 class CommentItem extends Component {
@@ -22,6 +24,7 @@ class CommentItem extends Component {
     this.resetReplyForm = this.resetReplyForm.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
     this.redirectToUserPage = this.redirectToUserPage.bind(this);
+    this.seekToTS = this.seekToTS.bind(this);
   }
 
   createdAtStamp(date) {
@@ -68,7 +71,6 @@ class CommentItem extends Component {
   }
 
   deleteComment() {
-    // FIXME bind that?
     this.props.deleteComment(this.props.comment.id).then(() => {
       this.props.fetchComments(this.props.comment.track_id);
     });
@@ -76,6 +78,14 @@ class CommentItem extends Component {
 
   redirectToUserPage() {
     this.props.history.push(`/users/${this.props.comment.user_id}`);
+  }
+
+  seekToTS(timestamp) {
+    const [hours, minutes, seconds] = timestamp.split(":");
+    const inSeconds = hours * 3600 + minutes * 60 + seconds;
+    const newPercentage = inSeconds / this.props.duration * 100;
+    // fixme = the case when currently playing track is not the track show page we're on.
+    this.props.seekPercentage(newPercentage);
   }
 
   render() {
@@ -133,9 +143,18 @@ class CommentItem extends Component {
           >
             <div className="comment-info">
               {/* FIXME THIS CLICK TO TRACK TIME */}
-              <p onClick={this.redirectToUserPage}>
-                {usernameStamp} <span className="comment-at">at</span>{" "}
-                {trackTime}:
+              <p
+                className="cmt-info-username"
+                onClick={this.redirectToUserPage}
+              >
+                {usernameStamp}
+                <span className="comment-at"> at </span>
+                <span
+                  className="cmt-info-username"
+                  onClick={() => this.seekToTS(trackTime)}
+                >
+                  {trackTime}:
+                </span>
               </p>
               <p>{this.createdAtStamp(createdAt)}</p>
             </div>
@@ -163,9 +182,14 @@ class CommentItem extends Component {
   }
 }
 
-const mdtp = dispatch => ({
-  deleteComment: commentId => dispatch(deleteComment(commentId)),
-  fetchComments: trackId => dispatch(fetchComments(trackId))
+const mstp = state => ({
+  duration: state.ui.trackPlayer.duration 
 });
 
-export default withRouter(connect(null, mdtp)(CommentItem));
+const mdtp = dispatch => ({
+  deleteComment: commentId => dispatch(deleteComment(commentId)),
+  fetchComments: trackId => dispatch(fetchComments(trackId)),
+  seekPercentage: newPercentage => dispatch(seekPercentage(newPercentage))
+});
+
+export default withRouter(connect(mstp, mdtp)(CommentItem));

@@ -128,28 +128,13 @@ export default class TrackPlayer extends Component {
   }
   
   render() {
-    const author = this.state.currentTrack.username;
-    const title = this.state.currentTrack.title;
-    const photo = (
-      <img
-        className="track-player-photo"
-        src={this.state.currentTrack.photoUrl}
-      />
-    );
-
+    const { username, title } = this.state.currentTrack;
     const currentTime = this.props.currentTime
       ? this.formatTimeStamp(this.props.currentTime)
-      : this.formatTimeStamp(0);
+      : "00:00";
     const trackTime = this.props.duration
       ? this.formatTimeStamp(this.props.duration)
-      : this.formatTimeStamp(0);
-    const playback = (
-      <img
-        className="pause-play"
-        src={window.playbackIcon}
-        onClick={this.playback}
-      />
-    );
+      : "00:00";
     const playOrPause = this.props.playing ? (
       <img className="pause-play" src={window.pauseIcon} onClick={this.pause} />
     ) : (
@@ -186,7 +171,11 @@ export default class TrackPlayer extends Component {
           onMouseLeave={this.hideVolumeBar}
         >
           <div className="track-player">
-            {playback}
+            <img
+              className="pause-play"
+              src={window.playbackIcon}
+              onClick={this.playback}
+            />
             {playOrPause}
             <p className="times current-time">{currentTime}</p>
             <SeekBar />
@@ -210,7 +199,10 @@ export default class TrackPlayer extends Component {
             ></div>
           </div>
           <div className="track-player-info">
-            {photo}
+            <img
+              className="track-player-photo"
+              src={this.state.currentTrack.photoUrl}
+            />
             <div className="track-player-user-info">
               <p
                 className="author"
@@ -220,7 +212,7 @@ export default class TrackPlayer extends Component {
                   )
                 }
               >
-                {author}
+                {username}
               </p>
               <p
                 className="title"

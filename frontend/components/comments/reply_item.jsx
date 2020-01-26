@@ -91,8 +91,9 @@ class ReplyItem extends Component {
           onMouseLeave={this.hideReply}
         >
           <div className="comment-info">
-            {/* FIXME THIS CLICK TO TRACK TIME */}
-            <p onClick={this.redirectToUserPage}>{usernameStamp}:</p>
+            <p className="cmt-info-username" onClick={this.redirectToUserPage}>
+              {usernameStamp}:
+            </p>
             <p>{this.createdAtStamp(createdAt)}</p>
           </div>
           <div className="comment-info">
