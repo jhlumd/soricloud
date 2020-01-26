@@ -1,0 +1,135 @@
+.comment-form-container {
+  display: block;
+  padding: 5px;
+  height: 40px;
+  width: 100%;
+  margin: 10px 0;
+  box-sizing: border-box;
+  background: #f2f2f2;
+  border: 1px solid #e5e5e5;
+}
+
+.comment-form, .comment-reply-form {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  color: #111;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+  height: 27px;
+  font-family: 'Lucida Grande';
+  line-height: 27px;
+}
+
+.comment-form:focus {
+  outline: none;
+  border: 1px solid #999999;
+}
+
+
+.comment-form-container-outer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.comment-reply-form-inner-container {
+  display: flex;
+  width: 100%;
+}
+
+#comment-reply-form-input {
+  width: 100%;
+}
+
+.comment-index-container, .child-comment-index-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.comment-item, .child-comment-item {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 11px;
+  font-family: 'Lucida Grande';
+  color: #999;
+  margin: 10px 0;
+}
+
+.comment-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.comment-at {
+  color: #cfcfcf;
+}
+
+.comment-body {
+  font-size: 12px;
+  color: black;
+  padding: 6px 0;
+}
+
+
+.comment-reply-button {
+  display: none;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  padding: 3px;
+  margin-left: 3px;
+}
+
+.comment-reply-show {
+  display: block;
+}
+
+.comment-reply-form-container {
+  display: block;
+  padding: 5px;
+  width: 95%;
+  box-sizing: border-box;
+  background: #f2f2f2;
+  border: 1px solid #e5e5e5;
+  margin-left: 40px;
+}
+
+.comment-reply-form {
+  font-family: "Lucida Grande";
+  font-size: 12px; 
+  padding: 5px;
+  height: 20px;
+}
+
+.comment-index-container {
+  border-top: 1px solid #f2f2f2;
+  margin-top: 10px;
+}
+
+.child-comment-index-container {
+  width: 95%;
+  margin-left: 40px;
+}
+
+.comment-reply-form:focus {
+  outline: none;
+  border: 1px solid #999999;
+}
+
+.comment-item-inner-container {
+  display: flex;
+  align-items: center;
+}
+
+.comment-edit-things {
+  display: flex;
+}
