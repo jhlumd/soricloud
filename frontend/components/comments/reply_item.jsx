@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-// import { withRouter } from "react-router";
+import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import { deleteComment } from "../../actions/comment_actions";
-
-// this.props.commentId
 
 class ReplyItem extends Component {
   constructor(props) {
@@ -16,28 +14,31 @@ class ReplyItem extends Component {
     this.showReply = this.showReply.bind(this);
     this.hideReply = this.hideReply.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
+    this.redirectToUserPage = this.redirectToUserPage.bind(this);
   }
 
-  createdAtStamp(createdAtDate) {
-    let createdAtStamp;
+  createdAtStamp(date) {
     const timeNow = Date.now();
-    const createdTime = new Date(createdAtDate);
-    let rawCreatedAtStamp = (timeNow - createdTime) / (1000 * 60 * 60);
-    if (rawCreatedAtStamp < 1) {
-      createdAtStamp = Math.floor(rawCreatedAtStamp * 60);
-      return `${createdAtStamp} minutes ago`;
-    } else if (rawCreatedAtStamp < 24) {
-      createdAtStamp = Math.floor(rawCreatedAtStamp);
-      if (createdAtStamp === 1) {
-        return `${createdAtStamp} hour ago`;
+    const createdTime = new Date(date);
+    const rawHours = (timeNow - createdTime) / (1000 * 60 * 60);
+
+    if (rawHours < 1) {
+      const inMinutes = Math.floor(rawHours * 60);
+      return `${inMinutes} minutes ago`;
+    } else if (rawHours < 24) {
+      const inHours = Math.floor(rawHours);
+      if (inHours === 1) {
+        return `an hour ago`;
       } else {
-        return `${createdAtStamp} hours ago`;
+        return `${inHours} hours ago`;
       }
     } else {
-      createdAtStamp = Math.floor(
-        (timeNow - createdTime) / (1000 * 60 * 60 * 24)
-      );
-      return `${createdAtStamp} days ago`;
+      const inDays = Math.floor(rawHours / 24);
+      if (inDays === 1) {
+        return `a day ago`;
+      } else {
+        return `${inDays} days ago`;
+      }
     }
   }
 
@@ -50,29 +51,24 @@ class ReplyItem extends Component {
   }
 
   deleteComment() {
-    this.props.deleteComment(this.props.commentId);
+    this.props.deleteComment(this.props.comment.id);
+  }
+
+  redirectToUserPage() {
+    this.props.history.push(`/users/${this.props.comment.user_id}`);
   }
 
   render() {
-    const username = this.props.username;
-    const trackTime = this.props.trackTime;
-    const body = this.props.body;
-    const createdAt = this.props.createdAt;
-    const userId = this.props.userId;
-    const currentUserId = this.props.currentUserId;
-    const profilePicture = (
-      <img src={this.props.photoUrl} className="profile-picture-comment" />
-    );
+    const {
+      username,
+      body,
+      created_at: createdAt,
+      user_id: userId,
+      photoUrl
+    } = this.props.comment;
+    const { currentUserId, showReplyForm } = this.props;
 
-    let createdAtStamp = this.createdAtStamp(createdAt);
-
-    let usernameStamp;
-    if (userId === currentUserId) {
-      usernameStamp = "You";
-    } else {
-      usernameStamp = username;
-    }
-
+    const usernameStamp = userId === currentUserId ? "You" : username;
     const deleteButton =
       userId === currentUserId ? (
         <button
@@ -85,20 +81,19 @@ class ReplyItem extends Component {
           <i className="fas fa-trash"></i>
         </button>
       ) : null;
+
     return (
       <div className="comment-item-inner-container">
-        {profilePicture}
+        <img src={photoUrl} className="profile-picture-comment" />
         <div
           className="child-comment-item"
           onMouseEnter={this.showReply}
           onMouseLeave={this.hideReply}
         >
           <div className="comment-info">
-            <p>
-              {usernameStamp} <span className="comment-at">at</span> {trackTime}
-              :
-            </p>
-            <p>{createdAtStamp}</p>
+            {/* FIXME THIS CLICK TO TRACK TIME */}
+            <p onClick={this.redirectToUserPage}>{usernameStamp}:</p>
+            <p>{this.createdAtStamp(createdAt)}</p>
           </div>
           <div className="comment-info">
             <p className="comment-body">{body}</p>
@@ -107,7 +102,7 @@ class ReplyItem extends Component {
                 className={`comment-reply-button ${
                   this.state.showButtons ? "comment-reply-show" : ""
                 }`}
-                onClick={this.props.showCommentReplyForm}
+                onClick={showReplyForm}
               >
                 {" "}
                 <i className="fas fa-reply"></i> Reply
@@ -125,4 +120,4 @@ const mdtp = dispatch => ({
   deleteComment: commentId => dispatch(deleteComment(commentId))
 });
 
-export default connect(null, mdtp)(ReplyItem);
+export default withRouter(connect(null, mdtp)(ReplyItem));

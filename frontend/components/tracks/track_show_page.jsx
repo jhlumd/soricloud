@@ -38,7 +38,7 @@ export default class TrackShowPage extends Component {
 
   deleteTrack() {
     this.props.deleteTrack(this.props.track.id)
-      .then(() => this.props.history.push("/"));
+      .then(() => this.props.history.push("/discover"));
   }
 
   formatTimeStamp(totalTime) {

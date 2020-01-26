@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 
-// this.props.parentCommentId
-// this.props.trackId
-// resetReplyForm
-
 export default class ReplyForm extends Component {
   constructor(props) {
     super(props);
