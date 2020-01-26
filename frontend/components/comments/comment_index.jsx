@@ -1,10 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchComments } from "../../actions/comment_actions";
 import CommentItem from "./comment_item";
-
-// props.commentSSS
-// props.currentUserId
 
 const CommentIndex = props => {
   const { comments, currentUserId } = props;
@@ -34,8 +30,4 @@ const mstp = state => ({
   comments: state.entities.comments
 });
 
-const mdtp = dispatch => ({
-  fetchComments: trackId => dispatch(fetchComments(trackId))
-});
-
-export default connect(mstp, mdtp)(CommentIndex);
+export default connect(mstp, null)(CommentIndex);

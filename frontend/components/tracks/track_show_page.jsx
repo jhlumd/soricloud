@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PlayButton from "../tracks/play_button";
 import SeekBar from "../track_player/seek_bar";
 import Waveform from "../waveform/waveform";
+import CommentForm from "../comments/comment_form_container";
+import CommentIndex from "../comments/comment_index";
 
 export default class TrackShowPage extends Component {
   constructor(props) {
@@ -12,27 +14,35 @@ export default class TrackShowPage extends Component {
     
     this.deleteTrack = this.deleteTrack.bind(this);
     this.redirectToUserPage = this.redirectToUserPage.bind(this);
-    this.createTrackTimeStamp = this.createTrackTimeStamp.bind(this);
+    this.loadAudio = this.loadAudio.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchTrack(this.props.match.params.trackId).then(
-      () => this.createTrackTimeStamp(),
+    const trackId = this.props.match.params.trackId;
+    this.props.fetchTrack(trackId).then(
+      () => this.loadAudio(),
       () => this.props.history.push("/")
     );
+    this.props.clearComments();
+    this.props.fetchComments(trackId);
   }
 
   componentDidUpdate(prevProps) {
+    const trackId = this.props.match.params.trackId;
     if (this.props.track === null) {
-      this.props.fetchTrack(this.props.match.params.trackId).then(
-        () => this.createTrackTimeStamp(),
+      this.props.fetchTrack(trackId).then(
+        () => this.loadAudio(),
         () => this.props.history.push("/")
       );
+      this.props.clearComments();
+      this.props.fetchComments(trackId);
     } else if (prevProps.track && this.props.track.id !== prevProps.track.id) {
-      this.props.fetchTrack(this.props.match.params.trackId).then(
-        () => this.createTrackTimeStamp(),
+      this.props.fetchTrack(trackId).then(
+        () => this.loadAudio(),
         () => this.props.history.push("/")
       );
+      this.props.clearComments();
+      this.props.fetchComments(trackId);
     }
   }
 
@@ -53,7 +63,7 @@ export default class TrackShowPage extends Component {
     return `${hours}${minutes}:${seconds}`;
   }
 
-  createTrackTimeStamp() {
+  loadAudio() {
     const audioObj = new Audio();
     if (this.props.track) {
       audioObj.src = this.props.track.trackUrl;
@@ -78,6 +88,8 @@ export default class TrackShowPage extends Component {
     let description = null;
     let deleteButton = null;
     let createdAt = null;
+    let showComments = null;
+    let commentForm = null;
     if (track) {
       trackTitle = track.title;
       description = track.description;
@@ -89,6 +101,9 @@ export default class TrackShowPage extends Component {
           sizeType={"large"}
         />
       );
+      showComments = (<CommentIndex currentUserId={this.props.currentUserId} />);
+      commentForm = (<CommentForm trackId={this.props.track.id} />);
+
       if (track.user_id === currentUserId) {
         deleteButton = (
           <button className="edit-button" onClick={this.deleteTrack}>
@@ -191,7 +206,10 @@ export default class TrackShowPage extends Component {
             </div>
             <div className="show-page-bottom">
               <div className="comment-divider">
-                <div className="edit-buttons">{deleteButton}</div>
+                {commentForm}
+                <div className="edit-buttons">
+                  {deleteButton}
+                </div>
               </div>
               <div className="show-page-bottom-bottom">
                 <div className="show-page-bottom-left">
@@ -205,6 +223,7 @@ export default class TrackShowPage extends Component {
                 </div>
                 <div className="show-page-bottom-right">
                   <div className="track-description">{description}</div>
+                  {showComments}
                 </div>
               </div>
             </div>

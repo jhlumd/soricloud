@@ -68,9 +68,9 @@ class CommentItem extends Component {
   }
 
   deleteComment() {
-    const that = this;
+    // FIXME bind that?
     this.props.deleteComment(this.props.comment.id).then(() => {
-      that.props.fetchComments(that.props.comment.track_id);
+      this.props.fetchComments(this.props.comment.track_id);
     });
   }
 

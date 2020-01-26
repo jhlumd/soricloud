@@ -12,11 +12,11 @@ class TrackItem extends Component {
       trackTimeStamp: null
     };
 
-    this.createTrackTimeStamp = this.createTrackTimeStamp.bind(this);
+    this.loadAudio = this.loadAudio.bind(this);
   }
 
   componentDidMount() {
-    this.createTrackTimeStamp();
+    this.loadAudio();
   }
 
   formatTimeStamp(totalTime) {
@@ -31,7 +31,7 @@ class TrackItem extends Component {
     return `${hours}${minutes}:${seconds}`;
   }
 
-  createTrackTimeStamp() {
+  loadAudio() {
     const audioObj = new Audio();
     audioObj.src = this.props.track.trackUrl;
 
