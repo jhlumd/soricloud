@@ -6,8 +6,8 @@ import { seekPercentage } from "../../actions/track_player_actions";
 import ReplyFormC from "./reply_form_container";
 import ReplyIndex from "./reply_index";
 
-fixme comment timestamp not recording correctly.
-FIXME = trackTime onClick => track player action to update currentTime and play audio
+// fixme comment timestamp not recording correctly.
+// FIXME = trackTime onClick => track player action to update currentTime and play audio
 
 class CommentItem extends Component {
   constructor(props) {
