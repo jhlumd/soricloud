@@ -15,7 +15,7 @@ class CommentItem extends Component {
     this.state = {
       showButtons: false,
       showForm: false
-    };
+    };a
 
     this.createdAtStamp = this.createdAtStamp.bind(this);
     this.showReply = this.showReply.bind(this);
