@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import MainForm from './main_form';
 import { uploadTrack } from '../../actions/track_actions';
 
+// fixme - upload loading in progress indication
+
 const UploadPage = props => {
   const handleDrag = e => {
     e.preventDefault();
