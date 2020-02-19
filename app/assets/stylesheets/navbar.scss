@@ -109,11 +109,10 @@
 .caret {
   background: transparent;
   box-sizing: border-box;
-  height: 15px;
   padding: 0;
-  width: 15px;
-  margin-left: 5px;
-  margin-top: 4px;
+  height: 22px;
+  width: 22px;
+  border-top-style: none !important;
 }
 
 .dropdown {
