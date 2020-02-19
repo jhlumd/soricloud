@@ -52,6 +52,11 @@ button:hover {
 	cursor: pointer;
 }
 
+a:focus, a:hover {
+	color: white;
+	text-decoration: none;
+}
+
 html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, h3, p, form,
