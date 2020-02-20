@@ -23,16 +23,15 @@
   line-height: 27px;
 }
 
-.comment-form:focus {
-  outline: none;
-  border: 1px solid #999999;
-}
-
-
 .comment-form-container-outer {
   display: flex;
   width: 100%;
   align-items: center;
+}
+
+.comment-form:focus {
+  outline: none;
+  border: 1px solid #999999;
 }
 
 .comment-reply-form-inner-container {
