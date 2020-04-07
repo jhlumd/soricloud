@@ -15,6 +15,8 @@ export default class UserShow extends Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId);
+    // fixme fetch tracks by user
+    // this.props.fetchTracks
   }
 
   showEditButton() {

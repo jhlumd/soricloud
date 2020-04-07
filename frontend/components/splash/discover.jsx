@@ -13,8 +13,8 @@ export default class Discover extends Component {
   render() {
     const recentTracks = this.props.tracks
       .slice(0)
-      .reverse()
-      .slice(0, 12);
+      .reverse();
+      // .slice(0, 12);
     const tracksIndex1 =
       this.props.tracks.length > 0 ? (
         <TracksIndex
