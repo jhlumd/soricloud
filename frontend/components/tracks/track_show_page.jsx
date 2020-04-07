@@ -121,6 +121,8 @@ export default class TrackShowPage extends Component {
       createdAt =
         timeDiff < 1 ? (
           <h1 className="track-time-stamp">less than one day ago</h1>
+        ) : timeDiff === 1 ? (
+          <h1 className="track-time-stamp">one day ago</h1>
         ) : (
           <h1 className="track-time-stamp">{`${timeDiff} days ago`}</h1>
         );
