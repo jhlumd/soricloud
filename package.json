@@ -18,7 +18,7 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },
-  "description": "SoundCloud clone",
+  "description": "A single-page app for streaming music and uploading your own",
   "version": "1.0.0",
   "main": "index.js",
   "directories": {
