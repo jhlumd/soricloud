@@ -3,13 +3,18 @@
 
 ## Table of contents
 * [General Info](#general-info)
+
 * [Technologies](#technologies)
+
 * [Features](#features)
+
   * [Continuous audio playback through navigation](#continuous-audio-playback-through-navigation)
   * [Interactive waveform synced with music player](#interactive-waveform-synced-with-music-player)
   * [Unique signup/login flow](#unique-signuplogin-flow)
   <!-- * [Easy audio upload with responsive and intuitive UI](#easy-audio-upload-with-responsive-and-intuitive-ui) -->
+
 * [Future Directions](#future-directions)
+
 * [Contact](#contact)
 
 ## General Info
