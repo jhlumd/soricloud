@@ -49,7 +49,7 @@ sample code
 ### Interactive waveform synced with music player
 Delve deep into features that show off your technical abilities. Discuss both the challenges faced and your brilliant solutions. Code snippets to highlight your best code.
 
-![Example screenshot](./img/screenshot.png)
+![Example screenshot](./demo/synced_waveform.gif)
 Show examples of usage:
 ```
 sample code
@@ -57,14 +57,14 @@ sample code
 
 <!-- fixme - add easy upload screenshot after adding loading icon
 ### Easy upload with responsive and intuitive UI
-![Example screenshot](./img/screenshot.png)
+![Example screenshot](./demo/screenshot.png)
 Show examples of usage:
 ```
 sample code
 ``` -->
 
 ### Unique signup/login flow
-![Example screenshot](./d/logo.png)
+![Example screenshot](./demo/signup.gif)
 Show examples of usage:
 ```
 sample code
