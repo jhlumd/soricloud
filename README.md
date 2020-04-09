@@ -33,18 +33,44 @@ The overarching theme is the ease of access to sharing your music with the rest 
   * BCrypt - v3.1.7
 
 ## Features
-In-depth explanation of my implementation fo some of the features of the app:
+In-depth explanations of some notable features and the details of my implementation and challenges faced:
+
+---
 
 ### Continuous audio playback through navigation
-Users can navigate to different pages within the website without interrupting the currently playing track. Clicking play on instances of different tracks does not start overlapping audio playback.
+Users can navigate to different pages within the website without interrupting the currently playing track. Clicking the play button on a different track stops the current playback before starting the new one preventing overlap.
 
-Uninterrupted and non-overlapping playback is demonstrated in the screen recording below by the steady progress of the SeekBar and timestamp in the music player interface docked at the bottom of the view.
+Uninterrupted and non-overlapping playback is demonstrated in the screen recording below by the steady progress of the SeekBar and timestamp in the music player interface docked at the bottom of the view as well as on the waveforms.
 
 ![Example screenshot](./demo/continuous_play.gif)
-Show examples of usage:
+
+To enable this feature, I created a `currentTrack` slice of global Redux UI state to maintain "a single source of truth" for the currently playing track. With a correctly designed Redux pattern, the `currentTrack` will now only be able to be changed using the specific `receiveCurrentTrack` action. This allows all of the components at any given page throughout navigation to know what the currently playing track is and update themselves when a new playback is started or to stay put for continuous playback, accordingly.
+
+
 ```
-sample code
+// extracted from track_actions.js
+const receiveCurrentTrack = ({ track, user }) => ({
+  type: RECEIVE_CURRENT_TRACK,
+  currentTrack: track,
+  user
+});
+
+// extracted from current_track_reducer.js
+switch (action.type) {
+  case RECEIVE_CURRENT_TRACK:
+    const userInfo = { username: action.user.username };
+    const newState = merge({}, action.currentTrack, userInfo);
+    return newState;
+
+// extracted from ui_reducer.js
+const uiReducer = combineReducers({
+  modal: modalReducer,
+  currentTrack: currentTrackReducer,
+  trackPlayer: trackPlayerReducer
+});
 ```
+
+---
 
 ### Interactive waveform synced with music player
 Delve deep into features that show off your technical abilities. Discuss both the challenges faced and your brilliant solutions. Code snippets to highlight your best code.
@@ -55,10 +81,15 @@ Show examples of usage:
 sample code
 ```
 
+---
 <!-- fixme - add easy upload screenshot after adding loading icon
 ### Easy upload with responsive and intuitive UI
+Delve deep into features that show off your technical abilities. Discuss both the challenges faced and your brilliant solutions. Code snippets to highlight your best code.
+
 ![Example screenshot](./demo/screenshot.png)
+
 Show examples of usage:
+
 ```
 sample code
 ``` -->
@@ -69,6 +100,8 @@ Show examples of usage:
 ```
 sample code
 ```
+
+---
 
 ## Future Directions
 * Display a loading icon while the audio upload form in submitting.
