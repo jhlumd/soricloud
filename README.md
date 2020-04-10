@@ -44,7 +44,7 @@ Uninterrupted and non-overlapping playback is demonstrated in the screen recordi
 
 To enable this feature, I created a `currentTrack` slice of global Redux UI state to maintain "a single source of truth" for the currently playing track. With a correctly designed Redux pattern, the `currentTrack` will now only be able to be changed using the specific `receiveCurrentTrack` action. This allows all of the components at any given page throughout navigation to have access to the currently playing track information and update themselves accordingly when a new playback is started or to stay put for ensure continuous playback.
 
-Biggest challenge here was filtering the components that should be subscribed to this slice of global Redux state. For example, it was less obvious that the `TrackIndexItem`s on the `Discover` page should also be subscribed in order to correctly display the *pause* button over the track image if it was the currently playing track compared to more obvious choice like the `Waveform`s.
+Biggest challenge here was correctly filtering the components that should be subscribed to this slice of global Redux state. For example, it was less obvious that the `TrackIndexItem`s on the `Discover` page should also be subscribed in order to correctly display the *play/pause* button over the track image if it was the currently playing track compared to more obvious choice like the `Waveform`s.
 
 The code excerpt below illustrate the architecture of the UI slice of Redux state.
 
@@ -74,33 +74,26 @@ const uiReducer = combineReducers({
 ---
 
 ### Interactive waveform synced with music player bar
-Users can click on either the `SeekBar` of the music player bar or the `Waveform` of a currently playing track to seek to the corresponding timestamp. When one is clicked, the other is automatically updated in sync. The UI is responsive and intuitive, and the dynamic visual displays update smoothly in real-time as demonstrated below.
+Users can click on either the music player bar or the waveform visual to seek to a new audio position. When one is clicked, the other automatically updates as well in sync as demonstrated below.
 
 ![Example screenshot](./demo/synced_waveform.gif)
 
-First, I developed a `Waveform ` component to dynamically generate a customized waveform visualization for each track on `TrackShow` and `UserShow` pages.
+First, I developed a `Waveform ` component to dynamically generate a customized waveform visualization for each track on `TrackShow` and `UserShow` pages using `wavesurfer.js`. There were three total components that required the audio position seek functionality: `TrackShow`'s larger waveform, `UserShow`'s smaller waveforms, and the bottom music player bar. To DRY up the code for this implementation, I designed a modular `SeekBar` to serve as a subcomponent in each of the above.
 
-Then, to facilitate the synchronization of the audio position update on the waveform visual and the bottom music player bar, I designed a modular `SeekBar` component. This was used as a subcomponent of all components that require the seek functionality. Implementing the modularity was the most challenging aspect. However, it made the synchronization using Redux patterns easier and more intuitive.
+The biggest challenge was developing a function to handle user input from all three different sources as well as being independent of the client's window size. My initial approach was to find the formula to calculate the clicked audio position using `window.innerWidth`, `MouseEvent.clientX`, and `HTMLElement.offsetWidth`. However, the solution was not elegant because the music player did not have a background page margin while the other two components were in the parts of the page that did in my implementation.
 
-The following code is the part of the `SeekBar` component that modularly handles user input from three different sources - `TrackShowPage`'s larger waveform, `UserShowPage`'s smaller waveform, and the bottom music player bar. It calculates the new position in the audio playback using the `clientX` property of the input event and the knowledge of the input source.
+I eventually discovered the `Element.getBoundingClientRect()` method which gives information regarding an element's position relative to the viewport. It enabled me to write the following simple, intuitive function to accomplish what I wanted:
 
 ```javascript
 function handlePercentage(e) {
-  const { seekBarStyle, seekPercentage } = this.props;
-  const { offsetLeft, offsetWidth } = e.currentTarget;
-  const xPos = (window.innerWidth - 1280) / 2;
-
-  const multiplier =
-    seekBarStyle === "long" ? 1.5 : seekBarStyle === "medium" ? 107 : 1.25;
-      // "long" = TrackShowPage waveform
-      // "medium" = UserShowPage waveform
-      // default/undefined = music player bar
-  const newPercentage = Math.floor(
-    ((e.clientX - xPos - offsetLeft * multiplier) / offsetWidth) * 100
-  );
-  seekPercentage(newPercentage); // dispatch the seekPercentage Redux action
+  const { left, width } = e.currentTarget.getBoundingClientRect();  
+  const newPercentage = Math.floor(((e.clientX - left) / width) * 100);
+  this.props.seekPercentage(newPercentage);
+    // dispatch the seekPercentage Redux action with the calculated value
 }
 ```
+
+Designing a modular component was challenging initially. However, it made syncing up all the components in Redux easier and DRYing up the code was satisfying.
 
 ---
 <!-- fixme - add easy upload screenshot after adding loading icon
