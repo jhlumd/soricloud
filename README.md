@@ -38,13 +38,15 @@ An in-depth discussion of select features including details of my implementation
 ### Continuous audio playback through navigation
 Users can navigate to different pages within the website without interrupting the currently playing track. Clicking the play button on a different track stops the current playback before starting the new one preventing overlap.
 
-Uninterrupted and non-overlapping playback is demonstrated in the screen recording below by the steady progress of the `SeekBar` and timestamp in the music player bar interface docked at the bottom of the view as well as on the `Waveform`s.
+Uninterrupted and non-overlapping playback is demonstrated in the screen recording below by the steady progress of the audio position and timestamp in the music player bar interface docked at the bottom of the view as well as on the waveform visual.
 
 ![Example screenshot](./demo/continuous_play.gif)
 
-To enable this feature, I created a `currentTrack` slice of global Redux UI state to maintain "a single source of truth" for the currently playing track. With a correctly designed Redux pattern, the `currentTrack` will now only be able to be changed using the specific `receiveCurrentTrack` action. This allows all of the components at any given page throughout navigation to know the correct currently playing track and update themselves when a new playback is started or to stay put for continuous playback, accordingly.
+To enable this feature, I created a `currentTrack` slice of global Redux UI state to maintain "a single source of truth" for the currently playing track. With a correctly designed Redux pattern, the `currentTrack` will now only be able to be changed using the specific `receiveCurrentTrack` action. This allows all of the components at any given page throughout navigation to have access to the currently playing track information and update themselves accordingly when a new playback is started or to stay put for ensure continuous playback.
 
-Biggest challenge here was understanding which components should be subscribed to this slice of global Redux state. For example, compared to the `Waveform`s, it was less obvious that the `TrackIndexItem`s on the `Discover` page should also be subscribed in order to correctly display the *pause* button over the track image if it was the currently playing track.
+Biggest challenge here was filtering the components that should be subscribed to this slice of global Redux state. For example, it was less obvious that the `TrackIndexItem`s on the `Discover` page should also be subscribed in order to correctly display the *pause* button over the track image if it was the currently playing track compared to more obvious choice like the `Waveform`s.
+
+The code excerpt below illustrate the architecture of the UI slice of Redux state.
 
 ```javascript
 // extracted from track_actions.js
@@ -78,7 +80,7 @@ Users can click on either the `SeekBar` of the music player bar or the `Waveform
 
 First, I developed a `Waveform ` component to dynamically generate a customized waveform visualization for each track on `TrackShow` and `UserShow` pages.
 
-Then, to facilitate the synchronization of the progress update on the waveform visual and the bottom music player bar, I designed a modular `SeekBar` component to be used as a subcomponent of all components that require the seek functionality. Implementing the modularity was the most challenging aspect. However, it made the synchronization of the two parts with Redux easier and more intuitive.
+Then, to facilitate the synchronization of the audio position update on the waveform visual and the bottom music player bar, I designed a modular `SeekBar` component. This was used as a subcomponent of all components that require the seek functionality. Implementing the modularity was the most challenging aspect. However, it made the synchronization using Redux patterns easier and more intuitive.
 
 The following code is the part of the `SeekBar` component that modularly handles user input from three different sources - `TrackShowPage`'s larger waveform, `UserShowPage`'s smaller waveform, and the bottom music player bar. It calculates the new position in the audio playback using the `clientX` property of the input event and the knowledge of the input source.
 

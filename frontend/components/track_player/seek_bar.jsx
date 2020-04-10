@@ -9,7 +9,7 @@ class SeekBar extends Component {
       ball: false,
     };
 
-    this.progBarRef = React.createRef();
+    this.seekBarRef = React.createRef();
 
     this.revealBall = this.revealBall.bind(this);
     this.hideBall = this.hideBall.bind(this);
@@ -18,7 +18,7 @@ class SeekBar extends Component {
   }
 
   componentDidUpdate() {
-    this.progBarRef.current.value = `${this.props.percentage}`;
+    this.seekBarRef.current.value = `${this.props.percentage}`;
   }
 
   revealBall() {
@@ -32,21 +32,13 @@ class SeekBar extends Component {
   }
 
   handlePercentage(e) {
-    const { seekBarStyle, seekPercentage } = this.props;
-    const { offsetLeft, offsetWidth } = e.currentTarget;
-    const xPos = (window.innerWidth - 1280) / 2;
-
-    const multiplier =
-      seekBarStyle === "long" ? 1.5 : seekBarStyle === "medium" ? 107 : 1.25;
-    const newPercentage = Math.floor(
-      ((e.clientX - xPos - offsetLeft * multiplier) / offsetWidth) * 100
-    );
-    
-    seekPercentage(newPercentage);
+    const { left, width } = e.currentTarget.getBoundingClientRect();  
+    const newPercentage = Math.floor(((e.clientX - left) / width) * 100);
+    this.props.seekPercentage(newPercentage);
   }
 
   changeSeekPercentage() {
-    const newPercentage = parseInt(this.progBarRef.current.value, 10);
+    const newPercentage = parseInt(this.seekBarRef.current.value, 10);
     this.props.seekPercentage(newPercentage);
   }
 
@@ -61,7 +53,7 @@ class SeekBar extends Component {
         onMouseLeave={this.hideBall}
       >
         <input
-          ref={this.progBarRef}
+          ref={this.seekBarRef}
           type="range"
           min="0"
           max="100"
