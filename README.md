@@ -6,16 +6,16 @@
 * [Technologies](#technologies)
 * [Features](#features)
   * [Continuous audio playback through navigation](#continuous-audio-playback-through-navigation)
-  * [Interactive waveform synced with music player](#interactive-waveform-synced-with-music-player)
+  * [Interactive waveform synced with music player bar](#interactive-waveform-synced-with-music-player-bar)
   * [Unique signup/login flow](#unique-signuplogin-flow)
   <!-- * [Easy audio upload with responsive and intuitive UI](#easy-audio-upload-with-responsive-and-intuitive-ui) -->
 * [Future Directions](#future-directions)
 * [Contact](#contact)
 
 ## General Info
-Working on this clone of SoundCloud has been a source of continued learning. It's given me experience and valuable insights into full stack development.
-
 From the classic waveform visualizations to the intuitive interface for uploading your own music, SoriCloud recreates the signature look of the original website and many of its functionalities. The overarching theme is ease of access to share your music with the rest of the world that originally captured the hearts of grassroots musicians and bedroom producers.
+
+Working on this clone of SoundCloud has been a source of continued learning. It's given me experience and valuable insights into full stack development.
 
 ## Technologies
 * React - v16.11.0
@@ -31,14 +31,14 @@ From the classic waveform visualizations to the intuitive interface for uploadin
   * BCrypt - v3.1.7
 
 ## Features
-An in-depth discussion of some notable features including details of my implementations and challenges faced:
+An in-depth discussion of select features including details of my implementations and challenges faced:
 
 ---
 
 ### Continuous audio playback through navigation
 Users can navigate to different pages within the website without interrupting the currently playing track. Clicking the play button on a different track stops the current playback before starting the new one preventing overlap.
 
-Uninterrupted and non-overlapping playback is demonstrated in the screen recording below by the steady progress of the `SeekBar` and timestamp in the music player interface docked at the bottom of the view as well as on the `Waveform`s.
+Uninterrupted and non-overlapping playback is demonstrated in the screen recording below by the steady progress of the `SeekBar` and timestamp in the music player bar interface docked at the bottom of the view as well as on the `Waveform`s.
 
 ![Example screenshot](./demo/continuous_play.gif)
 
@@ -71,19 +71,33 @@ const uiReducer = combineReducers({
 
 ---
 
-### Interactive waveform synced with music player
-Users can click on either the `SeekBar` of the music player or the `Waveform` of a currently playing track to seek to the corresponding timestamp. When one is clicked, the other is automatically updated and synced.
+### Interactive waveform synced with music player bar
+Users can click on either the `SeekBar` of the music player bar or the `Waveform` of a currently playing track to seek to the corresponding timestamp. When one is clicked, the other is automatically updated in sync. The UI is responsive and intuitive, and the dynamic visual displays update smoothly in real-time as demonstrated below.
 
 ![Example screenshot](./demo/synced_waveform.gif)
 
-I used `wavesurfer.js` to customize and dynamically generate a waveform visualization  for each track on `UserShow` page and `TrackShow` page.
+First, I developed a `Waveform ` component to dynamically generate a customized waveform visualization for each track on `TrackShow` and `UserShow` pages.
 
+Then, to facilitate the synchronization of the progress update on the waveform visual and the bottom music player bar, I designed a modular `SeekBar` component to be used as a subcomponent of all components that require the seek functionality. Implementing the modularity was the most challenging aspect. However, it made the synchronization of the two parts with Redux easier and more intuitive.
 
-Then I designed a modular `SeekBar` component to be used as a subcomponent of both the `Waveform` and the music player.
+The following code is the part of the `SeekBar` component that modularly handles user input from three different sources - `TrackShowPage`'s larger waveform, `UserShowPage`'s smaller waveform, and the bottom music player bar. It calculates the new position in the audio playback using the `clientX` property of the input event and the knowledge of the input source.
 
+```javascript
+function handlePercentage(e) {
+  const { seekBarStyle, seekPercentage } = this.props;
+  const { offsetLeft, offsetWidth } = e.currentTarget;
+  const xPos = (window.innerWidth - 1280) / 2;
 
-```
-sample code
+  const multiplier =
+    seekBarStyle === "long" ? 1.5 : seekBarStyle === "medium" ? 107 : 1.25;
+      // "long" = TrackShowPage waveform
+      // "medium" = UserShowPage waveform
+      // default/undefined = music player bar
+  const newPercentage = Math.floor(
+    ((e.clientX - xPos - offsetLeft * multiplier) / offsetWidth) * 100
+  );
+  seekPercentage(newPercentage); // dispatch the seekPercentage Redux action
+}
 ```
 
 ---
@@ -113,10 +127,11 @@ sample code
 ---
 
 ## Future Directions
+* Improve waveform visualization loading time.
 * Display a loading icon while the audio upload form in submitting.
-* Submitting a comments records the current timestamp of the track if it is currently playing, and clicking the timestamp on the comment starts playback of that track from the corresponding timestamp.
+* Link comments to specific timestamps on tracks. Submitting a comments records the current timestamp of the track if it is currently playing, and clicking the timestamp on the comment starts playback of that track from the corresponding timestamp.
 * Optimize rest of the SQL queries to eliminate remaining N+1.
-* Search, likes, follows, playlists.
+* Add search, likes, follows, and playlists.
 
 ## Contact
 Created by [Jaehyuk Lee](mailto:jhlumd@gmail.com) - feel free to contact me!

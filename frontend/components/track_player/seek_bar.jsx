@@ -6,7 +6,7 @@ class SeekBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ball: false
+      ball: false,
     };
 
     this.progBarRef = React.createRef();
@@ -32,28 +32,17 @@ class SeekBar extends Component {
   }
 
   handlePercentage(e) {
-    let newPercentage;
-    const windowSize = (window.innerWidth - 1280) / 2;
-    if (this.props.seekBarStyle === "long") {
-      newPercentage = Math.floor(
-        ((e.clientX - windowSize - e.currentTarget.offsetLeft * 1.5) /
-          e.currentTarget.offsetWidth) *
-          100
-      );
-    } else if (this.props.seekBarStyle === "medium") {
-      newPercentage = Math.floor(
-        ((e.clientX - windowSize + e.currentTarget.offsetLeft * 107) /
-          e.currentTarget.offsetWidth) *
-          100
-      );
-    } else {
-      newPercentage = Math.floor(
-        ((e.clientX - windowSize - e.currentTarget.offsetLeft * 1.25) /
-          e.currentTarget.offsetWidth) *
-          100
-      );
-    }
-    this.props.seekPercentage(newPercentage);
+    const { seekBarStyle, seekPercentage } = this.props;
+    const { offsetLeft, offsetWidth } = e.currentTarget;
+    const xPos = (window.innerWidth - 1280) / 2;
+
+    const multiplier =
+      seekBarStyle === "long" ? 1.5 : seekBarStyle === "medium" ? 107 : 1.25;
+    const newPercentage = Math.floor(
+      ((e.clientX - xPos - offsetLeft * multiplier) / offsetWidth) * 100
+    );
+    
+    seekPercentage(newPercentage);
   }
 
   changeSeekPercentage() {
@@ -67,7 +56,7 @@ class SeekBar extends Component {
     return (
       <div
         className={`progress-bar-outer ${seekBarStyle ? seekBarStyle : ""}`}
-        onClick={e => this.handlePercentage(e)}
+        onClick={(e) => this.handlePercentage(e)}
         onMouseEnter={this.revealBall}
         onMouseLeave={this.hideBall}
       >
@@ -84,7 +73,7 @@ class SeekBar extends Component {
         <button
           className={`ball ${this.state.ball ? "show" : ""}`}
           style={{
-            left: `${seekBarStyle ? 0 : percentage * 0.99}%`
+            left: `${seekBarStyle ? 0 : percentage * 0.99}%`,
           }}
           onDrag={this.changeSeekPercentage}
         ></button>

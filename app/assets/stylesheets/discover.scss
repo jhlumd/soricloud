@@ -22,7 +22,7 @@
 .track-index-inner {
   margin: 0 auto;
   width: 100%;
-  padding: 20px 20px 20px 1px;
+  padding: 20px 20px 20px 0;
   min-height: fit-content;
   display: flex;
   flex-wrap: wrap;
@@ -47,4 +47,5 @@
 .home-page-index {
   width: 100% ;
   border: none;
+  padding-left: 30px;
 }
