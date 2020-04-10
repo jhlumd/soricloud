@@ -36,7 +36,7 @@ Working on this clone of SoundCloud has been a source of continued learning. It'
 ### Unique signup/login flow
 SoriCloud recreates the unique signup and login flow of the original website with responsive and fluid design.
 
-SoundCloud's user authentication process is unique in the front end. It uses a single form to handle both new and returning users, and it doesn't care if a returning user enters their username or email to log in. It has a single multi-step form to handle all these cases. In fact, even though the splash page contains three separate buttons (*Sign in*, *Create account*, and *Demo*), they all open the exact same form.
+SoundCloud's user authentication process is unique. It uses a single form to handle both new and returning users, and it doesn't care if a returning user enters their username or email to log in. It has a single multi-step form to handle all these cases. In fact, even though the splash page contains three separate buttons (*Sign in*, *Create account*, and *Demo*), they all open the exact same form.
 
 The screen recording below demonstrates creating a user, logging out, and then signing in again using both username and email while also showcasing custom error messages. Additionally, I used React refs to automatically focus text inputs for users while filling out the multi-step form for a more fluid experience.
 
