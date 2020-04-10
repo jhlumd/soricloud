@@ -1,21 +1,21 @@
 # <a href="https://soricloud.herokuapp.com/"><img src="./demo/logo.png" alt="SoundCloud Logo" title="Go to SoriCloud" height="55" align="center"></a> SoriCloud - A SoundCloud Clone
-> [SoriCloud](https://soricloud.herokuapp.com/ "Go to SoriCloud") is a single-page app for streaming music and uploading your own.
+[SoriCloud](https://soricloud.herokuapp.com/ "Go to SoriCloud") is a single-page app for streaming music and uploading your own.
 
 ## Table of contents
 * [General Info](#general-info)
 * [Technologies](#technologies)
 * [Features](#features)
+  * [Unique signup/login flow](#unique-signuplogin-flow)
   * [Continuous audio playback through navigation](#continuous-audio-playback-through-navigation)
   * [Interactive waveform synced with music player bar](#interactive-waveform-synced-with-music-player-bar)
-  * [Unique signup/login flow](#unique-signuplogin-flow)
   <!-- * [Easy audio upload with responsive and intuitive UI](#easy-audio-upload-with-responsive-and-intuitive-ui) -->
 * [Future Directions](#future-directions)
 * [Contact](#contact)
 
 ## General Info
-From the classic waveform visualizations to the intuitive interface for uploading your own music, SoriCloud recreates the signature look of the original website and many of its functionalities. The overarching theme is ease of access to share your music with the rest of the world that originally captured the hearts of grassroots musicians and bedroom producers.
+From the classic waveform visualizations to the intuitive interface for uploading your own music, SoriCloud recreates the signature look of the original website and many of its functionalities. The overarching theme is ease of access to share your music with the rest of the world that originally captured the hearts of many grassroots musicians and bedroom producers.
 
-Working on this clone of SoundCloud has been a source of continued learning. It's given me experience and valuable insights into full stack development.
+Working on this clone of SoundCloud has been a source of continued learning. It's given me experience and valuable insight into the process of full stack development.
 
 ## Technologies
 * React - v16.11.0
@@ -31,20 +31,73 @@ Working on this clone of SoundCloud has been a source of continued learning. It'
   * BCrypt - v3.1.7
 
 ## Features
-An in-depth discussion of select features including details of my implementations and challenges faced:
+> An in-depth discussion of select features including details of my implementations and challenges faced
+
+---
+
+### Unique signup/login flow
+SoriCloud recreates the unique signup and login flow of the original website with responsive and fluid design.
+
+SoundCloud's user authentication process is unique in the front end. It uses a single form to handle both new and returning users, and it doesn't care if a return user enters their username or email to log in. It has a single multi-step form to handle all these cases. In fact, even though the splash page contains three separate buttons (*Sign in*, *Create account*, and *Demo*), they all open the exact same form.
+
+The screen recording below demonstrates creating a user, logging out, and then signing in again using both username and email while also showcasing custom error messages. Additionally, I used React refs to automatically focus text input for users during the multi-step form for a more fluid experience.
+
+![Example screenshot](./demo/signup.gif)
+
+The modal for the form was implemented with Redux by maintaining a slice of global UI state for modals and dispatching actions to open and close them.
+
+Being able to handle both email and username via a single text `input` element was more difficult and involved than it seemed at first glance. It required setting up a custom backend route as well as creating another slice of front-end state to keep track of the `loginType` (either *login* or *signup*) and `loginInput` (the actual user input string).
+
+When a user starts the multi-step form and types in the first input field and submits, their input is checked against both the email and username columns of the `User` table. If an existing account is found, the user proceeds to the second and final step of password input before login. If an existing account is not found, there are two options:
+1. If the user input is a valid email, the user proceeds to a signup form where the email address is already populated and is prompted to choose a password. Then, the user proceeds to the final step of choosing a username before being logged in.
+2. If the user input is not a valid email, the form displays an error message prompting the user to enter a valid email or username.
+
+Working on this implementation really helped me to understand every step that connects an end user's input all the way to the database from Rails to Redux and React.
+
+The following excerpt from the `UsersController` illustrates the custom backend route:
+
+<!-- Rather than asking for username/email and password on one form, SoundCloud first checks to see if a user already exists with the entered username or email then automatically proceeds to a second form asking for the password if one exists or to sign up if one doesn't exist. -->
+
+```ruby
+class Api::UsersController < ApplicationController
+  def check_login_input
+    @user =
+      User.find_by(email: params[:loginInput]) ||
+      User.find_by(username: params[:loginInput])
+
+    if @user
+      render json: {loginInput: params[:loginInput], loginType: 'login'}
+    else
+      if is_email?(params[:loginInput]) 
+        render json: {loginInput: params[:loginInput], loginType: 'signup'} 
+      else
+        render json: ['Enter a valid email address or username.'], status: 422
+      end
+    end
+  end
+
+  private
+
+  def is_email?(loginInput) 
+    loginInput.include?('@') && loginInput.include?('.')
+  end
+end
+```
+
+Privacy and autonomy for users are ensured through additional front and backend authentication measures including BCrypt and customized React-Router higher-order components.
 
 ---
 
 ### Continuous audio playback through navigation
-Users can navigate to different pages within the website without interrupting the currently playing track. Clicking the play button on a different track stops the current playback before starting the new one preventing overlap.
+Users can navigate to different pages within the website without interrupting the currently playing track. Clicking the *play* button on a different track does not cause overlap in audio playback.
 
-Uninterrupted and non-overlapping playback is demonstrated in the screen recording below by the steady progress of the audio position and timestamp in the music player bar interface docked at the bottom of the view as well as on the waveform visual.
+Uninterrupted and non-overlapping playback is demonstrated in the screen recording below by the steady progress of the audio position and timestamp on the waveform visual as well as in the music player bar interface at the bottom of the page.
 
 ![Example screenshot](./demo/continuous_play.gif)
 
-To enable this feature, I created a `currentTrack` slice of global Redux UI state to maintain "a single source of truth" for the currently playing track. With a correctly designed Redux pattern, the `currentTrack` will now only be able to be changed using the specific `receiveCurrentTrack` action. This allows all of the components at any given page throughout navigation to have access to the currently playing track information and update themselves accordingly when a new playback is started or to stay put for ensure continuous playback.
+To build this feature, I created a `currentTrack` slice of global Redux UI state to maintain "a single source of truth" for the currently playing track. With a correctly designed Redux pattern, the `currentTrack` will now only be able to be changed using the specific `receiveCurrentTrack` action. This allows all of the components at any given page throughout navigation to have access to the currently playing track information and update themselves accordingly when a new playback is started or to stay put to ensure continuous playback.
 
-Biggest challenge here was correctly filtering the components that should be subscribed to this slice of global Redux state. For example, it was less obvious that the `TrackIndexItem`s on the `Discover` page should also be subscribed in order to correctly display the *play/pause* button over the track image if it was the currently playing track compared to more obvious choice like the `Waveform`s.
+After configuring the Redux pattern, the challenge was to pick out every component that should be subscribed to this slice of global state. For example, it was less obvious that the `TrackIndexItem`s on the `Discover` page should also be subscribed in order to correctly display the *play/pause* button over the track image if it was the currently playing track compared to a more obvious choice like the `Waveform`.
 
 The code excerpt below illustrate the architecture of the UI slice of Redux state.
 
@@ -86,14 +139,14 @@ I eventually discovered the `Element.getBoundingClientRect()` method which gives
 
 ```javascript
 function handlePercentage(e) {
-  const { left, width } = e.currentTarget.getBoundingClientRect();  
+  const { left, width } = e.currentTarget.getBoundingClientRect();
   const newPercentage = Math.floor(((e.clientX - left) / width) * 100);
   this.props.seekPercentage(newPercentage);
     // dispatch the seekPercentage Redux action with the calculated value
 }
 ```
 
-Designing a modular component was challenging initially. However, it made syncing up all the components in Redux easier and DRYing up the code was satisfying.
+Designing a modular component took extra planning initially. However, it made syncing up all the components in Redux easier and the effect of DRY code was satisfying. The rest of the implementation of the feature involved designing the Redux cycles for all of the various front-end music player actions inclduing *play*, *pause*, *reset*, and *seek*.
 
 ---
 <!-- fixme - add easy upload screenshot after adding loading icon
@@ -107,19 +160,6 @@ Show examples of usage:
 ```
 sample code
 ``` -->
-
-### Unique signup/login flow
-Delve deep into features that show off your technical abilities. Discuss both the challenges faced and your brilliant solutions. Code snippets to highlight your best code.
-
-![Example screenshot](./demo/signup.gif)
-
-Show examples of usage:
-
-```
-sample code
-```
-
----
 
 ## Future Directions
 * Improve waveform visualization loading time.
