@@ -33,14 +33,12 @@ Working on this clone of SoundCloud has been a source of continued learning. It'
 ## Features
 > An in-depth discussion of select features including details of my implementations and challenges faced
 
----
-
 ### Unique signup/login flow
 SoriCloud recreates the unique signup and login flow of the original website with responsive and fluid design.
 
-SoundCloud's user authentication process is unique in the front end. It uses a single form to handle both new and returning users, and it doesn't care if a return user enters their username or email to log in. It has a single multi-step form to handle all these cases. In fact, even though the splash page contains three separate buttons (*Sign in*, *Create account*, and *Demo*), they all open the exact same form.
+SoundCloud's user authentication process is unique in the front end. It uses a single form to handle both new and returning users, and it doesn't care if a returning user enters their username or email to log in. It has a single multi-step form to handle all these cases. In fact, even though the splash page contains three separate buttons (*Sign in*, *Create account*, and *Demo*), they all open the exact same form.
 
-The screen recording below demonstrates creating a user, logging out, and then signing in again using both username and email while also showcasing custom error messages. Additionally, I used React refs to automatically focus text input for users during the multi-step form for a more fluid experience.
+The screen recording below demonstrates creating a user, logging out, and then signing in again using both username and email while also showcasing custom error messages. Additionally, I used React refs to automatically focus text inputs for users while filling out the multi-step form for a more fluid experience.
 
 ![Example screenshot](./demo/signup.gif)
 
@@ -48,11 +46,11 @@ The modal for the form was implemented with Redux by maintaining a slice of glob
 
 Being able to handle both email and username via a single text `input` element was more difficult and involved than it seemed at first glance. It required setting up a custom backend route as well as creating another slice of front-end state to keep track of the `loginType` (either *login* or *signup*) and `loginInput` (the actual user input string).
 
-When a user starts the multi-step form and types in the first input field and submits, their input is checked against both the email and username columns of the `User` table. If an existing account is found, the user proceeds to the second and final step of password input before login. If an existing account is not found, there are two options:
-1. If the user input is a valid email, the user proceeds to a signup form where the email address is already populated and is prompted to choose a password. Then, the user proceeds to the final step of choosing a username before being logged in.
+When a user starts the multi-step form and types in the first input field and submits, their input is checked against both the `email` and `username` columns of the `User` table. If an existing account is found, the user proceeds to the second and final step to input their password. If an existing account is not found, there are two options:
+1. If the user input is a valid email, the user proceeds to a signup form where the email address is already populated and is prompted to choose a password. Then, the user can continue to the final step of choosing a username before being logged in.
 2. If the user input is not a valid email, the form displays an error message prompting the user to enter a valid email or username.
 
-Working on this implementation really helped me to understand every step that connects an end user's input all the way to the database from Rails to Redux and React.
+Working on this implementation from this custom backend route in Rails through the steps of Redux and then finally to the React forms really helped me to understand the various steps that connect an end user's input all the way to the database.
 
 The following excerpt from the `UsersController` illustrates the custom backend route:
 
@@ -119,6 +117,8 @@ switch (action.type) {
 // extracted from ui_reducer.js
 const uiReducer = combineReducers({
   modal: modalReducer,
+  loginInput: loginInputReducer,
+  loginType: loginTypeReducer,
   currentTrack: currentTrackReducer,
   trackPlayer: trackPlayerReducer
 });
