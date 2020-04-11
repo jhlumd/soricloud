@@ -20,15 +20,9 @@ Working on this clone of SoundCloud has been a source of continued learning. It'
 ## Technologies
 * React - v16.11.0
 * Redux - v4.0.4
-* Rails - v5.2.3
+* Ruby on Rails - v5.2.3
 * PostgreSQL - v12.2
 * AWS S3
-* Webpack - v4.41.2
-* React Router - v5.1.2
-* Ruby v2.5.1
-  * jQuery Rails - v4.3.5
-  * Jbuilder - v2.5
-  * BCrypt - v3.1.7
 
 ## Features
 > An in-depth discussion of select features including details of my implementations and challenges faced
