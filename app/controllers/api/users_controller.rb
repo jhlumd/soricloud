@@ -9,14 +9,12 @@ class Api::UsersController < ApplicationController
 
     if @user
       render json: {loginInput: params[:loginInput], loginType: 'login'}
+    elsif is_email?(params[:loginInput]) 
+      render json: {loginInput: params[:loginInput], loginType: 'signup'} 
+    elsif !is_email?(params[:loginInput])
+      render json: ['Enter a valid email address or username.'], status: 422
     else
-      if is_email?(params[:loginInput]) 
-        render json: {loginInput: params[:loginInput], loginType: 'signup'} 
-      elsif !is_email?(params[:loginInput])
-        render json: ['Enter a valid email address or username.'], status: 422
-      else
-        render json: ['That username does not exist'], status: 422
-      end
+      render json: ['That username does not exist'], status: 422
     end
   end
 
