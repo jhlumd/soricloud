@@ -93,7 +93,7 @@ To build this feature, I created a `currentTrack` slice of global Redux UI state
 
 After configuring the Redux pattern, the challenge was to pick out every component that should be subscribed to this slice of global state. For example, it was less obvious that the `TrackIndexItem`s on the `Discover` page should also be subscribed in order to correctly display the *play/pause* button over the track image if it was the currently playing track compared to a more obvious choice like the `Waveform`.
 
-The code excerpt below illustrate the architecture of the UI slice of Redux state.
+The code excerpt below illustrate the architecture of the UI slice of Redux state:
 
 ```javascript
 // extracted from track_actions.js
