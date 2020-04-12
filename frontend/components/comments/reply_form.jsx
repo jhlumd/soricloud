@@ -7,9 +7,15 @@ export default class ReplyForm extends Component {
       body: ""
     };
 
+    this.commentFormRef = React.createRef();
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetForm = this.resetForm.bind(this);
+  }
+
+  componentDidMount () {
+    this.commentFormRef.current.focus();
   }
 
   handleChange(field) {
@@ -51,6 +57,7 @@ export default class ReplyForm extends Component {
           />
           <form id="comment-reply-form-input" onSubmit={this.handleSubmit}>
             <input
+              ref={this.commentFormRef}
               className="comment-reply-form"
               type="text"
               placeholder="Write a reply"
