@@ -8,7 +8,8 @@ export default function DetailsForm(props) {
     audioFile,
     photoUrl,
     imageErrors,
-    titleErrors
+    titleErrors,
+    inProgress
   } = props.allInfo;
   const {
     handlePhotoFile,
@@ -40,8 +41,15 @@ export default function DetailsForm(props) {
         })
       : null;
 
+  const loadingIcon = inProgress ? (
+    <div className="modal-background">
+      <div className="loading-icon"></div>
+    </div>
+  ) : null;
+
   return (
     <>
+      {loadingIcon}
       <div className="file-name">
         <div>{audioFile.name}</div>
         <div>Ready. Click Save to post this track.</div>

@@ -18,7 +18,9 @@ export default class MainForm extends Component {
 
       fileErrors: [],
       titleErrors: [],
-      imageErrors: []
+      imageErrors: [],
+
+      inProgress: false
     };
 
     this.handlePhotoFile = this.handlePhotoFile.bind(this);
@@ -58,6 +60,8 @@ export default class MainForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({ inProgress: true });
+
     if (this.state.photoFile && this.state.photoFile.type.includes("image")) {
       const formData = new FormData();
       formData.append("track[user_id]", this.state.userId);
@@ -171,9 +175,7 @@ export default class MainForm extends Component {
   }
 
   render() {
-    const { audioFile } = this.state;
-
-    if (audioFile) {
+    if (this.state.audioFile) {
       return (
         <DetailsForm
           allInfo={this.state}
