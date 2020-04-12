@@ -1,6 +1,6 @@
 .user-showpage {
-  position: absolute;
-  top: 46px;
+  // position: relative;
+  padding-top: 46px;
   width: 1240px;
 }
 
@@ -35,7 +35,8 @@
 
 .user-showpage-bottom {
   width: 100%;
-  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 51px;
 }
 
 .user-showpage-tracks-index {
