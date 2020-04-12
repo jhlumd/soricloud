@@ -19,8 +19,7 @@ const ReplyIndex = props => {
         currentUserId={currentUserId}
         showReplyForm={showReplyForm}
       />
-    ))
-    .reverse();
+    ));
 
   return (
     <div className="child-comment-index-container">{replyIndex}</div>
