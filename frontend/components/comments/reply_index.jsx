@@ -12,6 +12,7 @@ const ReplyIndex = props => {
 
   const replyIndex = childComments
     .filter(id => comments[id])
+    .sort((a, b) => b - a)
     .map(id => (
       <ReplyItem
         key={id}
