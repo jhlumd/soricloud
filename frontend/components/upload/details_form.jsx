@@ -1,6 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export default function DetailsForm(props) {
+  // useLayoutEffect(() => {
+  //   focusEl.current.focus();
+  // });
+  // const focusEl = useRef(null);
+
   const {
     title,
     privacy,
@@ -9,14 +14,14 @@ export default function DetailsForm(props) {
     photoUrl,
     imageErrors,
     titleErrors,
-    inProgress
+    inProgress,
   } = props.allInfo;
   const {
     handlePhotoFile,
     handleSubmit,
     handleChange,
     handlePrivacy,
-    handleCancel
+    handleCancel,
   } = props;
 
   const showImageErrors =
@@ -29,7 +34,7 @@ export default function DetailsForm(props) {
           );
         })
       : null;
-  
+
   const showTitleErrors =
     titleErrors.length > 0
       ? titleErrors.map((error, i) => {
