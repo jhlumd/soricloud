@@ -153,7 +153,6 @@ sample code
 
 ## Future Directions
 * Improve waveform visualization loading time.
-* Display a loading icon while the audio upload form in submitting.
 * Link comments to specific timestamps on tracks. Submitting a comments records the current timestamp of the track if it is currently playing, and clicking the timestamp on the comment starts playback of that track from the corresponding timestamp.
 * Optimize rest of the SQL queries to eliminate remaining N+1.
 * Add search, likes, follows, and playlists.
