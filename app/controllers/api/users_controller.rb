@@ -1,20 +1,14 @@
 class Api::UsersController < ApplicationController
 
-  def is_email?(loginInput) 
-    loginInput.include?('@') && loginInput.include?('.')
-  end
-
   def check_email
     @user = User.find_by(email: params[:loginInput]) || User.find_by(username: params[:loginInput])
 
     if @user
       render json: {loginInput: params[:loginInput], loginType: 'login'}
     elsif is_email?(params[:loginInput]) 
-      render json: {loginInput: params[:loginInput], loginType: 'signup'} 
-    elsif !is_email?(params[:loginInput])
-      render json: ['Enter a valid email address or username.'], status: 422
+      render json: {loginInput: params[:loginInput], loginType: 'signup'}
     else
-      render json: ['That username does not exist'], status: 422
+      render json: ['Enter a valid email address or username.'], status: 422
     end
   end
 
@@ -52,5 +46,9 @@ class Api::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :photo)
+  end
+
+  def is_email?(loginInput) 
+    loginInput.include?('@') && loginInput.include?('.')
   end
 end
