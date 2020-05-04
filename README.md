@@ -51,14 +51,17 @@ The following excerpt from the `UsersController` illustrates the custom backend 
 ```ruby
 class Api::UsersController < ApplicationController
   def check_login_input
-    @user =
-      User.find_by(email: params[:loginInput]) ||
-      User.find_by(username: params[:loginInput])
+    is_email = is_email?(params[:loginInput])
+    if is_email
+      @user = User.find_by(email: params[:loginInput])
+    else
+      @user = User.find_by(username: params[:loginInput])
+    end
 
     if @user
       render json: {loginInput: params[:loginInput], loginType: 'login'}
-    elsif is_email?(params[:loginInput]) 
-      render json: {loginInput: params[:loginInput], loginType: 'signup'} 
+    elsif is_email
+      render json: {loginInput: params[:loginInput], loginType: 'signup'}
     else
       render json: ['Enter a valid email address or username.'], status: 422
     end

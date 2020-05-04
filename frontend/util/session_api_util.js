@@ -21,6 +21,6 @@ export const logout = () =>
 export const checkLoginInput = loginInput =>
   $.ajax({
     method: "GET",
-    url: "/api/users/check_email",
+    url: "/api/users/check_login_input",
     data: { loginInput }
   });

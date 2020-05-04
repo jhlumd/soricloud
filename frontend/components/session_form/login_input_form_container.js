@@ -5,10 +5,10 @@ import { login, signup, clearErrors } from "../../actions/session_actions";
 import { checkLoginInput } from "../../actions/login_input_actions";
 import LoginInputForm from "./login_input_form";
 
-const mstp = state => ({
-  nextForm: state.ui.loginType,
+const mstp = (state) => ({
+  loginType: state.ui.loginType,
   session: state.session,
-  errors: state.errors.session
+  errors: state.errors.session,
 });
 
 const mdtp = dispatch => ({

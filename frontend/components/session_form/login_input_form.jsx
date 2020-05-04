@@ -13,7 +13,6 @@ export default class LoginInputForm extends Component {
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleNextForm = this.handleNextForm.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
   }
@@ -41,11 +40,23 @@ export default class LoginInputForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.clearErrors();
-    this.props.checkLoginInput(this.state.loginInput).then(this.handleNextForm);
+    this.props.checkLoginInput(this.state.loginInput);
   }
 
-  handleNextForm() {
-    switch (this.props.nextForm) {
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li id="errors" key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  render() {
+    switch (this.props.loginType) {
       case "login":
         return (
           <LoginForm
@@ -114,21 +125,5 @@ export default class LoginInputForm extends Component {
           </div>
         );
     }
-  }
-
-  renderErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li id="errors" key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
-  render() {
-    return this.handleNextForm();
   }
 }
