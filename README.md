@@ -40,13 +40,11 @@ The modal for the form was implemented with Redux by maintaining a slice of glob
 
 Being able to handle both email and username via a single text `input` element was more difficult and involved than it seemed at first glance. It required setting up a custom backend route as well as creating another slice of front-end state to keep track of the `loginType` (either *login* or *signup*) and `loginInput` (the actual user input string).
 
-When a user starts the multi-step form and types in the first input field and submits, their input is checked against both the `email` and `username` columns of the `User` table. If an existing account is found, the user proceeds to the second and final step to input their password. If an existing account is not found but the user input is a valid email, the user proceeds to a signup form where the email address is already populated and is prompted to choose a password. Then, the user can continue to the final step of choosing a username before being logged in. If an existing account is not found and the user input is not a valid email, the form displays an error message prompting the user to enter a valid email or username.
+When a user starts the multi-step form and types in the first input field and submits, their input is first checked to determine whether it is an email address (includes characters `@` and `.`). Then their input is checked against the `email` or the `username` column of the `User` table, accordingly. If an existing account is found, the user proceeds to the second and final step to input their password. If an existing account is not found but the user input is a valid email, the user proceeds to a signup form where the email address is already populated and is prompted to choose a password. Then, the user can continue to the final step of choosing a username before being logged in. If an existing account is not found and the user input is not a valid email, the form displays an error message prompting the user to enter a valid email or username.
 
 Working on this implementation from this custom backend route in Rails through the steps of Redux and then finally to the React forms really helped me to understand the various steps that connect an end user's input all the way to the database.
 
 The following excerpt from the `UsersController` illustrates the custom backend route:
-
-<!-- Rather than asking for username/email and password on one form, SoundCloud first checks to see if a user already exists with the entered username or email then automatically proceeds to a second form asking for the password if one exists or to sign up if one doesn't exist. -->
 
 ```ruby
 class Api::UsersController < ApplicationController
