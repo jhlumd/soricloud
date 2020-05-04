@@ -36,10 +36,6 @@ export default function DragDropForm(props) {
             <input id="files" type="file" onChange={handleTrackFile} />
           </label>
         </div>
-        {/* <div className="playlist-question">
-          <input className="playlist-check" type="checkbox" />
-          Make a playlist when multiple files are selected
-        </div> */}
 
         <div className="private-question">
           <label>
