@@ -7,7 +7,7 @@ export default class LoginForm extends Component {
       loginInput: props.loginInput,
       password: ""
     };
-    this.passwordRef = React.createRef();
+    this.passwordRef = createRef();
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
