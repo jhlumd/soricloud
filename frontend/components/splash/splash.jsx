@@ -180,7 +180,6 @@ export default class Splash extends Component {
             </div>
           </section>
 
-          {/* <section className="space-for-music-bar"></section> */}
         </div>
       </div>
     );
