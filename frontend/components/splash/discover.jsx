@@ -11,16 +11,12 @@ export default class Discover extends Component {
   }
 
   render() {
-    const recentTracks = this.props.tracks
-      .slice(0)
-      .reverse();
-      // .slice(0, 12);
-    const tracksIndex1 =
-      this.props.tracks.length > 0 ? (
-        <TracksIndex
-          tracks={recentTracks}
-          includePlayButton={true}
-        />
+    const { tracks } = this.props;
+    const lengthWanted = 30;
+    const recentTracks = tracks.slice(tracks.length - lengthWanted).reverse();
+    const trackIndex =
+      recentTracks.length > 0 ? (
+        <TracksIndex tracks={recentTracks} includePlayButton={true} />
       ) : null;
 
     return (
@@ -29,7 +25,7 @@ export default class Discover extends Component {
           <div className="home-page-container">
             <h1 className="track-header">More of SoriCloud's music</h1>
             <p className="track-subheader">Music from some of our artists</p>
-            {tracksIndex1}
+            {trackIndex}
           </div>
         </div>
       </div>

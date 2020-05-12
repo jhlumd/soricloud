@@ -16,9 +16,7 @@ export default function TracksIndex(props) {
 
   return (
     <div className="track-index-container">
-      <div
-        className={`track-index ${includePlayButton ? "" : "home-page-index"}`}
-      >
+      <div className="track-index">
         <div
           className={`track-index-inner ${
             includePlayButton ? "" : "home-page-index"

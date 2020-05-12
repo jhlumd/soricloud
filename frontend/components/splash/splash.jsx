@@ -12,9 +12,9 @@ export default class Splash extends Component {
 
   render() {
     const { tracks } = this.props;
-    
-    const recentTracks = tracks.splice(tracks.length - 12).reverse();
-    const tracksIndex1 =
+    const lengthWanted = 12;
+    const recentTracks = tracks.slice(tracks.length - lengthWanted).reverse();
+    const trackIndex =
       recentTracks.length > 0 ? (
         <TracksIndex tracks={recentTracks} includePlayButton={false} />
       ) : null;
@@ -123,9 +123,7 @@ export default class Splash extends Component {
             <h3 className="splash-music-text">
               Hear what’s trending in the SoriCloud community
             </h3>
-
-            <div className="splash-tracks-index">{tracksIndex1}</div>
-
+            {trackIndex}
             <button
               className="splash-upload"
               onClick={() => this.props.openModal("loginInput")}
