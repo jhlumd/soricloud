@@ -12,7 +12,8 @@ export default class Discover extends Component {
 
   render() {
     const { tracks } = this.props;
-    const recentTracks = tracks.slice(0).reverse();
+    const lengthWanted = 24;
+    const recentTracks = tracks.slice(tracks.length - lengthWanted).reverse();
     const trackIndex =
       recentTracks.length > 0 ? (
         <TracksIndex tracks={recentTracks} includePlayButton={true} />
