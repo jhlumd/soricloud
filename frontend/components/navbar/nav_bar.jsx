@@ -152,7 +152,7 @@ export default class NavBar extends Component {
               >
                 <button
                   className="nav-bar-button logout"
-                  id="nav-bar-logout"
+                  id="profile-nav-bar"
                   onClick={this.redirectToProfilePage}
                 >
                   Profile
