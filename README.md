@@ -1,13 +1,17 @@
 # <a href="https://soricloud.herokuapp.com/"><img src="./demo/logo.png" alt="SoundCloud Logo" title="Go to SoriCloud" height="55" align="center"></a> SoriCloud - a SoundCloud Clone
 **[SoriCloud](https://soricloud.herokuapp.com/ "Go to SoriCloud")** is a single-page app for streaming music and uploading your own.
 
-## Table of contents
-* [General Info](#general-info)
-* [Technologies](#technologies)
-* [Features](#features)
-  * [Unique signup/login flow](#unique-signuplogin-flow)
-  * [Continuous audio playback through navigation](#continuous-audio-playback-through-navigation)
-  * [Interactive waveform synced with music player bar](#interactive-waveform-synced-with-music-player-bar)
+## Table of Contents
+- [<a href="https://soricloud.herokuapp.com/"><img src="./demo/logo.png" alt="SoundCloud Logo" title="Go to SoriCloud" height="55" align="center"></a> SoriCloud - a SoundCloud Clone](#img-srcdemologopng-altsoundcloud-logo-titlego-to-soricloud-height55-aligncenter-soricloud---a-soundcloud-clone)
+  - [Table of Contents](#table-of-contents)
+  - [General Info](#general-info)
+  - [Technologies](#technologies)
+  - [Features](#features)
+    - [Unique signup/login flow](#unique-signuplogin-flow)
+    - [Continuous audio playback through navigation](#continuous-audio-playback-through-navigation)
+    - [Interactive waveform synced with music player bar](#interactive-waveform-synced-with-music-player-bar)
+  - [Future Directions](#future-directions)
+  - [Contact](#contact)
   <!-- * [Easy audio upload with responsive and intuitive UI](#easy-audio-upload-with-responsive-and-intuitive-ui) -->
 * [Future Directions](#future-directions)
 * [Contact](#contact)
