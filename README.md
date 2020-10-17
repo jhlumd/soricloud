@@ -3,6 +3,7 @@
 
 ## Table of Contents
 - [General Info](#general-info)
+- [Getting Started](#getting-started)
 - [Technologies](#technologies)
 - [Features](#features)
   - [Unique signup/login flow](#unique-signuplogin-flow)
@@ -16,6 +17,14 @@
 From the classic waveform visualizations to the intuitive interface for uploading your own music, [SoriCloud](https://soricloud.herokuapp.com/ "Go to SoriCloud") recreates the signature look of the original website and many of its functionalities. The overarching theme is ease of access to share your music with the rest of the world that originally captured the hearts of many grassroots musicians and bedroom producers.
 
 Working on this clone of SoundCloud has been a source of continued learning. It's given me experience and valuable insight into the process of full stack development.
+
+## Getting Started
+
+* `bundle install`
+* `npm install`
+* `rails db:setup`
+* `npm start`
+* `rails server`
 
 ## Technologies
 * React - v16.11.0
